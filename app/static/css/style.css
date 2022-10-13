@@ -1,0 +1,67 @@
+html, *{
+    background-color: #202A44;
+}
+
+.top-header{
+    background-color: white;
+    width: 100%;
+}
+#title{
+    margin-top: 10vh;
+    color: white;
+    font-size: 5vw;
+}
+
+.center-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+#logo{
+    margin: 25px;
+
+    width: 20vw;
+    background-color:white;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+
+}
+
+#password{
+    background-color: white;
+    border-radius: 20px;
+    border: black 1px solid;
+    width: 50vw;
+    height: 10vh;
+}
+
+
+.center-container > * {
+    margin: 20px;
+}
+
+input[type="password"]{
+    font-size: 3vw;
+    text-align: center;
+}
+
+#button{
+    width: 25vw;
+    height: 10vh;    
+    font-size: 2.5vw;
+
+    border-radius: 30px;
+    background-color: #287DCC;
+
+}
+
+a{
+    
+    background-color: transparent;
+    list-style: none;
+}
