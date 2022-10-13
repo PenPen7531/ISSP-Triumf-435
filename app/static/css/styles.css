@@ -145,28 +145,5 @@ html {
         font-size: 13px;
     }
 
-    .home-content {
-        flex-direction: column;
-        overflow-x: auto;
-    }
-
-    #home-nav h3 {
-        align-self: flex-end;
-    }
- 
-
-    #table-data {
-        margin-top: 200px
-    }
-
-    .search-top {
-        position: absolute;
-        flex-direction: column;
-        align-content: flex-start;
-    }
-
-    .home-post-form {
-        width: auto;
-    }
-
+   
 }
