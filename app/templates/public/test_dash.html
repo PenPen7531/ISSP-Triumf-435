@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dash-home.css') }}">
+    <script src="../../static/js/dash.js"></script>
+    <meta http-equiv="refresh" content="10 " />
+</head>
+<body>
+    <div class="logout"><a href="/">Logout</a></div>
+    <div class="flex-right"><a href="/dashboard" id="dash-change">Change Dashboard</a></div>
+    
+    <div class="flex-mid">
+        <h1 id="title">Test Dashboard</h1>
+        <table id="table-data" class="table table-striped styled-table" border=1 frame=void rules=rows>
+            <thead class="thead-dark">
+                <th>Process Variable</th>
+                <th>PV Address</th>
+                <th>Reading</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td>89302LK</td>
+                <td>192.168.0.0</td>
+                <td>5.0 V</td>
+            </tr>
+            <tr>
+                <td>89302LK</td>
+                <td>192.168.0.0</td>
+                <td>5.0 V</td>
+            </tr>
+            </tbody>
+        </table>
+        <form id='post-form' method = "POST">
+            <label for = "pv-input"></label>
+            <input type="text" name = "pv-input" id ="post-input" required placeholder="Add New PV"/>
+            <br>
+            <br>
+            <div class="login-btns">
+                <input type = "submit" value = "Add PV" id="input-btn"/>
+            </div>
+        </form>
+        <div class="date">Updated: <span id="date"></span></div>
+    </div>
+</body>
+<script>
+    document.getElementById('date').innerHTML=Date();
+</script>
+</html>
