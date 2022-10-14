@@ -43,20 +43,28 @@ def get_jaya(pv_list):
     jsondata = r.json()
     return jsondata
 
-@app.route("/try_this", methods=["GET"])
+@app.route("/try_this", methods=["GET", "POST"])
 def try_this():
 
-    pv_list = [
-            'IOS:MB:MASSOVERQ2', 'IOS:MB:MASSOVERQ.INPA',
-            'IOS:XCB1AW:STATON', 'IOS:B1A:POS:STATON',
-            'IOS:XCB1AW:RDVOL', 'IOS:B1A:POS:RDVOL',
-            'IOS:PSWXCB1A:STATON', 'MCIS:BIAS0:STATON',
-            'MCIS:BIAS0:RDVOL', 'IOS:BIAS:STATON',
-            'IOS:BIAS:RDVOL', 'IOS:FC3:SCALECUR',
-            'IOS:FC3:STATOFF', 'IOS:FC6:SCALECUR',
-            'IOS:FC6:STATOFF',
-            ]
+    if request.method == "GET":
+        return render_template("/public/submit_pv.html")
 
-    jaya_json = get_jaya(pv_list)
+    # pv_list = [
+    #         'IOS:MB:MASSOVERQ2', 'IOS:MB:MASSOVERQ.INPA',
+    #         'IOS:XCB1AW:STATON', 'IOS:B1A:POS:STATON',
+    #         'IOS:XCB1AW:RDVOL', 'IOS:B1A:POS:RDVOL',
+    #         'IOS:PSWXCB1A:STATON', 'MCIS:BIAS0:STATON',
+    #         'MCIS:BIAS0:RDVOL', 'IOS:BIAS:STATON',
+    #         'IOS:BIAS:RDVOL', 'IOS:FC3:SCALECUR',
+    #         'IOS:FC3:STATOFF', 'IOS:FC6:SCALECUR',
+    #         'IOS:FC6:STATOFF',
+    #         ]
 
-    return jaya_json
+    if request.method == "POST":
+        pv_from_form = request.form
+        pv_list = []
+        pv_list.append(pv_from_form['address'])
+
+        jaya_json = get_jaya(pv_list)
+
+        return jaya_json
