@@ -122,6 +122,10 @@ html {
 @media screen and (max-width: 600px) {
 
     #input-btn{
+        width: 20vw;
+    }
+
+    #input-btn{
         font-size: 24px;
         background-color: #287DCC;
         border-radius: 10px;
@@ -132,7 +136,7 @@ html {
         background-color: white;
         border: 1px solid black;
         font-size: 24px;
-        width: 350px;
+        width: 75vw;
         border-radius: 20px;
     }
 
