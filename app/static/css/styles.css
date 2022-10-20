@@ -130,6 +130,7 @@ html {
         background-color: #287DCC;
         border-radius: 10px;
         width: 300px;
+        border: solid 2px black;
     }
 
     #post-input{
