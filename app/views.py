@@ -55,7 +55,10 @@ def dashboard(dashboard):
 # as I added requests
 # pip install -r requirements.txt
 def get_jaya(pv_list):
-    url_full = "https://beta.hla.triumf.ca/jaya/get"
+    ## old link (olis PVs only)
+    # url_full = "https://beta.hla.triumf.ca/jaya/get"
+    ## new link (all relevant PVs)
+    url_full = "https://beta.hla.triumf.ca/jaya-isac/all"
     data = {'readPvList': pv_list}
     r = requests.post(url_full, json=data)
     jsondata = r.json()
