@@ -17,7 +17,7 @@ def index():
         if request.form.get("password")=="Test":
             session['user']='yes'
             return redirect("/dashboard")
-    return redirect("/public/error")
+    return redirect("/error")
 
 
 @app.route("/dashboard", methods=["GET", "POST"])
@@ -29,7 +29,7 @@ def home():
             
             dashboard=request.form.get("dashboard")
             if dashboard==None:
-                return render_template("public/dash.html")
+                return render_template("dash.html")
             else:
                 return redirect(f"/view/{dashboard}")
     return render_template('/public/error.html')
@@ -40,7 +40,7 @@ def dashboard(dashboard):
     if session['user']:
         if dashboard=="test":
             return render_template("/public/test_dash.html")
-    return render_template('/public/error.html')
+    return redirect('/error')
 
 
 # will have to install pip dependencies again from inside virtual env
@@ -79,5 +79,17 @@ def try_this():
             jaya_json = get_jaya(pv_list)
 
             return jaya_json
-    return render_template('/public/error.html')
+    return redirect("/error")
 
+@app.route('/create', methods=["GET", "POST"])
+def create():
+    if session['user']:
+        if request.method == "GET":
+            return render_template("/public/create.html")
+        if request.method == "POST":
+            pass
+    return redirect('/error')
+
+@app.route('/error')
+def error():
+    return render_template('/public/error.html')
