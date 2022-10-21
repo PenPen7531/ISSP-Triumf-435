@@ -17,10 +17,11 @@
         <select name="dashboard" id="myDropdown">
         
             <option class="link" value="Hidden" selected disabled hidden>Dashboards</option>
-            <!-- <option class="link" value="Charles">Dr.Chalres</option> -->
-            <!-- <option class="link" value="Spencer">Spencer</option> -->
-            <!-- <option class="link" value="Jeff">Jeff</option> -->
-            <option class="link" value="test">Test</option>
+            {% if dashes %}
+            {% for dash in dashes %}
+            <option class="link" value="{{ dash }}">{{ dash }}</option>
+            {% endfor %}
+            {% endif %}
           </select>
           <button class="button">Select</button>
         </form>

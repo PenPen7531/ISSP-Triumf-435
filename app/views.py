@@ -1,11 +1,19 @@
 from app import app
-from flask import render_template, request, jsonify, redirect, session
+from flask import render_template, request, redirect, session
+import datetime
 import requests
 import json
 import os
 
 app.secret_key="session_key666"
 
+
+def get_jaya(pv_list):
+    url_full = "https://beta.hla.triumf.ca/jaya/get"
+    data = {'readPvList': pv_list}
+    r = requests.post(url_full, json=data)
+    jsondata = r.json()
+    return jsondata
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -26,23 +34,30 @@ def index():
 
 @app.route("/dashboard", methods=["GET", "POST"])
 def home():
-    
-                
+
     try:
         if session["user"]:
             if request.method=="GET":
-                return render_template("/public/dash.html")
+                dashes = []
+                dash_path = "dashboard_files"
+                files = os.listdir(dash_path)
+                for f in files:
+                    if ".json" in f:
+                        if os.path.isfile(dash_path+'/'+f):
+                            dashes.append(os.path.splitext(f)[0])
+                return render_template("/public/dash.html", dashes=dashes)
+
             if request.method=="POST":
                 dashboard=request.form.get("dashboard")
                 if dashboard==None:
                     return render_template("/public/dash.html")
                 else:
                     return redirect(f"/view/{dashboard}")
-            
+
         return redirect('/error')
     except:
         return redirect('/error')
-    
+
 
 
 @app.route("/view/<dashboard>", methods=["GET", "POST"])
@@ -82,34 +97,12 @@ def dashboard(dashboard):
         return redirect('/error')
 
 
-# will have to install pip dependencies again from inside virtual env
-# as I added requests
-# pip install -r requirements.txt
-def get_jaya(pv_list):
-    url_full = "https://beta.hla.triumf.ca/jaya/get"
-    data = {'readPvList': pv_list}
-    r = requests.post(url_full, json=data)
-    jsondata = r.json()
-    return jsondata
-
-
 @app.route("/try_this", methods=["GET", "POST"])
 def try_this():
     try:
         if session['user']:
             if request.method == "GET":
                 return render_template("/public/submit_pv.html")
-
-            # pv_list = [
-            #         'IOS:MB:MASSOVERQ2', 'IOS:MB:MASSOVERQ.INPA',
-            #         'IOS:XCB1AW:STATON', 'IOS:B1A:POS:STATON',
-            #         'IOS:XCB1AW:RDVOL', 'IOS:B1A:POS:RDVOL',
-            #         'IOS:PSWXCB1A:STATON', 'MCIS:BIAS0:STATON',
-            #         'MCIS:BIAS0:RDVOL', 'IOS:BIAS:STATON',
-            #         'IOS:BIAS:RDVOL', 'IOS:FC3:SCALECUR',
-            #         'IOS:FC3:STATOFF', 'IOS:FC6:SCALECUR',
-            #         'IOS:FC6:STATOFF',
-            #         ]
 
             if request.method == "POST":
                 pv_from_form = request.form
@@ -130,7 +123,14 @@ def create():
             if request.method == "GET":
                 return render_template("/public/create.html")
             if request.method == "POST":
-                pass
+                name = request.form.get("dash-name")
+                dash_file = os.path.join("dashboard_files", f"{name}.json")
+                now = datetime.datetime.now()
+                template_for_dash_files = {"readPvDict": {}, "timestamp": now.strftime("%Y-%m-%d %H:%M:%S")}
+                if not os.path.exists(dash_file):
+                    with open(dash_file, 'w') as file_to_create:
+                        file_to_create.write(json.dumps(template_for_dash_files, indent=4))
+                return redirect("/dashboard")
         return redirect('/error')
     except:
         return redirect('/error')
