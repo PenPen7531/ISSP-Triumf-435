@@ -1,10 +1,26 @@
 from app import app
 from flask import render_template, request, jsonify, redirect, session
 import requests
+from lxml import etree
+from os.path import join, dirname, realpath
+
+UPLOADS_PATH = join(dirname(realpath(__file__)), 'static/xml/all.xml')
 
 app.secret_key="session_key666"
 
+xml_file = UPLOADS_PATH
+with open(xml_file) as xml:
+   root = etree.XML(xml.read())
 
+with open(UPLOADS_PATH, 'r') as fp:
+    for count, line in enumerate(fp):
+        pass
+
+pv_list=[]
+for i in range(count-1):
+    pv_value = root.xpath('./get/@pv')[i]
+
+    pv_list.append(pv_value)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
