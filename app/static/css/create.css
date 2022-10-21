@@ -21,8 +21,18 @@ html{
 }
 
 input{
+    width: 75vw;
     font-size: 1.5vw;
     border-radius: 10px;
     padding: 5px;
     border: 2px solid black;
+}
+
+button{
+    color: white;
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #287DCC;
 }
