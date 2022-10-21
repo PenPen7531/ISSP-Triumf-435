@@ -1,6 +1,8 @@
 from app import app
 from flask import render_template, request, jsonify, redirect, session
 import requests
+import json
+import os
 
 app.secret_key="session_key666"
 
@@ -40,12 +42,38 @@ def home():
         return render_template('/public/error.html')
 
 
-@app.route("/view/<dashboard>", methods=["GET"])
+@app.route("/view/<dashboard>", methods=["GET", "POST"])
 def dashboard(dashboard):
     try:
         if session['user']:
-            if dashboard=="test":
+            dash_file = os.path.join("dashboard_files", f"{dashboard}.json")
+            if request.method == "GET":
+                # check if json file exists for dashboard, otherwise send default page
+                if os.path.exists(dash_file):
+                    with open(dash_file, "r") as file_read:
+                        json_for_dash = json.load(file_read)
+                    return render_template("/public/test_dash.html", data=json_for_dash)
                 return render_template("/public/test_dash.html")
+            if request.method == "POST":
+                pv_from_form = request.form.get("pv-input")
+                pv_list = []
+                pv_list.append(pv_from_form)
+                jaya_json = get_jaya(pv_list)
+                # write to json file if it does not exist
+                if not os.path.exists(dash_file):
+                    with open(dash_file, "w") as file_write:
+                        file_write.write(json.dumps(jaya_json, indent=4))
+                # update json file
+                else:
+                    with open(dash_file, "r+") as file_update:
+                        current_data = json.load(file_update)
+                        current_data["readPvDict"][pv_from_form] = jaya_json["readPvDict"][pv_from_form]
+                        file_update.seek(0)
+                        json.dump(current_data, file_update, indent=4)
+                # read from the json file
+                with open(dash_file, "r") as file_read:
+                    json_for_dash = json.load(file_read)
+                return render_template("public/test_dash.html", data=json_for_dash)
         return redirect('/error')
     except:
         return redirect('/error')
