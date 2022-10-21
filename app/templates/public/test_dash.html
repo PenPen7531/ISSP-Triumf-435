@@ -21,20 +21,17 @@
         <table id="table-data" class="table table-striped styled-table" border=1 frame=void rules=rows>
             <thead class="thead-dark">
                 <th>Process Variable</th>
-                <th>PV Address</th>
                 <th>Reading</th>
             </thead>
             <tbody>
+            {% if data %}
+            {% for pv in data["readPvDict"] %}
             <tr>
-                <td>89302LK</td>
-                <td>192.168.0.0</td>
-                <td>5.0 V</td>
+                <td>{{ pv }}</td>
+                <td>{{ data["readPvDict"][pv] }}</td>
             </tr>
-            <tr>
-                <td>89302LK</td>
-                <td>192.168.0.0</td>
-                <td>5.0 V</td>
-            </tr>
+            {% endfor %}
+            {% endif %}
             </tbody>
         </table>
         <form id='post-form' method = "POST">
