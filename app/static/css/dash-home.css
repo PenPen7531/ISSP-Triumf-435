@@ -16,6 +16,10 @@ tr{
    
 }
 
+.elem{
+    word-wrap: break-word;
+}
+
 th, td{
     text-align: center;
     
