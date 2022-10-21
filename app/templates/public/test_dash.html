@@ -27,8 +27,8 @@
             {% if data %}
             {% for pv in data["readPvDict"] %}
             <tr>
-                <td>{{ pv }}</td>
-                <td>{{ data["readPvDict"][pv] }}</td>
+                <td class="elem">{{ pv }}</td>
+                <td class="elem">{{ data["readPvDict"][pv] }}</td>
             </tr>
             {% endfor %}
             {% endif %}
