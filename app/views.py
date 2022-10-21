@@ -24,20 +24,23 @@ def index():
 
 @app.route("/dashboard", methods=["GET", "POST"])
 def home():
+    
+                
     try:
         if session["user"]:
             if request.method=="GET":
                 return render_template("/public/dash.html")
             if request.method=="POST":
-                
                 dashboard=request.form.get("dashboard")
                 if dashboard==None:
-                    return render_template("dash.html")
+                    return render_template("/public/dash.html")
                 else:
                     return redirect(f"/view/{dashboard}")
+            
         return redirect('/error')
     except:
-        return render_template('/public/error.html')
+        return redirect('/error')
+    
 
 
 @app.route("/view/<dashboard>", methods=["GET"])
