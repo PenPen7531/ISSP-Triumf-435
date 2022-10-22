@@ -15,6 +15,9 @@ def get_jaya(pv_list):
     jsondata = r.json()
     return jsondata
 
+@app.route("/delete/<pv>")
+def delete(pv):
+    return (f"{pv} Deleted")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
