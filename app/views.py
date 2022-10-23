@@ -15,9 +15,23 @@ def get_jaya(pv_list):
     jsondata = r.json()
     return jsondata
 
-@app.route("/delete/<pv>")
-def delete(pv):
-    return (f"{pv} Deleted")
+@app.route("/delete/<dashboard_name>/<pv>")
+def delete( dashboard_name,pv):
+    dash_file = os.path.join("dashboard_files", f"{dashboard_name}.json")
+    print(dash_file)
+    with open(dash_file, "r") as file_read:
+        json_data=json.load(file_read)
+        pv_variables=json_data["readPvDict"]
+        try:
+            pv_variables.pop(pv)
+        except:
+            return ("Error PV not found")
+    
+        
+    with open(dash_file, 'w') as file_write:
+        json.dump(json_data, file_write)
+    return redirect(f"/view/{dashboard_name}")
+        
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -73,7 +87,7 @@ def dashboard(dashboard):
                 if os.path.exists(dash_file):
                     with open(dash_file, "r") as file_read:
                         json_for_dash = json.load(file_read)
-                    return render_template("/public/test_dash.html", data=json_for_dash)
+                    return render_template("/public/test_dash.html", data=json_for_dash, dashboard_name=dashboard)
                 return render_template("/public/test_dash.html")
             if request.method == "POST":
                 pv_from_form = request.form.get("pv-input")
@@ -94,7 +108,7 @@ def dashboard(dashboard):
                 # read from the json file
                 with open(dash_file, "r") as file_read:
                     json_for_dash = json.load(file_read)
-                return render_template("public/test_dash.html", data=json_for_dash)
+                return render_template("public/test_dash.html", data=json_for_dash, dashboard_name=dashboard)
         return redirect('/error')
     except:
         return redirect('/error')

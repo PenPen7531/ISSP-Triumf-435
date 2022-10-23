@@ -17,7 +17,7 @@
     
     
     <div class="flex-mid">
-        <h1 id="title">Test Dashboard</h1>
+        <h1 id="title">{{ dashboard_name }}'s Dashboard</h1>
         <table id="table-data" class="table table-striped styled-table" border=1 frame=void rules=rows>
             <thead class="thead-dark">
                 <th>Process Variable</th>
@@ -29,7 +29,7 @@
             <tr>
                 <td class="elem">{{ pv }}</td>
                 <td class="elem">{{ data["readPvDict"][pv] }}</td>
-                <td class="elem"><a href="/delete/{{pv}}">Delete</a></td>
+                <td class="elem"><a href="/delete/{{dashboard_name}}/{{pv}}">Delete</a></td>
             </tr>
             {% endfor %}
             {% endif %}
