@@ -28,7 +28,9 @@ This documentation will contain information that will help anyone to modify this
 ### Python Flask
 #### Flask Installation: 
 Flask Documentation: https://flask.palletsprojects.com/en/2.2.x/installation/
+\
 Python Documentation: https://pypi.org/project/Flask/ 
+\
 GeeksForGeeks: https://www.geeksforgeeks.org/how-to-install-flask-in-windows/ 
 
 #### Routing: 
