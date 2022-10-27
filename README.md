@@ -18,11 +18,18 @@ This documentation will contain information that will help anyone to modify this
 ## Quick Resources
 
 ### Python :snake:
+#### Python Modules and Imports
+Python Documentation: https://docs.python.org/3/tutorial/modules.html 
+
+#### Python Functions 
+W3Schools: https://www.w3schools.com/python/python_functions.asp
+
+#### 
 
 ### JavaScript
 
 ### HTML
-
+ 
 ### CSS
 
 ### Python Flask :hot_pepper:
@@ -44,6 +51,13 @@ GeeksForGeeks: https://www.geeksforgeeks.org/flask-app-routing/
 Flask Documentation for Backend: https://flask.palletsprojects.com/en/2.2.x/quickstart/#rendering-templates
 \
 Flask Documentation for Frontend: https://flask.palletsprojects.com/en/2.2.x/tutorial/templates/ 
+
+
+#### Redirections
+PythonBasics: https://pythonbasics.org/flask-redirect-and-errors/
+\
+#### Sessions
+PythonBasics: https://pythonbasics.org/flask-sessions/
 
 
 ## Setup Development Environment:
