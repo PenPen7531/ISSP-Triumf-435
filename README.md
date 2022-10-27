@@ -1,8 +1,8 @@
 # ISSP-Triumf-435 HLA Documentation
 ## Authors
-    Luke Birol
-    Jake Martin
-    Jeffrey Wang
+Luke Birol
+Jake Martin
+Jeffrey Wang
 
 ## Introduction
 
