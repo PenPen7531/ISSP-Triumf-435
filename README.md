@@ -28,23 +28,23 @@ W3Schools: https://www.w3schools.com/python/python_functions.asp
 
 \
 \
-\
+
 ### JavaScript
 
 \
 \
-\
+
 
 ### HTML
  
  \
  \
- \
+ 
 
 ### CSS
 \
 \
-\
+
 ### Python Flask :hot_pepper:
 
 #### Flask Installation: 
