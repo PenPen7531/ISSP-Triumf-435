@@ -17,7 +17,7 @@ This documentation will contain information that will help anyone to modify this
 
 ## Quick Resources
 
-### Python
+### Python :snake:
 
 ### JavaScript
 
@@ -25,7 +25,7 @@ This documentation will contain information that will help anyone to modify this
 
 ### CSS
 
-### Python Flask
+### Python Flask :hot_pepper:
 
 #### Flask Installation: 
 Flask Documentation: https://flask.palletsprojects.com/en/2.2.x/installation/
