@@ -15,6 +15,10 @@ The purpose of creating this webpage was to allow scientists, data analysis, or 
 ### What will this documentation tell you
 This documentation will contain information that will help anyone to modify this webpage. We will go through the basics of how this webpage was created, what languages were used, some resources that may help others to understand the code better. We will explain how multiple components and files connect and interact with each other to display data. 
 
+
+
+
+
 ## Quick Resources
 
 ### Python :snake:
@@ -23,6 +27,9 @@ Python Documentation: https://docs.python.org/3/tutorial/modules.html
 
 #### Python Functions 
 W3Schools: https://www.w3schools.com/python/python_functions.asp
+
+#### Interacting with JSON
+GeeksforGeeks: https://www.geeksforgeeks.org/read-json-file-using-python/
 
 
 
