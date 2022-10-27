@@ -45,13 +45,40 @@ W3Schools: https://www.w3schools.com/js/js_htmldom_elements.asp
 
 
 ### HTML
- 
+
+#### Connecting JavaScript Files
+W3Schools: https://www.w3schools.com/tags/att_script_src.asp
+
+#### Connecting CSS Files
+W3Schools: https://www.w3schools.com/css/css_howto.asp
+
+#### Forms, Labels, and Inputs
+W3Schools: https://www.w3schools.com/html/html_forms.asp 
+
+#### Links 
+W3Schools: https://www.w3schools.com/html/html_links.asp
+
+#### Buttons
+Mozilla: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
+
  
  
  
 
 ### CSS
 
+#### Media Queries
+
+W3Schools: https://www.w3schools.com/css/css_rwd_mediaqueries.asp
+CSS-Tricks: https://css-tricks.com/a-complete-guide-to-css-media-queries/ 
+
+#### CSS Selectors 
+
+Mozilla: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors
+W3Schools Reference Guide: https://www.w3schools.com/cssref/css_selectors.php 
+
+#### CSS Specificity 
+W3Schools: https://www.w3schools.com/css/css_specificity.asp
 
 
 ### Python Flask :hot_pepper:
