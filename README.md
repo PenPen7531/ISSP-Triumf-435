@@ -24,26 +24,36 @@ Python Documentation: https://docs.python.org/3/tutorial/modules.html
 #### Python Functions 
 W3Schools: https://www.w3schools.com/python/python_functions.asp
 
-#### 
+\
 
-\
-\
 
 ### JavaScript
 
+#### Functions
+W3Schools: https://www.w3schools.com/js/js_functions.asp
+
+#### DOM Manipulation
+Mozilla: https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction
+
+#### DOM Remove
+Mozilla: https://developer.mozilla.org/en-US/docs/Web/API/Element/remove 
+
+#### DOM Accessing HTML Elements 
+W3Schools: https://www.w3schools.com/js/js_htmldom_elements.asp
+
 \
-\
+
 
 
 ### HTML
  
  \
- \
+ 
  
 
 ### CSS
 \
-\
+
 
 ### Python Flask :hot_pepper:
 
