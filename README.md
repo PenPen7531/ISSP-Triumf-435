@@ -28,14 +28,15 @@ This documentation will contain information that will help anyone to modify this
 ### Python Flask
 #### Flask Installation: 
 Flask Documentation: https://flask.palletsprojects.com/en/2.2.x/installation/
-
+Python Documentation: https://pypi.org/project/Flask/ 
+GeeksForGeeks: https://www.geeksforgeeks.org/how-to-install-flask-in-windows/ 
 
 #### Routing: 
-    https://flask.palletsprojects.com/en/2.2.x/quickstart/#routing
+Flask Documentation: https://flask.palletsprojects.com/en/2.2.x/quickstart/#routing
 
 
 #### Rendering Templates and Pages:
-    https://flask.palletsprojects.com/en/2.2.x/quickstart/#rendering-templates
+Flask Documentation: https://flask.palletsprojects.com/en/2.2.x/quickstart/#rendering-templates
 
 
 ## Setup Development Environment:
