@@ -27,6 +27,24 @@ th, td{
     width: 20vw;
     height: 25px;
 }
+
+.delete-btn{
+    margin: 2px;
+    padding: 0;
+    
+}
+
+.delete-btn > a {
+    text-decoration: None;
+    color: black;
+    
+}
+
+.delete-btn > a:hover {
+    text-decoration: None;
+    color:  #202A44;
+    
+}
 html {
     background-color: #202A44;
     

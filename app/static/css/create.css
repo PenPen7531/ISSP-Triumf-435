@@ -2,8 +2,11 @@ html{
     background-color: #202A44;
     color: white;
 }
-
+h1{
+    font-size: 50px;
+}
 .flex-mid{
+    margin-top: 25vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,16 +16,22 @@ html{
 #create-dash{
     display: flex;
     flex-direction: column;
-
+    align-items: center;
+    justify-content: center;
 }
 
 #create-dash > * {
     margin: 10px;
 }
 
+#input-btn{
+    background-color: #287DCC;
+    color: white;
+}
 input{
-    width: 75vw;
-    font-size: 1.5vw;
+    width: 60vw;
+    text-align: center;
+    font-size: 40px;
     border-radius: 10px;
     padding: 5px;
     border: 2px solid black;
@@ -35,4 +44,33 @@ button{
     border-radius: 10px;
     padding: 10px;
     background-color: #287DCC;
+}
+
+@media screen and (max-width: 500px) {
+
+    .flex-mid{
+        margin-top: 25vh;
+    }
+    h1{
+        font-size: 32px;
+    }
+    .login-btns{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    #input-btn{
+        font-size: 22px;
+        width: 75%;
+    }
+    #dash-input{
+        font-size: 22px;
+        width: 75%;
+    }
+    #create-dash{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
 }
