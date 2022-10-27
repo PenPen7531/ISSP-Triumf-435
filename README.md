@@ -26,15 +26,15 @@ This documentation will contain information that will help anyone to modify this
 ### CSS
 
 ### Python Flask
-Flask Installation
+#### Flask Installation: 
     https://flask.palletsprojects.com/en/2.2.x/installation/
 
 
-Routing 
+#### Routing: 
     https://flask.palletsprojects.com/en/2.2.x/quickstart/#routing
 
 
-Rendering Templates and Pages
+#### Rendering Templates and Pages:
     https://flask.palletsprojects.com/en/2.2.x/quickstart/#rendering-templates
 
 
