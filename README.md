@@ -26,6 +26,7 @@ This documentation will contain information that will help anyone to modify this
 ### CSS
 
 ### Python Flask
+
 #### Flask Installation: 
 Flask Documentation: https://flask.palletsprojects.com/en/2.2.x/installation/
 \
@@ -35,10 +36,14 @@ GeeksForGeeks: https://www.geeksforgeeks.org/how-to-install-flask-in-windows/
 
 #### Routing: 
 Flask Documentation: https://flask.palletsprojects.com/en/2.2.x/quickstart/#routing
+\
+GeeksForGeeks: https://www.geeksforgeeks.org/flask-app-routing/
 
 
 #### Rendering Templates and Pages:
-Flask Documentation: https://flask.palletsprojects.com/en/2.2.x/quickstart/#rendering-templates
+Flask Documentation for Backend: https://flask.palletsprojects.com/en/2.2.x/quickstart/#rendering-templates
+\
+Flask Documentation for Frontend: https://flask.palletsprojects.com/en/2.2.x/tutorial/templates/ 
 
 
 ## Setup Development Environment:
