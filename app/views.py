@@ -47,6 +47,14 @@ def index():
         return redirect('/error')
     except:
         return redirect("/error")
+@app.route("/dashboard/delete/<dash_name>")
+def delete_dash(dash_name):
+    if session['user']:
+        dash_file = os.path.join("dashboard_files", f"{dash_name}.json")
+        if os.path.exists(dash_file):
+            os.remove(dash_file)
+            return redirect ("/dashboard")
+
 
 
 @app.route("/dashboard", methods=["GET", "POST"])
