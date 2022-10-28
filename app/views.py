@@ -9,14 +9,27 @@ app.secret_key="session_key666"
 
 
 def get_jaya(pv_list):
+    """
+    Use JAYA
+
+    Send PV list to JAYA.
+
+    Return JSON from JAYA with readings.
+    """
     url_full = "https://beta.hla.triumf.ca/jaya/get"
     data = {'readPvList': pv_list}
     r = requests.post(url_full, json=data)
     jsondata = r.json()
     return jsondata
 
+
 @app.route("/delete/<dashboard_name>/<pv>")
 def delete( dashboard_name,pv):
+    """
+    Dashboard PV deletion
+
+    Delete PV from dashboard (JSON file) and redirect to dashboard view.
+    """
     dash_file = os.path.join("dashboard_files", f"{dashboard_name}.json")
     print(dash_file)
     with open(dash_file, "r") as file_read:
@@ -26,15 +39,24 @@ def delete( dashboard_name,pv):
             pv_variables.pop(pv)
         except:
             return ("Error PV not found")
-    
-        
+
     with open(dash_file, 'w') as file_write:
         json.dump(json_data, file_write)
     return redirect(f"/view/{dashboard_name}")
-        
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    """
+    Landing page
+
+    GET: Route user to landing page (index.html)
+
+    POST: Verify password, start user session, redirect user to
+          dashboard selection.
+
+    If any errors occur, redirect to error page.
+    """
     try:
         if request.method=="GET":
             session['user']=None
@@ -47,8 +69,15 @@ def index():
         return redirect('/error')
     except:
         return redirect("/error")
+
+
 @app.route("/dashboard/delete/<dash_name>")
 def delete_dash(dash_name):
+    """
+    Dashboard deletion
+
+    Remove dashboard (JSON file) if it exists.
+    """
     if session['user']:
         dash_file = os.path.join("dashboard_files", f"{dash_name}.json")
         if os.path.exists(dash_file):
@@ -56,10 +85,17 @@ def delete_dash(dash_name):
             return redirect ("/dashboard")
 
 
-
 @app.route("/dashboard", methods=["GET", "POST"])
 def home():
+    """
+    Dashboard Selection Route
 
+    GET: Route user to dashboard selection page.
+
+    POST: Use user input to redirect to dashboard view.
+
+    If any errors occur, redirect to error page.
+    """
     try:
         if session["user"]:
             if request.method=="GET":
@@ -84,9 +120,17 @@ def home():
         return redirect('/error')
 
 
-
 @app.route("/view/<dashboard>", methods=["GET", "POST"])
 def dashboard(dashboard):
+    """
+    Dashboard view route
+
+    GET: Route user to dashboard view and update PV readings upon each request.
+
+    POST: Use user input and call JAYA to get PV readings.
+
+    If any errors occur, redirect to error page.
+    """
     try:
         if session['user']:
             dash_file = os.path.join("dashboard_files", f"{dashboard}.json")
@@ -128,6 +172,19 @@ def dashboard(dashboard):
 
 @app.route('/create', methods=["GET", "POST"])
 def create():
+    """
+    Dashboard creation route
+
+    GET: Route user to dashboard creation page.
+
+    POST: Use user input (dashboard name) to create new dashboard and redirect
+          user to their new dashboard.
+
+    Note: New dashboard results is new JSON file in
+          <project_root_directory>/dashboard_files.
+
+    If any errors occur, redirect to error page.
+    """
     try:
         if session['user']:
             if request.method == "GET":
@@ -137,6 +194,7 @@ def create():
                 dash_file = os.path.join("dashboard_files", f"{name}.json")
                 now = datetime.datetime.now()
                 template_for_dash_files = {"readPvDict": {}, "timestamp": now.strftime("%Y-%m-%d %H:%M:%S")}
+                # if dashboard exists, return message, else create dashboard
                 if not os.path.exists(dash_file):
                     with open(dash_file, 'w') as file_to_create:
                         file_to_create.write(json.dumps(template_for_dash_files, indent=4))
@@ -145,9 +203,14 @@ def create():
         return redirect('/error')
     except:
         return redirect('/error')
-  
+
 
 @app.route('/error')
 def error():
+    """
+    Error page route
+
+    Route user to error page.
+    """
     return render_template('/public/error.html')
 
