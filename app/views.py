@@ -120,8 +120,9 @@ def home():
         return redirect('/error')
 
 
-@app.route("/view/<dashboard>", methods=["GET", "POST"])
-def dashboard(dashboard):
+@app.route("/view/<dashboard>/<refresh>")
+@app.route("/view/<dashboard>", defaults={'refresh': 5}, methods=["GET", "POST"])
+def dashboard(dashboard, refresh):
     """
     Dashboard view route
 
@@ -143,7 +144,7 @@ def dashboard(dashboard):
                     for pv in json_for_dash['readPvDict']:
                         pv_list_get_request.append(pv)
                     updated_readings_from_jaya = get_jaya(pv_list_get_request)
-                    return render_template("/public/test_dash.html", data=updated_readings_from_jaya, dashboard_name=dashboard)
+                    return render_template("/public/test_dash.html", data=updated_readings_from_jaya, dashboard_name=dashboard, rate=refresh)
                 return render_template("/public/test_dash.html")
             if request.method == "POST":
                 pv_from_form = request.form.get("pv-input")
@@ -164,7 +165,7 @@ def dashboard(dashboard):
                 # read from the json file
                 with open(dash_file, "r") as file_read:
                     json_for_dash = json.load(file_read)
-                return render_template("public/test_dash.html", data=json_for_dash, dashboard_name=dashboard)
+                return render_template("public/test_dash.html", data=json_for_dash, dashboard_name=dashboard, rate=refresh)
         return redirect('/error')
     except:
         return redirect('/error')
