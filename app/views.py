@@ -126,25 +126,6 @@ def dashboard(dashboard):
         return redirect('/error')
 
 
-@app.route("/try_this", methods=["GET", "POST"])
-def try_this():
-    try:
-        if session['user']:
-            if request.method == "GET":
-                return render_template("/public/submit_pv.html")
-
-            if request.method == "POST":
-                pv_from_form = request.form
-                pv_list = []
-                pv_list.append(pv_from_form['address'])
-
-                jaya_json = get_jaya(pv_list)
-
-                return jaya_json
-        return redirect('/error')
-    except:
-        return redirect("/error")
-
 @app.route('/create', methods=["GET", "POST"])
 def create():
     try:
