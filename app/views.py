@@ -155,7 +155,8 @@ def create():
                 if not os.path.exists(dash_file):
                     with open(dash_file, 'w') as file_to_create:
                         file_to_create.write(json.dumps(template_for_dash_files, indent=4))
-                return redirect("/dashboard")
+                    return redirect("/view/{name}")
+                return redirect(f"/view/{name}")
         return redirect('/error')
     except:
         return redirect('/error')
