@@ -119,6 +119,29 @@ def home():
     except:
         return redirect('/error')
 
+@app.route("/monitor/<dashboard>", methods=["GET"])
+def monitor(dashboard):
+    """
+    Monitor PVs on dashboard
+    """
+    try:
+        if session['user']:
+            dash_file = os.path.join("dashboard_files", f"{dashboard}.json")
+            if request.method == "GET":
+                # check if json file exists for dashboard, otherwise send default page
+                if os.path.exists(dash_file):
+                    with open(dash_file, "r") as file_read:
+                        json_for_dash = json.load(file_read)
+                    pv_list_get_request = []
+                    for pv in json_for_dash['readPvDict']:
+                        pv_list_get_request.append(pv)
+                    updated_readings_from_jaya = get_jaya(pv_list_get_request)
+                    return render_template("/public/monitor_dash.html", data=updated_readings_from_jaya, dashboard_name=dashboard)
+                return render_template("/public/monitor_dash.html")
+        return redirect('/error')
+    except:
+        return redirect('/error')
+
 
 @app.route("/view/<dashboard>/<refresh>")
 @app.route("/view/<dashboard>", defaults={'refresh': 5}, methods=["GET", "POST"])
@@ -140,12 +163,12 @@ def dashboard(dashboard, refresh):
                 if os.path.exists(dash_file):
                     with open(dash_file, "r") as file_read:
                         json_for_dash = json.load(file_read)
-                    pv_list_get_request = []
-                    for pv in json_for_dash['readPvDict']:
-                        pv_list_get_request.append(pv)
-                    updated_readings_from_jaya = get_jaya(pv_list_get_request)
-                    return render_template("/public/test_dash.html", data=updated_readings_from_jaya, dashboard_name=dashboard, rate=refresh)
-                return render_template("/public/test_dash.html")
+                    # pv_list_get_request = []
+                    # for pv in json_for_dash['readPvDict']:
+                    #     pv_list_get_request.append(pv)
+                    # updated_readings_from_jaya = get_jaya(pv_list_get_request)
+                    return render_template("/public/edit_dash.html", data=json_for_dash, dashboard_name=dashboard, rate=refresh)
+                return render_template("/public/edit_dash.html")
             if request.method == "POST":
                 pv_from_form = request.form.get("pv-input")
                 pv_list = []
@@ -165,7 +188,7 @@ def dashboard(dashboard, refresh):
                 # read from the json file
                 with open(dash_file, "r") as file_read:
                     json_for_dash = json.load(file_read)
-                return render_template("public/test_dash.html", data=json_for_dash, dashboard_name=dashboard, rate=refresh)
+                return render_template("public/edit_dash.html", data=json_for_dash, dashboard_name=dashboard, rate=refresh)
         return redirect('/error')
     except:
         return redirect('/error')
