@@ -9,8 +9,15 @@ Once installed, we are now able to use Git to push to GitHub, an online reposito
 Untracked - Where changes are not yet saved or added to the staging area <br>
 Staged - Changes are added to the staging area and are read to be commited <br>
 Committed - Charges are now committed and is ready to be pushed to the remote repository <br>
-Git contains multiple important commands that allow the user to add changes, commit changes, to push changes to the repository, to pull changes from a repository, and to clone a repository. 
-
+Git contains multiple important commands, the primary ones are:
+<ul>
+    <li>Git add</li>
+    <li>Git commit</li>
+    <li>Git push</li>
+    <li>Git pull</li>
+    <li>Git clone</li>
+    <li>Git status</li>
+</ul>
 ### Git Add
 Git add allows files to be added to t
 
