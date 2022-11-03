@@ -17,6 +17,7 @@ Git contains multiple important commands, the primary ones are:
     <li>Git pull</li>
     <li>Git clone</li>
     <li>Git status</li>
+    <li>Git init</li>
 </ul>
 
 ### Git Add
@@ -70,6 +71,13 @@ An example of git clone would be:
     git clone https://github.com/PenPen7531/ISSP-Triumf-435/tree/main   #This command will clone all the data from the main branch of the current repository
 ```
 
+### Git init
+Git init will initialize the repository you are currently in to allow connections to the remote repository. You should run git init when creating a new remote repository.<br>
+An example of git init would be:
+```git
+    git init
+```
+
 ## GitHub
 GitHub is an online repository that allows files and changes to be kept track of. In connection with Git, we are able to use Git commands to push our data to a repository on GitHub. 
 
@@ -80,5 +88,5 @@ When working with GitHub, we must connect our local system with our account on G
 
 <br>
 
-Once the connection is secure, GitHub will allow you to clone and push new repositories from your local computer to your remote repo. 
+Once the connection is secure, GitHub will allow you to clone and push new repositories from your local computer to your remote repository. 
 
