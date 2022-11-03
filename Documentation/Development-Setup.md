@@ -39,6 +39,18 @@ An example of this code will be: <br>
     git commit -m "I am a very detailed message"
 
 ```
+
+### Git Push
+Git push will push committed data to the remote repository. When pushing data, make sure you push to the correct repository, but also the correct branch. Branches are different snapshots that allows changes to be made to be separated until they need to be merged together. Usually, each deleoper or each feature is given a separate branch. The `main` or `master` branch should not be directly pushed into. When pushing, we use 2 arguments, `origin`, which specifies the location of where to push the data, and `{branch}`, which will be the branch to push this data to.  <br>
+
+An example of a git push would be:
+```
+    git push origin main         # Will push these changes to the main branch
+    
+    git push origin my_branch    # Will push to a unique branch
+
+```
+
 ## GitHub Repository Clone or Pull
 
  To pull this data, we must clone or pull our code.<br> If the code does not exist on the system, run this command: 
