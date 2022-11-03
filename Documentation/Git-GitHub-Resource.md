@@ -78,8 +78,7 @@ When working with GitHub, we must connect our local system with our account on G
 
 <a href="https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration#:~:text=The%20first%20thing%20you%20need,Sign%20up%20for%20GitHub%E2%80%9D%20button.">Click Here</a>
 
- 
-## GitHub Repository Clone or Pull
+<br>
 
- To pull this data, we must clone or pull our code.<br> If the code does not exist on the system, run this command: 
+Once the connection is secure, GitHub will allow you to clone and push new repositories from your local computer to your remote repo. 
 
