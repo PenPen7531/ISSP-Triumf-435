@@ -5,6 +5,8 @@ This document is designed to help you understand and use the webpage created by 
 
 ## Login 
 The login page gives a password protected webpage. Only allowing users who know the password to access the data behind it. The password is "Test"
-
-
 <img src="/user-guide-images/home-page.jpg"/>
+## Dashboard Selection
+The dashboard selection page allows the user to select which dashboard they want to display. If the user does not have a dashboard yet, they are able to click on the create dashboard button to create a new one.
+<img src="/user-guide-images/dashboard-select.jpg"/>
+
