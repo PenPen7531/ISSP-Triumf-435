@@ -1,4 +1,6 @@
 # TRIUMF 435 User Guide
+## Author
+    Jeffrey Wang
 
 ## Introduction
 This document is designed to help you understand and use the webpage created by TRIUMF-435 2022. This webpage was created to help users read and monitor process data from EPICS devices. 
@@ -10,7 +12,7 @@ The login page gives a password protected webpage. Only allowing users who know 
 <img src="/user-guide-images/home-page.jpg"/>
 
 ## Dashboard Selection
-The dashboard selection page allows the user to select which dashboard they want to display. If the user does not have a dashboard yet, they are able to click on the create dashboard button to create a new one.
+The dashboard selection page allows the user to select which dashboard they want to display. If the user does not have a dashboard yet, they are able to click on the create dashboard button to create a new one. Dashboards allow users to have their own customizable dashboard based on their wants and needs. 
 <br>
 <br>
 <img src="/user-guide-images/dashboard-select.jpg"/>
