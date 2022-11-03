@@ -24,11 +24,11 @@ Git add allows untracked files to be put in the staging area. When added, files 
 Note: When added, data and changes are not yet saved.<br>
 
 An example of this code would be: <br>
-'''Python
+```
     git add {filename} # Adds the specific file named
     git add .          # Adds all files to the staging area
 
-'''
+```
 
 ## GitHub Repository Clone or Pull
 
