@@ -1,4 +1,4 @@
-# TRIUMF 435 User Guide
+# TRIUMF HLA User Guide
 ## Author
     Jeffrey Wang
 
