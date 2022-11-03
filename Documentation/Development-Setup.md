@@ -18,8 +18,14 @@ Git contains multiple important commands, the primary ones are:
     <li>Git clone</li>
     <li>Git status</li>
 </ul>
+
 ### Git Add
-Git add allows files to be added to t
+Git add allows untracked files to be put in the staging area. When added, files added can be committed in the next command. <br>
+Note: When added, data and changes are not yet saved.<br>
+
+An example of this code would be:
+    git add {filename} # Adds the specific file named
+    git add .          # Adds all files to the staging area
 
 ## GitHub Repository Clone or Pull
 
