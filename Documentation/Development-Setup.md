@@ -46,9 +46,28 @@ Git push will push committed data to the remote repository. When pushing data, m
 An example of a git push would be:
 ```
     git push origin main         # Will push these changes to the main branch
-    
+
     git push origin my_branch    # Will push to a unique branch
 
+```
+
+### Git Pull
+Git pull will pull new changes from an existing repository that is already initialized in the folder. If the folder has not been linked or initialized with the remote repository, you must git clone an existing repository or initialize a new repository. Git pull allows the system to have the current and newest data in the repository. <br>
+An example of git pull would be:
+
+```
+    git pull origin main        # Will pull the newest data from the main branch
+
+    git pull origin my_branch   # Will pull the newest data from my_branch
+
+```
+
+### Git Clone
+Git clone allows a remote repository to be cloned and initialized onto the local system. When working with a new repository, we must clone it. This links the local folder with the remote repository. <br>
+An example of git clone would be:
+
+```
+    git clone https://github.com/PenPen7531/ISSP-Triumf-435/tree/main   #This command will clone all the data from the main branch of the current repository
 ```
 
 ## GitHub Repository Clone or Pull
@@ -73,8 +92,7 @@ When developing multiple projects, using virtual environments in Python allows m
     ./venv/bin/activate;
     pip install -r requirements.txt;
 
-\
-\
+<br>
 
 
 Start Flask app:
