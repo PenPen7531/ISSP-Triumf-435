@@ -9,6 +9,20 @@ Before starting to use Flask, we must download it to our virtual environment, an
 ```pip install flask```
 
 
+
 ## App Routing
 Flask allows the user send specfic data from the backend to the frontend based on the address or the URL. For example, if we want to give the client a home page when the user puts the URL `www.example_page.com`, we are routing to `/`. Flask interprets request method given, and the route, and provides the specific HTML page that should be sent back to the client. Lets say the client wants another different page to create a new account, they may type in the URL `www.example_page.com/create`, we are trying to route to `/create`. With this route, we can specify another HTML page based on this route. <br>
-An example of these 
+An example of this is:
+```Python
+from flask import render_template, request, redirect, session
+
+@app.route("/")
+def homepage():
+    "This is the route for the homepage"
+    return render_template("home.html"), 200
+
+@app.route("/")
+def createpage():
+    "This is the route for creating a new account"
+    return render_template("create.html"), 200
+```
