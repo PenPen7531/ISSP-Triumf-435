@@ -32,8 +32,13 @@ An example of this code would be: <br>
 ``` 
 
 ### Git Commit 
-Git commit allows 
+Git commit allows changes from the staging area to be in the committed area. Once committed, data is now prepared be sent to the remote repository to be saved. When using git commit, a message must always be attached to the commit, else an error will occur. To add a message, us the `-m` arugment and then insert your message between quotation marks. When making commits, it is important to be specific to what changes you made, just in case you need to find a specific version, the commit message can help ease that process of looking back. 
 
+An example of this code will be: <br>
+```
+    git commit -m "I am a very detailed message"
+
+```
 ## GitHub Repository Clone or Pull
 
  To pull this data, we must clone or pull our code.<br> If the code does not exist on the system, run this command: 
