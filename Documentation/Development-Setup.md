@@ -70,6 +70,16 @@ An example of git clone would be:
     git clone https://github.com/PenPen7531/ISSP-Triumf-435/tree/main   #This command will clone all the data from the main branch of the current repository
 ```
 
+## GitHub
+GitHub is an online repository that allows files and changes to be kept track of. In connection with Git, we are able to use Git commands to push our data to a repository on GitHub. 
+
+### GitHub Connection
+When working with GitHub, we must connect our local system with our account on GitHub. This helps us keep our data secure and allows an ecrypted SSH connection between our system and our respositories. Generally, GitHub will use an RSA public and private key to ensure that the connection is secure. We save one of these keys on our local system, and this allows an ecrypted path and connection. Please follow this documentation to perform this action:
+
+```
+    https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration#:~:text=The%20first%20thing%20you%20need,Sign%20up%20for%20GitHub%E2%80%9D%20button.
+```
+ 
 ## GitHub Repository Clone or Pull
 
  To pull this data, we must clone or pull our code.<br> If the code does not exist on the system, run this command: 
