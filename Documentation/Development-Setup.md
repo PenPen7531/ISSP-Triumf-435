@@ -6,9 +6,9 @@ Before developing or modifying the code, we must get the code from the GitHub re
 Git is a software for distributed version control that keeps track of changes to files. If Git is not on the system, please use this link:
     https://git-scm.com/downloads
 Once installed, we are now able to use Git to push to GitHub, an online repository that will store files. When using Git, there are 3 stages for each file: <br><br>
-<b>Untracked</b> - Where changes are not yet saved or added to the staging area <br>
-<b>Staged</b> - Changes are added to the staging area and are read to be commited <br>
-<b>Committed</b> - Charges are now committed and is ready to be pushed to the remote repository <br>
+<b>Untracked</b> - Where changes are not yet saved or added to the staging area <br><br>
+<b>Staged</b> - Changes are added to the staging area and are read to be commited <br><br>
+<b>Committed</b> - Charges are now committed and is ready to be pushed to the remote repository <br><br>
 Git contains multiple important commands, the primary ones are:
 <ul>
     <li>Git add</li>
