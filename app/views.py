@@ -132,7 +132,7 @@ def home():
                 if dashboard==None:
                     return render_template("/public/dash.html")
                 else:
-                    return redirect(f"/view/{dashboard}")
+                    return redirect(f"/monitor/{dashboard}")
 
         return redirect('/error')
     except:
