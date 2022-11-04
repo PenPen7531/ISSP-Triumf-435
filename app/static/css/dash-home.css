@@ -62,7 +62,7 @@ html {
     text-align: center;
 }
 
-#dash-change, #delete{
+#dash-change, #delete, #rename{
     text-decoration: None;
     color: black;
     background-color: white;
@@ -164,7 +164,7 @@ html {
     #dash-change{
         width: 20vw;
     }
-    #delete{
+    #delete, #monitor, #rename{
         width: 20vw;
     }
 }
@@ -181,7 +181,7 @@ html {
         width: 20vw;
         font-size: 14px;
     }
-    #delete{
+    #delete, #monitor, #rename{
         width: 20vw;
         font-size: 14px;
     }
