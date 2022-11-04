@@ -139,6 +139,8 @@ def monitor(dashboard, refresh):
                     for pv in json_for_dash['readPvDict']:
                         pv_list_get_request.append(pv)
                     updated_readings_from_jaya = get_jaya(pv_list_get_request)
+                    for pv in updated_readings_from_jaya['readPvDict']:
+                        updated_readings_from_jaya['readPvDict'].update({pv : f"{float(updated_readings_from_jaya['readPvDict'][pv]):.2f}"})
                     return render_template("/public/monitor_dash.html", data=updated_readings_from_jaya, dashboard_name=dashboard, rate=refresh)
                 return render_template("/public/monitor_dash.html")
         return redirect('/error')
