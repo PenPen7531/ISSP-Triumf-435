@@ -212,7 +212,7 @@ def dashboard(dashboard):
                 with open(dash_file, "r") as file_read:
                     json_for_dash = json.load(file_read)
                 return render_template("public/edit_dash.html", data=json_for_dash, dashboard_name=dashboard)
-        return redirect('/error')
+       
     except:
         return redirect('/error')
 
