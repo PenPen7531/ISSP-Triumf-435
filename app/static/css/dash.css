@@ -1,11 +1,16 @@
+:root{
+    --main-background: #303030;
+    --nav-bar: #444444;
+}
+
 *{
-    background-color: #202A44;
-    color: white;
+    background-color: var(--main-background);
+    color: black;
 }
 
 .flex-mid {
-    margin-top: 20vh;
-    padding-top: 4%;
+    margin-top: 0;
+    padding-top: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,11 +37,20 @@
     color: black;
 }
 
+
+
+a{
+    background-color: transparent;
+    list-style: none;
+}
+
+
 #plus{
     text-align: center;
     border: none;
     background-color: #287DCC;
     justify-self: center;
+    color: white;
     border-radius: 20px;
     padding: 20px;
     border: 2px black solid;
@@ -50,7 +64,7 @@
     color: black;
 }
 a{
-    background-color: white;
+
     list-style-type: none;
     color: black;
 }
@@ -83,6 +97,7 @@ a{
 }
 
 #title{
+    color: white;
     font-size: 3vw;
     margin-bottom: 50px;
 }
@@ -109,14 +124,48 @@ form{
     align-items: center;
 }
 .button{
+    font-size: 1.5em;
     margin: 30px;
     background-color: #287DCC;
-    padding: 20px;
+    color: white;
+    padding: 10px;
     border-radius: 30px;
     align-self: center;
     justify-self: center;
     width: 200px;
     border: 2px solid black;
+}
+
+#logo{
+    margin: 25px;
+    width: 20vw;
+    background-color: transparent;
+    
+}
+
+#left-flex{
+
+    align-self: flex-end;
+}
+
+.top-header{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--nav-bar);
+    width: 100%;
+}
+
+#right-flex{
+    
+    text-align: right;
+    margin-left: auto;
+    padding: 5px 20px;
+    margin-right: 20px;
+    background-color: #D9D9D9;
+    align-self: center;
+    text-decoration: None;
+    color: black;
+    border-radius: 30px;
 }
 
 @media screen and (max-width: 600px) {
@@ -130,8 +179,11 @@ form{
         width: 80vw;
         margin: 0;
     }
-    .flex-mid{
-        margin-top: 20vh;
+   
+    #logo{
+        margin: 25px;
+        width: 80vw ;
+        background-color: var(--nav-bar);
     }
 }
 
