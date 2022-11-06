@@ -7,15 +7,12 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dash-home.css') }}">
     <script>
-        function displayMenu(){
-            let nav = document.getElementById('nav-elem');
-            if (nav.style.display = 'none'){
-                nav.style.display="inline";
-            }
-            else{
-                nav.style.display="none";
-            }
-        }
+        let img = document.getElementById("img-trans");
+        let nav = document.getElementById('nav-elem');
+        nav.addEventListener('click', function(){
+            let 
+        })
+            
     </script>
 </head>
 <body>
@@ -27,7 +24,7 @@
 
         </div>
         
-        <img onclick="displayMenu()" src="../../static/img/user-512.png" class="right-flex" id="img-trans" />
+        <img onclick="displayMenu()" src="../../static/img/toppng.com-menu-icon-png-3-lines-1024x1024.png" class="right-flex" id="img-trans" />
     </div>
     <!-- <div class="button">
         <div class="flex-right"><a href="/" id="logout">Logout</a></div>
