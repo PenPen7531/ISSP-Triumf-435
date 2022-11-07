@@ -4,6 +4,12 @@
     --second-row-cl: #444444;
     --button-cl: #D9D9D9;
 }
+#burger{
+    display: none;
+    width: 50px;
+    background-color: var(--button-cl);
+    border-radius: 50px;
+}
 
 #button{
     background-color: var(--button-cl);
@@ -187,13 +193,22 @@ html {
     border-radius: 10px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
     #input-btn{
         font-size: 22px;    
         width: auto;
     }
+    #burger{
+        display: inline;
+    }
 
-  
+    #delete, #rename, #dash-change, #monitor{
+        display: none;
+    }
+
+    #logo{
+        width: 25vw
+    }
 
     #dash-change{
         width: 20vw;
@@ -201,7 +216,7 @@ html {
    
     #logo{
         margin: 25px;
-        width: 80vw ;
+        width: 40vw ;
 
     }
 }
