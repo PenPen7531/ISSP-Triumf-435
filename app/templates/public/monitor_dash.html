@@ -5,9 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/dash-home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dash-monitor.css') }}">
     <script src="../../static/js/dash.js"></script>
     <meta http-equiv="refresh" content="{{ rate }}" id="refresh-rate"/>
+    <script>
+        window.onload = function() {
+            document.getElementById('burger_div').addEventListener("click", openNav);
+        function openNav(){
+            let mobileNav = document.getElementById("nav-mobile");
+            if (mobileNav.style.display != "none"){
+                mobileNav.style.display = "none";
+                console.log("noe");
+            }
+            else{
+                mobileNav.style.display = "flex";
+                console.log('click');
+            }};
+        }
+        
+
+    </script>
 </head>
 <body>
     <div class="button">
@@ -15,8 +32,14 @@
         
         <div class="flex-right button" id="f-right"><a href="/dashboard" id="monitor">Change Dashboard</a></div>
         <div class="flex-right button" ><a href="/" id="logout">Logout</a></div>
+        <div class="flex-right" id="burger_div" ><img src="../../static/img/burger-icon.png" id="burger"/></div>
     </div>
     <div class="flex-mid">
+        <div id="nav-mobile" style="display: none;">
+            <div><a href="/dashboard">Change Dashboard</a></div>
+            <div><a href="/" >Logout</a></div>
+        </div>
+    
         <h1 id="title">{{ dashboard_name }}'s Dashboard</h1>
         <div class="date">Updated: <span id="date"></span></div>
         <table id="table-data" class="table table-striped styled-table" border=1 frame=void rules=rows>
