@@ -162,7 +162,7 @@ def monitor(dashboard, refresh):
                         if isinstance(updated_readings_from_jaya['readPvDict'][pv], str) \
                                 and not '[' in updated_readings_from_jaya['readPvDict'][pv] \
                                 and not "\"" in updated_readings_from_jaya['readPvDict'][pv]:
-                            updated_readings_from_jaya['readPvDict'].update({pv : f"{float(updated_readings_from_jaya['readPvDict'][pv]):.2f}"})
+                            updated_readings_from_jaya['readPvDict'].update({pv : f"{float(updated_readings_from_jaya['readPvDict'][pv]):.4f}"})
                     return render_template("/public/monitor_dash.html", data=updated_readings_from_jaya, dashboard_name=dashboard, rate=refresh)
                 return render_template("/public/monitor_dash.html")
         return redirect('/error')

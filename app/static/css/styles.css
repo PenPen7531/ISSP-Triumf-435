@@ -3,11 +3,17 @@ a{
     list-style: none;
 }
 
+:root{
+    --main-bc: #303030;
+    --header-bc: #444444;
+    --second-row-cl: #444444
+}
+
 #logo{
     margin: 25px;
-
+    background-color: var(--header-bc);
     width: 20vw;
-    background-color:white;
+    
 }
 html {
     margin: 0;
@@ -26,7 +32,7 @@ html {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    background-color: white;
+    background-color: var(--header-bc);
   }
 
 
@@ -48,16 +54,15 @@ html {
  
 
 .top-header{
-    background-color: white;
+    background-color: var(--header-bc);
 }
 
 
 
 
 *{
-    background-color: #202A44;
-    
-}
+    background-color: var(--main-bc)}
+
 
 .flex-mid {
     padding-top: 4%;
@@ -100,6 +105,7 @@ html {
     font-size: 1.5vw;
     background-color: #287DCC;
     border-radius: 10px;
+    color: white;
     width: 10vw;
 }
 
@@ -144,7 +150,7 @@ html {
     #logo{
         margin: 25px;
         width: 80vw ;
-        background-color:white;
+      
     }
     body {
         font-size: 13px;
