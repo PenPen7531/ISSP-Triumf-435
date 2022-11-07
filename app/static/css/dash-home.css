@@ -1,11 +1,22 @@
+:root{
+    --main-bc: #303030;
+    --header-bc: #444444;
+    --second-row-cl: #444444
+}
+
 table{
     table-layout: fixed;
     margin: 10px;
     width: 90%;
-    background-color: grey;
+    background-color: var(--main-bc);
+    color: white;
 }   
 body{
     margin: 0;
+}
+
+#f-right{
+    margin-left: auto;
 }
 
 #logo{
@@ -14,10 +25,14 @@ body{
     margin-right: auto;
 
     width: 20vw;
-    background-color:white;
+    background-color: var(--header-bc);
 }
 *{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#reading{
+    color: #3498DB;
 }
 thead{
     border: solid 3px black;
@@ -62,7 +77,7 @@ th, td{
     
 }
 html {
-    background-color: #202A44;
+    background-color: var(--main-bc);
     padding: 0;
     
 }
@@ -144,7 +159,7 @@ html {
 }
 
 .button{
-    background-color: white;
+    background-color: var(--header-bc);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
