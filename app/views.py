@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, request, redirect, session
+from flask import render_template, request, redirect, session, flash
 import datetime
 import requests
 import json
@@ -98,6 +98,9 @@ def rename_dash(dname):
         if request.method == 'POST':
             dash_file = os.path.join("dashboard_files", f"{dname}.json")
             rename = request.form.get('rename')
+            if rename == '':
+                flash('Your new dashboard name cannot be empty.')
+                return redirect (f'/dashboard/rename/{dname}')
             new_name = os.path.join("dashboard_files", f'{rename}.json')
             if os.path.exists(dash_file):
                 os.rename(dash_file, new_name)
@@ -241,6 +244,9 @@ def create():
                 return render_template("/public/create.html")
             if request.method == "POST":
                 name = request.form.get("dash-name")
+                if name == '':
+                    flash('Your new dashboard name cannot be empty.')
+                    return redirect('/create')
                 dash_file = os.path.join("dashboard_files", f"{name}.json")
                 now = datetime.datetime.now()
                 template_for_dash_files = {"readPvDict": {}, "timestamp": now.strftime("%Y-%m-%d %H:%M:%S")}

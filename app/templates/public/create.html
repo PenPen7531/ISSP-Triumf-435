@@ -11,6 +11,13 @@
 <body>
     <div class="flex-mid">
         <h1>Dashboard Creation</h1>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+            <p class="flashes">{{ message }}</p>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
         <form method="POST" id="create-dash">
             <input type="text" name="dash-name" placeholder="Dashboard Name" id="dash-input">
             <div class="login-btns">
