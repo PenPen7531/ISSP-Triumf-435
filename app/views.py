@@ -94,10 +94,12 @@ def rename_dash(dname):
     """
     if session['user']:
         if request.method == 'GET':
-            return render_template('/public/rename.html')
+            return render_template('/public/rename.html', dname=dname)
         if request.method == 'POST':
             dash_file = os.path.join("dashboard_files", f"{dname}.json")
             rename = request.form.get('rename')
+            if rename=="":
+                return render_template("/public/rename.html", error=True, dname = dname)
             new_name = os.path.join("dashboard_files", f'{rename}.json')
             if os.path.exists(dash_file):
                 os.rename(dash_file, new_name)
@@ -241,6 +243,8 @@ def create():
                 return render_template("/public/create.html")
             if request.method == "POST":
                 name = request.form.get("dash-name")
+                if name == "":
+                    return render_template("/public/create.html", error=True)
                 dash_file = os.path.join("dashboard_files", f"{name}.json")
                 now = datetime.datetime.now()
                 template_for_dash_files = {"readPvDict": {}, "timestamp": now.strftime("%Y-%m-%d %H:%M:%S")}

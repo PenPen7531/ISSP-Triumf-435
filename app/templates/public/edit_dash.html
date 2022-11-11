@@ -27,22 +27,24 @@
 <body>
     <div class="button">
         <a href="https://www.triumf.ca/"><img src="../../static/img/triumf-trans-white.png" id="logo"/></a>
-        
-        <div class="flex-right"><a href="/dashboard" id="dash-change">Change Dashboard</a></div>
-        <div class="flex-right"><a href="/dashboard/delete/{{dashboard_name}}" id="delete" onclick="return confirm('Are you sure you want to delete this dashboard?')">Delete Dashboard</a></div>
-        <div class="flex-right"><a href="/dashboard/rename/{{dashboard_name}}" id="rename">Rename Dashboard</a></div>
+        <div class="flex-right"><a href="https://beta.hla.triumf.ca/jaya-isac/all" id="list-pv">Show All PVs</a></div>
+        <div class="flex-right"><a href="/dashboard" id="dash-change">Change Dash</a></div>
+        <div class="flex-right"><a href="/dashboard/delete/{{dashboard_name}}" id="delete" onclick="return confirm('Are you sure you want to delete this dashboard?')">Delete Dash</a></div>
+        <div class="flex-right"><a href="/dashboard/rename/{{dashboard_name}}" id="rename">Rename Dash</a></div>
         <div class="flex-right"><a href="/monitor/{{dashboard_name}}" id="monitor">Monitor PVs</a></div>
         <div class="flex-right"><a href="/" id="logout">Logout</a></div>
         <div class="flex-right" id="burger_div"><img id="burger" src="../../static/img/burger-icon.png"/></div>
     </div>
+    <div id="nav-mobile" style="display: none;">
+        <a href="https://beta.hla.triumf.ca/jaya-isac/all">Show All PVs</a>
+        <a href="/dashboard">Change Dash</a>
+        <a href="/dashboard/delete/{{dashboard_name}}"  onclick="return confirm('Are you sure you want to delete this dashboard?')">Delete Dash</a>
+        <a href="/dashboard/rename/{{dashboard_name}}" >Rename Dash</a>
+        <a href="/monitor/{{dashboard_name}}" >Monitor PVs</a>
+        <a href="/" >Logout</a>
+    </div>
     <div class="flex-mid">
-        <div id="nav-mobile" style="display: none;">
-            <a href="/dashboard">Change Dashboard</a>
-            <a href="/dashboard/delete/{{dashboard_name}}"  onclick="return confirm('Are you sure you want to delete this dashboard?')">Delete Dashboard</a>
-            <a href="/dashboard/rename/{{dashboard_name}}" >Rename Dashboard</a>
-            <a href="/monitor/{{dashboard_name}}" >Monitor PVs</a>
-            <a href="/" >Logout</a>
-            </div>
+        
         <h1 id="title">{{ dashboard_name }}'s Dashboard</h1>
         <table id="table-data" class="table table-striped styled-table" border=1 frame=void rules=rows>
             <thead class="thead-dark">

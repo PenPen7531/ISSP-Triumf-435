@@ -35,13 +35,19 @@
         <div class="flex-right" id="burger_div" ><img src="../../static/img/burger-icon.png" id="burger"/></div>
     </div>
     <div class="flex-mid">
+
         <div id="nav-mobile" style="display: none;">
-            <div><a href="/dashboard">Change Dashboard</a></div>
-            <div><a href="/" >Logout</a></div>
+            <a href="/dashboard">Change Dashboard</a>
+            <a href="/" >Logout</a>
         </div>
     
         <h1 id="title">{{ dashboard_name }}'s Dashboard</h1>
         <div class="date">Updated: <span id="date"></span></div>
+        <div class="login-btns">
+            
+            <a href="/view/{{dashboard_name}}" id="edit-ref">Edit Dashboard</a>
+            
+        </div>
         <table id="table-data" class="table table-striped styled-table" border=1 frame=void rules=rows>
             <thead class="thead-dark">
                 <th>Process Variable</th>
@@ -58,11 +64,7 @@
             {% endif %}
             </tbody>
         </table>
-        <div class="login-btns">
-            
-            <a href="/view/{{dashboard_name}}" id="edit-ref">Edit Dashboard</a>
-            
-        </div>
+        
         
     </div>
 </body>

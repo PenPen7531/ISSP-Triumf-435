@@ -9,23 +9,31 @@
     width: 50px;
     background-color: var(--button-cl);
     border-radius: 50px;
+    margin-right: 25px;
 }
 
 
 #nav-mobile{
     display: none;
     justify-content: space-between;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    
+    width: 100%;
+    flex: 1;
+    background-color: #696969;
 }
 
 #nav-mobile > * {
-    font-size: 3vw;
+    margin: 0;
+    width: 100%;
+    padding: 10px 5px;
+    font-size: 32px;
     color: white;
     text-decoration: none;
     text-align: center;
 }
+
+
 
 #button{
     background-color: var(--button-cl);
@@ -117,6 +125,7 @@ html {
 }
 .flex-mid{
     display: flex;
+    margin: 20px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -128,7 +137,12 @@ html {
     text-align: center;
 }
 
-#dash-change, #delete, #rename, #monitor, #logout{
+#nav-mobile > a:hover{
+    
+    background-color: #444444;
+}
+
+#dash-change, #delete, #rename, #monitor, #logout, #list-pv{
     text-decoration: None;
     color: white;
     background-color: #787276;
@@ -140,7 +154,7 @@ html {
    }
 
 
-   #dash-change:hover, #delete:hover, #rename:hover, #monitor:hover, #logout:hover{
+   #dash-change:hover, #delete:hover, #rename:hover, #monitor:hover, #logout:hover, #list-pv{
     background-color: #696969;
    }   
 
@@ -210,15 +224,34 @@ html {
 }
 
 @media screen and (max-width: 1000px) {
+    
     #input-btn{
-        font-size: 22px;    
-        width: auto;
+        font-size: 32px;    
+
+        width: 90%;
     }
+
+    #post-input{
+        width: 90%;
+        font-size: 32px;
+        text-align: center;
+
+    }
+
+    .login-btns{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    #post-form{
+        width: 100%;
+    }
+
     #burger{
         display: inline;
     }
 
-    #delete, #rename, #dash-change, #monitor{
+    #delete, #rename, #dash-change, #monitor, #list-pv{
         display: none;
     }
 
@@ -238,8 +271,12 @@ html {
 }
 
 @media screen and (max-width: 500px) {
-    
-
+    #nav-mobile > *{
+        font-size: 24px;
+    }
+    .flex-mid{
+        margin: 10px;   
+    }
     #logout{
 
         font-size: 14px;
@@ -254,9 +291,5 @@ html {
         font-size: 14px;
     }
 
-    #post-input{
-        font-size: 20px;
-        width: 50vw;
-        text-align: center;
-    }
+    
 }
