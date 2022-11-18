@@ -16,7 +16,6 @@
         <form method="POST">
         <select name="dashboard" id="myDropdown">
         
-            <option class="link" value="Hidden" selected disabled hidden>Dashboards</option>
             {% if dashes %}
             {% for dash in dashes %}
             <option class="link" value="{{ dash }}">{{ dash }}</option>

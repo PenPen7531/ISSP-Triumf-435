@@ -5,17 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/dash-home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dash-monitor.css') }}">
     <script src="../../static/js/dash.js"></script>
     <meta http-equiv="refresh" content="{{ rate }}" id="refresh-rate"/>
+    <script>
+        window.onload = function() {
+            document.getElementById('burger_div').addEventListener("click", openNav);
+        function openNav(){
+            let mobileNav = document.getElementById("nav-mobile");
+            if (mobileNav.style.display != "none"){
+                mobileNav.style.display = "none";
+                console.log("noe");
+            }
+            else{
+                mobileNav.style.display = "flex";
+                console.log('click');
+            }};
+        }
+        
+
+    </script>
 </head>
 <body>
     <div class="button">
-        <div class="flex-right"><a href="/" id="logout">Logout</a></div>
-        <div class="flex-right"><a href="/dashboard" id="monitor">Change Dashboard</a></div>
+        <a href="https://www.triumf.ca/"><img src="../../static/img/triumf-trans-white.png" id="logo"/></a>
+        
+        <div class="flex-right button" id="f-right"><a href="/dashboard" id="monitor">Change Dashboard</a></div>
+        <div class="flex-right button" ><a href="/" id="logout">Logout</a></div>
+        <div class="flex-right" id="burger_div" ><img src="../../static/img/burger-icon.png" id="burger"/></div>
     </div>
     <div class="flex-mid">
+
+        <div id="nav-mobile" style="display: none;">
+            <a href="/dashboard">Change Dashboard</a>
+            <a href="/" >Logout</a>
+        </div>
+    
         <h1 id="title">{{ dashboard_name }}'s Dashboard</h1>
+        <div class="date">Updated: <span id="date"></span></div>
+        <div class="login-btns">
+            
+            <a href="/view/{{dashboard_name}}" id="edit-ref">Edit Dashboard</a>
+            
+        </div>
         <table id="table-data" class="table table-striped styled-table" border=1 frame=void rules=rows>
             <thead class="thead-dark">
                 <th>Process Variable</th>
@@ -24,20 +56,16 @@
             <tbody>
             {% if data %}
             {% for pv in data["readPvDict"] %}
-            <tr>
+            <tr class="data-row">
                 <td class="elem">{{ pv }}</td>
-                <td class="elem">{{ data["readPvDict"][pv] }}</td>
+                <td class="elem" id="reading">{{ data["readPvDict"][pv] }}</td>
             </tr>
             {% endfor %}
             {% endif %}
             </tbody>
         </table>
-        <div class="login-btns">
-            <button type="button" id="input-btn">
-                <a href="/view/{{dashboard_name}}" id="edit-ref">Edit Dashboard</a>
-            </button>
-        </div>
-        <div class="date">Updated: <span id="date"></span></div>
+        
+        
     </div>
 </body>
 <script>

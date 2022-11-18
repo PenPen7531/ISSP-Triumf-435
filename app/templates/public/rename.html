@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="flex-mid">
-        <h1>Rename Dashboard</h1>
+        <h1>Rename {{dname}}'s Dashboard</h1>
         {% with messages = get_flashed_messages() %}
           {% if messages %}
             {% for message in messages %}
@@ -24,7 +24,6 @@
                 <input type = "submit" value = "Rename Dashboard" id="input-btn"/>
             </div>
         </form>
-        <!-- <button onclick="addPV()">Create Dashboard</button> -->
     </div>
 </body>
 </html>
