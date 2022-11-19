@@ -20,6 +20,10 @@ h1{
     justify-content: center;
 }
 
+*{
+    font-family: monospace;
+}
+
 #create-dash > * {
     margin: 10px;
 }
