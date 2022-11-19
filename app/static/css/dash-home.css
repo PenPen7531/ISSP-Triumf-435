@@ -64,7 +64,7 @@ body{
     background-color: var(--header-bc);
 }
 *{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: monospace;
 }
 
 #reading{

@@ -140,7 +140,7 @@ def home():
     except:
         return redirect('/error')
 
-@app.route("/monitor/<dashboard>/<refresh>", methods=["GET", "POST"])
+@app.route("/monitor/<dashboard>/<refresh>")
 @app.route("/monitor/<dashboard>", defaults={'refresh': 5}, methods=["GET", "POST"])
 def monitor(dashboard, refresh):
     """
