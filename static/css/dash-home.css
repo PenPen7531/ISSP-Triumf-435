@@ -1,0 +1,295 @@
+:root{
+    --main-bc: #303030;
+    --header-bc: #444444;
+    --second-row-cl: #444444;
+    --button-cl: #D9D9D9;
+}
+#burger{
+    display: none;
+    width: 50px;
+    background-color: var(--button-cl);
+    border-radius: 50px;
+    margin-right: 25px;
+}
+
+
+#nav-mobile{
+    display: none;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    background-color: #696969;
+}
+
+#nav-mobile > * {
+    margin: 0;
+    width: 100%;
+    padding: 10px 5px;
+    font-size: 32px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+
+#button{
+    background-color: var(--button-cl);
+    margin: 20px;
+}
+
+table{
+    table-layout: fixed;
+    margin: 10px;
+    width: 90%;
+    background-color: var(--main-bc);
+    color: white;
+}   
+body{
+    margin: 0;
+}
+
+#f-right{
+    margin-left: auto;
+}
+
+#logo{
+    margin: 25px;
+    justify-self: flex-start;
+    margin-right: auto;
+
+    width: 20vw;
+    background-color: var(--header-bc);
+}
+*{
+    font-family: monospace;
+}
+
+#reading{
+    color: #3498DB;
+}
+thead{
+    border: solid 3px black;
+}
+
+tr{
+    border-bottom: solid 1px black;
+   
+}
+
+.elem{
+    word-wrap: break-word;
+}
+
+.data-row:nth-child(odd){
+    background-color: #444;
+    border-bottom: 1px solid black;
+}
+
+#rmv-bt{
+    color: #3498DB;
+}
+
+th, td{
+    text-align: center;
+    
+    padding: 20px;
+    width: 20vw;
+    height: 25px;
+}
+
+.delete-btn{
+    margin: 2px;
+    padding: 0;
+    color: white;
+    
+}
+
+.delete-btn > a {
+    text-decoration: None;
+    color: black;
+    
+}
+
+.delete-btn > a:hover {
+    text-decoration: None;
+    color:  #202A44;
+    
+}
+html {
+    background-color: var(--main-bc);
+    padding: 0;
+    
+}
+.flex-mid{
+    display: flex;
+    margin: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#title{
+    color: white;
+    font-size: 3em;
+    text-align: center;
+}
+
+#nav-mobile > a:hover{
+    
+    background-color: #444444;
+}
+
+#dash-change, #delete, #rename, #monitor, #logout, #list-pv{
+    text-decoration: None;
+    color: white;
+    background-color: #787276;
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 30px;
+    
+   }
+
+
+   #dash-change:hover, #delete:hover, #rename:hover, #monitor:hover, #logout:hover, #list-pv{
+    background-color: #696969;
+   }   
+
+
+.flex-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.date{
+    color: black;
+    margin: 20px;
+    background-color: darkgray;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#input-btn{
+    font-size: 2vw;
+    background-color: #287DCC;
+    border-radius: 10px;
+    width: 10vw;
+    color: white;
+    border: solid 2px black;
+}
+
+#edit-ref {
+    color: white;
+    font-size: 1.25vw;
+    text-decoration: none;
+    background-color: #287DCC;
+    padding: 20px;
+    border-radius: 30px;
+    border: black 3px solid;
+}
+
+#input-btn:hover{
+    
+    background-color: grey;
+
+}
+
+.button{
+    background-color: var(--header-bc);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   align-items: center;
+}
+
+
+#post-form{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#post-input{
+    padding: 5px;
+    background-color: white;
+    border: 1px solid black;
+    font-size: 1.75vw;
+    width: 30vw;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    
+    #input-btn{
+        font-size: 32px;    
+
+        width: 90%;
+    }
+
+    #post-input{
+        width: 90%;
+        font-size: 32px;
+        text-align: center;
+
+    }
+
+    .login-btns{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    #post-form{
+        width: 100%;
+    }
+
+    #burger{
+        display: inline;
+    }
+
+    #delete, #rename, #dash-change, #monitor, #list-pv{
+        display: none;
+    }
+
+    #logo{
+        width: 25vw
+    }
+
+    #dash-change{
+        width: 20vw;
+    }
+   
+    #logo{
+        margin: 25px;
+        width: 40vw ;
+
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #nav-mobile > *{
+        font-size: 24px;
+    }
+    .flex-mid{
+        margin: 10px;   
+    }
+    #logout{
+
+        font-size: 14px;
+    }
+
+    #dash-change{
+        width: 20vw;
+        font-size: 14px;
+    }
+    #delete, #monitor, #rename{
+        width: 20vw;
+        font-size: 14px;
+    }
+
+    
+}

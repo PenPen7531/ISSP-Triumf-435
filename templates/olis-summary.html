@@ -1,0 +1,58 @@
+{% extends "layout_header.html" %}
+
+{% block heading -%}
+{{ super() }}
+{%- endblock %}
+
+{% block content -%}
+<br/>
+
+<div class="container" id="olis_summary">
+</div>
+<br/>
+
+
+
+<div class="container">
+<div class="row" id="last_update"></div>
+<div class="row" id="status_div"></div>
+</div>
+
+{% endblock %} 
+
+{% block footer %} 
+{{ super() }}
+
+<script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/HLA.js') }}"></script> 
+
+<script>
+
+  function get_olis_html() {
+    var myurl = $SCRIPT_ROOT + '/olis-data';
+    return $.ajax({
+          url: myurl,
+          type: "GET",
+          dataType: "html",
+          success: function(response) {
+            $('#olis_summary').html(response);
+            console.log(response)
+          },
+          error: function(xhr, status, error) {
+              console.log('Unknown error in get_olis_html()');
+          },
+      });   
+  }
+
+  $(document).ready(function () {
+    setTimeout(function() {
+      get_olis_html();
+    }, 1000);
+
+    window.setInterval(function() {
+      get_olis_html();
+    }, 5000);
+
+  })
+
+</script>
+{% endblock %}

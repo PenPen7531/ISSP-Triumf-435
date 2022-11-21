@@ -1,0 +1,144 @@
+*{
+    background-color: #303030;
+    color: white;
+    font-family: monospace;
+}
+
+.flex-mid {
+    margin-top: 20vh;
+    padding-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.transparent{
+    background-color: transparent;
+}
+
+#myDropdown{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    background-color: white;
+    width: 400px;
+    height: 50px;
+    font-size: 1.5em;
+    border-radius: 20px;
+    padding: 5px;
+    border: 1px solid black;
+    color: black;
+}
+
+#plus{
+    text-align: center;
+    border: none;
+    background-color: #287DCC;
+    justify-self: center;
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px black solid;
+    text-align: center;
+}
+
+.dropdown > * {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    color: black;
+}
+a{
+    background-color: white;
+    list-style-type: none;
+    color: black;
+}
+.dropbtn{
+    padding: 20px;
+    border: none;
+    margin: 0;
+
+    border-bottom: solid blue 1px;
+}
+.dropdown{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px black;
+    padding: 0px;
+    border-radius: 30px;
+    background-color: white;
+    font-size: 2vw;
+    width: 50vw;
+}
+
+.link{
+    text-decoration: None;
+
+    align-self: center;
+    background-color: transparent;
+    color: grey;
+    
+
+}
+
+#title{
+    font-size: 3vw;
+    margin-bottom: 50px;
+}
+
+.arrow{
+    height: 30px;
+    width: 30px;
+    justify-self: end;
+    background-color: transparent;
+    align-self: flex-end;
+}
+
+#arrow-up{
+    display: None;
+}
+
+#arrow-down{
+    display: inline;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.button{
+    margin: 30px;
+    background-color: #287DCC;
+    padding: 20px;
+    border-radius: 30px;
+    align-self: center;
+    justify-self: center;
+    width: 200px;
+    border: 2px solid black;
+}
+
+@media screen and (max-width: 600px) {
+    #title{
+        
+        font-size: 35px;
+        text-align: center;
+    }
+
+    #myDropdown{
+        width: 80vw;
+        margin: 0;
+    }
+    .flex-mid{
+        margin-top: 20vh;
+    }
+}
+
+@media screen and (max-height: 500px) {
+   
+    .flex-mid{
+        margin-top: 10vh;
+    }
+}

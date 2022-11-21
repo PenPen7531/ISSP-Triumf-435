@@ -1,0 +1,124 @@
+{% extends "layout_header.html" %}
+
+{% block heading -%}
+{{ super() }}
+{%- endblock %}
+
+{% block content -%}
+<br/>
+<div class="row">
+{% if tableHeaders %}
+{% for item in tableHeaders %}
+<div class="col-2">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="text-center">{{ item["info"] }}</th>
+        {% if 'pv' in item.keys() %}
+        <th class="text-center text-info" id="{{ item['pv'] }}">---</th>
+        {% else %}
+        <th class="text-center">{{ item['text'] }}</th>
+        {% endif %}
+      </tr>
+    </thead>
+  </table>
+</div>
+{% endfor %}
+{% endif %}
+</div>
+<br/>
+
+<div class="row">
+{% for item in tableArray %}
+<div class="col">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="3" class="text-center">{{ item["info"] }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for pvDict in item['table'] %}
+    <tr>
+      {% if 'pv' in pvDict.keys() %}
+      <td>{{pvDict['info']}}</td>
+      <td id="{{ pvDict['pv'] }}" class="text-info">---</td>
+      <td id="{{ pvDict['pv'] }}_unit">---</td>
+      {% else %}
+      <td colspan="3" class="text-center">{{pvDict['text']}}</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endfor %}
+</div>
+
+<div class="container">
+<div class="row" id="last_update"></div>
+<div class="row" id="status_div"></div>
+</div>
+
+{% endblock %} 
+
+{% block footer %} 
+{{ super() }}
+
+<script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/HLA.js') }}"></script> 
+
+<script>
+
+  var pvs = {{ PVs | tojson | safe }};
+
+  function roundNumber(num) {
+    if(!(num).includes("e")) {
+      //return Math.round(parseFloat(num) * 1000) / 1000
+      return parseFloat(num).toPrecision(3);
+    } 
+    else {
+      var array = num.split("e")
+      var digits = parseFloat(array[0]).toPrecision(3);
+      return digits+"e"+array[1]
+    }
+  }
+
+  function update_pvs(data) {
+    //console.log(data);
+    for (var i=0; i<pvs.length; i++) {
+      var pv = pvs[i];
+      var value = data['readPvDict'][pv];
+
+      var floated  = parseFloat(value);
+      if (! isNaN(floated)) {
+        value = roundNumber(value)
+      }
+      if ('readUnitsDict' in data) {
+        var unit = data['readUnitsDict'][pv];
+        $(document.getElementById(pv+'_unit')).html(unit);
+      }
+      $(document.getElementById(pv)).html(value);
+    }
+
+    $('#last_update').html("Last updated: "+data['timestamp']);
+  }
+
+  function error_callback(error) {
+      $('#status_div').html(error);
+  }
+
+  $(document).ready(function () {
+    setTimeout(function() {
+      var get_data = {'readPvList': pvs, 'readUnits': false};
+      jaya_get(get_data, update_pvs, error_callback);
+    }, 1000);
+
+    window.setInterval(function() {
+      var get_data = {'readPvList': pvs, 'readUnits': true};
+      jaya_get(get_data, update_pvs, error_callback);
+    }, 5000);
+
+  })
+
+</script>
+{% endblock %}

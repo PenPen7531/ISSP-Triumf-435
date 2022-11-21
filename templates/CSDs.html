@@ -1,0 +1,28 @@
+{% extends "layout_header.html" %}
+
+{% block heading -%}
+{{ super() }}
+{%- endblock %}
+
+{% block content -%}
+<br/>
+<div class="container">
+	Content to be added.
+</div>
+
+{% endblock %} 
+
+{% block footer %} 
+{{ super() }}
+
+<script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/HLA.js') }}"></script> 
+
+<script>
+
+	// Javscript function calls etc. 
+	var message = testFunction();
+	console.log(message);
+	
+</script>
+
+{% endblock %}

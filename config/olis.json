@@ -1,0 +1,54 @@
+{"headers":
+	[
+		{"info":"On-line Status","text":"tbd"},
+		{"info":"Beam path","pv":"ISAC:IOSBEAMPATH"},
+		{"info":"A/Q","pv":"IOS:MB:MASSOVERQ2"},
+		{"info":"Field","pv":"IOS:HALLMB:RDFIELD"},
+		{"info":"Beam Type","pv":"IOS:BEAMTYPE"},
+		{"info":"Schedule","text":"tbd"}
+	],
+
+ "tabledata":[
+	{"tag":"mws",
+	"info":"Microwave Ion Source",
+	"table":
+		[
+			{"pv":"IOS:BIAS:VOL", "info":"MWIS BIAS"},
+			{"pv":"IOS:IG1:RDVAC", "info":"Vacuum (IOS:IG1)"},
+			{"pv":"IOS:EE:VOL", "info":"Extr. Electrode"},
+			{"pv":"IOS:MB:MASSOVERQ2", "info":"Beam"},
+			{"pv":"IOS:RFS:RDFP", "info":"Forward Power"},
+			{"pv":"IOS:RFS:RDRP", "info":"Reverse Power"}
+		]
+	},
+	{"tag":"mcis",
+	"info":"Multi-Charge Ion Source",
+	"table":
+		[
+			{"pv":"MCIS:BIAS0:VOL", "info":"MCIS BIAS"},
+			{"pv":"MCIS:IG1:RDVAC", "info":"Vacuum (MCIS:IG1)"},
+			{"pv":"MCIS:EL1:VOL", "info":"Einzel Lens"},
+			{"pv":"IOS:MB:MASSOVERQ2", "info":"Beam"},
+			{"text":"TWT Amplifier (14 GHz, 200W)"},
+			{"pv":"MCIS:RFS1:FREQ", "info":"Frequency"},
+			{"pv":"MCIS:RFS1:AMPL", "info":"Amplitude"},
+			{"text":"Solid State Amplifier (14 GHz, 50W)"},
+			{"pv":"MCIS:RFS2:FREQ", "info":"Frequency"},
+			{"pv":"MCIS:RFS2:AMPL", "info":"Amplitude"},
+			{"pv":"ALGA:RDGAINA", "info":"Gain"}
+		]
+	},
+	{"tag":"sis",
+	"info":"Surface Ion Source",
+	"table":
+		[
+			{"pv":"IOS:BIAS:VOL", "info":"SIS BIAS"},
+			{"pv":"IOS:IG2:RDVAC", "info":"Vacuum (IOS:IG2)"},
+			{"pv":"IOS:EESS:VOL", "info":"Extr. Electrode"},
+			{"pv":"IOS:MB:MASSOVERQ2", "info":"Beam"},
+			{"pv":"IOS:IZR:POWER", "info":"Ionizer Power"},
+			{"pv":"IOS:OVEN:POWER", "info":"Oven Power"}
+		]
+	}
+	]
+}

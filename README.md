@@ -1,19 +1,63 @@
-# ISSP-Triumf-435 README
-## Authors
-    Luke Birol
-    Jake Martin
-    Jeffrey Wang
-
-## Introduction
-
-### Who we are
-We are a project group from BCIT that has been assigned to complete a project. This project was given to us in September of 2022. The project was to create a webpage that will display partical accelerator data in real-time. 
-
-### What is the purpose of the webpage
-The purpose of creating this webpage was to allow scientists, data analysis, or anyone working at TRIUMF to access real-time data to quick and easily get updates. This webpage will be a read-only webpage, cutting the risk of anyone accessing or having control of any machine. This will also reduce the troubles of accessing EPICS through a VPN and using MFA. With this webpage, we are able to quickly read and see the status of multiple devices. 
-
-### What will this documentation tell you
-This documentation will contain information that will help anyone to modify this webpage. We will go through the basics of how this webpage was created, what languages were used, some resources that may help others to understand the code better. We will explain how multiple components and files connect and interact with each other to display data. 
+# high-level-apps (main page)
 
 
 
+## Installation notes for Developers
+
+```
+cd /my/devel/dir/
+git clone git@gitlab.triumf.ca:hla/high-level-apps.git
+cd high-level-apps
+python3 -m venv venv-py3
+source venv-py3/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+python run.py
+```
+
+Following these steps the app should be visible at http://localhost:4994
+
+
+---
+### Environment Variables
+
+This app requires the following environment variables:
+
+export APPCODEDIR=$MYAPPSDIR/high-level-apps/
+
+
+These environment variables can be defined in your `~/.bashrc` file and then applied in your terminal by running command `source ~/.bashrc`.
+
+Sample `~/.bashrc`:
+
+```
+export MYAPPSDIR=/home/cbarquest/workspace
+export APPDATADIR=$MYAPPSDIR/data/
+```
+
+---
+### Virtual environments
+
+To set up a new python 3 virtual environment:
+
+```
+python3 -m venv venv-py3
+```
+
+To activate virtual environment:
+
+```
+source venv-py3/bin/activate
+```
+
+Once activated, note that in your shell the name will appear like: `(venv-py3) username@hostname:`. To upgrade pip and install packages within your venv from a requirements.txt file:
+```
+pip3 install --upgrade pip
+pip3 install -r requirements.txt
+```
+
+To deactivate the virtual environment, simply:
+
+```
+deactivate
+```

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rename Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/create.css') }}">
+    <!-- <script src="../../static/js/create.js"></script> -->
+</head>
+<body>
+    <div class="flex-mid">
+        <h1>Rename {{dname}}'s Dashboard</h1>
+        <form method="POST" id="create-dash">
+            <input type="text" name="rename" placeholder="Dashboard Name" id="dash-input">
+            <div class="login-btns">
+                <input type = "submit" value = "Rename Dashboard" id="input-btn"/>
+            </div>
+        </form>
+        {% if error==True %}<h3>Error: Cannot Rename Dashboard. No name inputted</h3>{% endif %}
+        <!-- <button onclick="addPV()">Create Dashboard</button> -->
+    </div>
+</body>
+</html>

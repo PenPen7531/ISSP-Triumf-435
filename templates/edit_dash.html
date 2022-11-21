@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dash-home.css') }}">
+    <script>
+        window.onload = function() {
+            document.getElementById('burger_div').addEventListener("click", openNav);
+        function openNav(){
+            let mobileNav = document.getElementById("nav-mobile");
+            if (mobileNav.style.display != "none"){
+                mobileNav.style.display = "none";
+                console.log("noe");
+            }
+            else{
+                mobileNav.style.display = "flex";
+                console.log('click');
+            }};
+        }
+        
+
+    </script>
+</head>
+<body>
+    <div class="button">
+        <a href="https://www.triumf.ca/"><img src="../../static/img/triumf-trans-white.png" id="logo"/></a>
+        <div class="flex-right"><a href="https://beta.hla.triumf.ca/jaya-isac/all" id="list-pv">Show All PVs</a></div>
+        <div class="flex-right"><a href="/dashboard" id="dash-change">Change Dash</a></div>
+        <div class="flex-right"><a href="/dashboard/delete/{{dashboard_name}}" id="delete" onclick="return confirm('Are you sure you want to delete this dashboard?')">Delete Dash</a></div>
+        <div class="flex-right"><a href="/dashboard/rename/{{dashboard_name}}" id="rename">Rename Dash</a></div>
+        <div class="flex-right"><a href="/monitor/{{dashboard_name}}" id="monitor">Monitor PVs</a></div>
+        <div class="flex-right"><a href="/" id="logout">Logout</a></div>
+        <div class="flex-right" id="burger_div"><img id="burger" src="../../static/img/burger-icon.png"/></div>
+    </div>
+    <div id="nav-mobile" style="display: none;">
+        <a href="https://beta.hla.triumf.ca/jaya-isac/all">Show All PVs</a>
+        <a href="/dashboard">Change Dash</a>
+        <a href="/dashboard/delete/{{dashboard_name}}"  onclick="return confirm('Are you sure you want to delete this dashboard?')">Delete Dash</a>
+        <a href="/dashboard/rename/{{dashboard_name}}" >Rename Dash</a>
+        <a href="/monitor/{{dashboard_name}}" >Monitor PVs</a>
+        <a href="/" >Logout</a>
+    </div>
+    <div class="flex-mid">
+        
+        <h1 id="title">{{ dashboard_name }}'s Dashboard</h1>
+        <table id="table-data" class="table table-striped styled-table" border=1 frame=void rules=rows>
+            <thead class="thead-dark">
+                <th>Process Variable</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+            {% if data %}
+            {% for pv in data["readPvDict"] %}
+            <tr class="data-row">
+                <td class="elem">{{ pv }}</td>
+                <td class="elem delete-btn"><a href="/delete/{{dashboard_name}}/{{pv}}" onclick="return confirm(`Are you sure you want to delete this PV?`)" id="rmv-bt">Remove</a></td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+        <form id='post-form' method = "POST">
+            <label for = "pv-input"></label>
+            <input type="text" name = "pv-input" id ="post-input" required placeholder="Add New PV"/>
+            <br>
+            <br>
+            <div class="login-btns">
+                <input type = "submit" value = "Add PV" id="input-btn"/>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

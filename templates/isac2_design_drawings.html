@@ -1,0 +1,344 @@
+{% extends "layout_header.html" %}
+
+{% block heading -%}
+{{ super() }}
+<script type="text/javascript" src="{{ url_for('static', filename='js/plotly-latest.min.js') }}"></script>
+{%- endblock %}
+
+{% block content -%}
+
+<br/>
+<div class="container">
+	<div class='alert alert-info alert-dismissible'>
+		Disclaimer: These drawings have not yet been confirmed as up-to-date with the design office.
+	</div>
+<!-- 	<div class='alert alert-info alert-dismissible'>
+		Disclaimer: The last time these drawings were confirmed as up-to-date by the design office was YYYY-MM-DD. 
+	</div> -->
+	To access design drawings you will need an account to access the PDM (Product Data Management) Vault. You will also need to have Solidworks PDM Professional installed. Accounts can be requested from the design office, information is available <a href="https://engineering.wiki.triumf.ca/index.php?title=PDM_Professional#What_is_PDM_Professional" target=”_blank”>here.</a>
+	<br/><br/>
+	<div class="accordion" id="accordionExample">
+		<div class="card">
+			<div class="card-header" id="headingOne">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+			      Beamline overviews
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+		      <div class="card-body">
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col" width="20%">Drawing #</th>
+				      <th scope="col" width="80%">Description</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td>IHE0281D</td>
+				      <td>DSB Section: HEBT:DB5 to SCL injection</td>
+				    </tr>
+				    <tr>
+				      <td>IHE0476D</td>
+				      <td>SC linac layout from injection to vault exit (no SCC)</td>
+				    </tr>
+				    <tr>
+				      <td>ISK0186D</td>
+				      <td>Prelim. SC linac layout (with SCC)</td>
+				    </tr>
+				    <tr>
+				      <td>ISK0141D</td>
+				      <td>ISAC-I overall layout</td>
+				    </tr>
+				    <tr>
+				      <td>ISK0116U</td>
+				      <td>ISAC-II overall layout</td>
+				    </tr>
+				  </tbody>
+				</table>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingTwo">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			      Smaller beamline sections
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+		      <div class="card-body">
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col" width="20%">Drawing #</th>
+				      <th scope="col" width="80%">Description</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td>IHE0301D</td>
+				      <td>DSB:MB14 to SCB1</td>
+				    </tr>
+				    <tr>
+				      <td>IHE0485D</td>
+				      <td>SCC1/2/3 cryomodules</td>
+				    </tr>
+				    <tr>
+				      <td>IHE0486D</td>
+				      <td>SEBT beamline Q9 to Q15</td>
+				    </tr>
+				    <tr>
+				      <td>IHE0487D</td>
+				      <td>SEBT beamline Q16 to vault exit</td>
+				    </tr>
+				    <tr>
+				      <td>IHE2887D</td>
+				      <td>SEBT1 - TUDA-II</td>
+				    </tr>
+				    <tr>
+				      <td>IHE0571D</td>
+				      <td>SEBT:Q19 to SEBT2</td>
+				    </tr>
+				    <tr>
+				      <td>IHE0544D</td>
+				      <td>SEBT3A</td>
+				    </tr>
+				    <tr>
+				      <td>IHE0545D</td>
+				      <td>SEBT3</td>
+				    </tr>
+				    <tr>
+				      <td>IHE2886</td>
+				      <td>SEBT3B-EMMA</td>
+				    </tr>
+				  </tbody>
+				</table>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingThree">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+			      RF cavities
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+		      <div class="card-body">
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col" width="20%">Drawing #</th>
+				      <th scope="col" width="80%">Description</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td>IRF1351D</td>
+				      <td>DSB buncher cavity</td>
+				    </tr>
+				    <tr>
+				      <td>IRF2315D</td>
+				      <td>Cavity - Round inner conductor</td>
+				    </tr>
+				    <tr>
+				      <td>IRF2316D</td>
+				      <td>Cavity - Round inner conductor</td>
+				    </tr>
+				    <tr>
+				      <td>IRF1645D</td>
+				      <td>Cavity - Flattened inner conductor</td>
+				    </tr>
+				    <tr>
+				      <td>IRF1646D</td>
+				      <td>Cavity - Flattened inner conductor</td>
+				    </tr>
+				    <tr>
+				      <td>IRF1647D</td>
+				      <td>Cavity - Flattened inner conductor</td>
+				    </tr>
+				    <tr>
+				      <td>IRF1648D</td>
+				      <td>Cavity - Flattened inner conductor</td>
+				    </tr>
+				    <tr>
+				      <td>IRF3060D</td>
+				      <td>Cavity - Donut inner conductor</td>
+				    </tr>
+				    <tr>
+				      <td>IRF2325D</td>
+				      <td>Cavity - LN2 Cooled Coupler</td>
+				    </tr>
+<!-- 				    <tr>
+				      <td>IRF2599D</td>
+				      <td>Nb Resonator 106.08 MHz assy.</td>
+				    </tr>
+				    <tr>
+				      <td>IRF2606D</td>
+				      <td>Mechanical Tuner</td>
+				    </tr>
+				    <tr>
+				      <td>IRF2190D</td>
+				      <td>Tuner Actuator Motor</td>
+				    </tr> -->
+				    <tr>
+				      <td></td>
+				      <td>IRF2910, IRF2915, IRF2919</td>
+				    </tr>
+				  </tbody>
+				</table>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingFour">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+			      Cryomodules
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+		      <div class="card-body">
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col" width="20%">Drawing #</th>
+				      <th scope="col" width="70%">Description</th>
+				      <th scope="col" width="10%"></th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td>IRF2530D</td>
+				      <td>SCB Cryomodules 1,2,4 & 5</td>
+				    </tr>
+				    <tr>
+				      <td>IRF2500D</td>
+				      <td>SCB Cryomodule 3 (prototype)</td>
+				    </tr>
+				    <tr>
+				      <td>IRF2527D</td>
+				      <td>Cryomodules Internal</td>
+				    </tr>
+				    <tr>
+				      <td>ISK0185D</td>
+				      <td>SCB cryomodule design</td>
+				    </tr>
+				    <tr>
+				      <td>ISK0179D</td>
+				      <td>Cryomodule support structure</td>
+				    </tr>
+				    <tr>
+				      <td>IRF2042D</td>
+				      <td>SCB3 Cryomodule</td>
+				    </tr>
+				    <tr>
+				      <td>IRF2043D</td>
+				      <td>SCB3 Cryomodule</td>
+				    </tr>
+				    <tr>
+				      <td>IRF3183D</td>
+				      <td>SCC 1/2 cryomodules</td>
+				    </tr>
+				    <tr>
+				      <td>IRF3184D</td>
+				      <td>SCC cryomodule</td>
+				    </tr>
+				    <tr>
+				      <td>IRF3185D</td>
+				      <td>6 cavity cryomodule</td>
+				    </tr>
+				    <tr>
+				      <td>IRF3186D</td>
+				      <td>SCC3 cryomodule</td>
+				    </tr>
+				    <tr>
+				      <td>IRF3187D</td>
+				      <td>SCC cryomodule</td>
+				    </tr>
+				    <tr>
+				      <td>IRF3188D</td>
+				      <td>8 cavity cryomodule</td>
+				    </tr>
+				  </tbody>
+				</table>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingFive">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+			      Diagnostics
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+		      <div class="card-body">
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col" width="20%">Drawing #</th>
+				      <th scope="col" width="80%">Description</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td>IBD1211D</td>
+				      <td>Intermodule diagnostic boxes</td>
+				    </tr>
+				    <tr>
+				      <td>IBD0408D</td>
+				      <td>SEBT Danfysik emittance rig</td>
+				    </tr>
+				    <tr>
+				      <td>IHE0513D</td>
+				      <td>SEBT DB16</td>
+				    </tr>
+				    <tr>
+				      <td>IHE0514D</td>
+				      <td>SEBT DB18</td>
+				    </tr>
+				    <tr>
+				      <td>IHE0650D</td>
+				      <td>SEBT DB20A Assembly</td>
+				    </tr>
+				    <tr>
+				      <td>IDE0055D.dwg</td>
+				      <td>General Assembly - Wire Scanner ISAC</td>
+				    </tr>
+				    <tr>
+				      <td>IBD0500D.dwg</td>
+				      <td>General Assembly - 90 degree Wire Scanner ISAC Facility</td>
+				    </tr>
+				  </tbody>
+				</table>
+		      </div>
+		    </div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+
+{% block footer -%}
+
+<script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script> 
+
+
+<script type="text/javascript">
+
+</script>
+
+{% endblock %}

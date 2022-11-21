@@ -1,0 +1,43 @@
+{% extends "layout_header.html" %}
+
+{% block heading -%}
+{{ super() }}
+{%- endblock %}
+
+{% block content -%}
+
+<div class="container">
+	<br/>
+	<div class="col-6">
+		<div class="row">
+			<h4>For interested developers (GitLab account required)</h4>
+		</div>
+		<div class="row">
+			<div class="list-group">
+			  <a href="https://gitlab.triumf.ca/snippets/41" class="list-group-item list-group-item-action">
+			    HLA Developer Introduction 1 - Setting up Git, Python, SSH Keys 
+			  </a>
+			  <a href="https://gitlab.triumf.ca/snippets/45" class="list-group-item list-group-item-action">
+			  	HLA Developer Introduction 2 - Adding basic features to Apps
+			  </a>
+			  <a href="https://gitlab.triumf.ca/snippets/64" class="list-group-item list-group-item-action">
+			  	HLA Developer Introduction 3 - Using Apex & Jaya, Plotting Data 
+			  </a>
+			  <a href="https://gitlab.triumf.ca/snippets/65" class="list-group-item list-group-item-action">
+			  	HLA Developer Introduction 4 - Adding new features to apps 
+			  </a>
+			  <a href="https://gitlab.triumf.ca/snippets/63" class="list-group-item list-group-item-action">
+			  	HLA Developer Reference Material 
+			  </a>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %} 
+
+{% block footer %} 
+{{ super() }}
+
+
+{% endblock %}

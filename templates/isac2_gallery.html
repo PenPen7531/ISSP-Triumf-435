@@ -1,0 +1,82 @@
+{% extends "layout_header.html" %}
+
+{% block heading -%}
+{{ super() }}
+<script type="text/javascript" src="{{ url_for('static', filename='js/plotly-latest.min.js') }}"></script>
+{%- endblock %}
+
+{% block content -%}
+
+<br/>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+		    <figure class="figure">
+		        <img src="{{ url_for('static', filename='img/IMG_6881.jpg') }}" class="img-fluid" alt="Responsive image">
+		        <figcaption class="figure-caption text-center">
+		            SEBT Beamline from Linac exit to vault wall
+		        </figcaption>
+		    </figure>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6">
+		    <figure class="figure">
+		        <img src="{{ url_for('static', filename='img/IMG_6896.jpg') }}" class="img-fluid" alt="Responsive image">
+		        <figcaption class="figure-caption text-center">
+		            Behind cryomodules
+		        </figcaption>
+		    </figure>
+		</div>
+		<div class="col-6">
+		    <figure class="figure">
+		        <img src="{{ url_for('static', filename='img/IMG_6884.jpg') }}" class="img-fluid" alt="Responsive image">
+		        <figcaption class="figure-caption text-center">
+		            Top of cryomodules showing LHe supply lines
+		        </figcaption>
+		    </figure>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6">
+		    <figure class="figure">
+		        <img src="{{ url_for('static', filename='img/IMG_6882.jpg') }}" class="img-fluid" alt="Responsive image">
+		        <figcaption class="figure-caption text-center">
+		            SEBT beamline looking upstream towards cryomodules
+		        </figcaption>
+		    </figure>
+		</div>
+		<div class="col-6">
+		    <figure class="figure">
+		        <img src="{{ url_for('static', filename='img/IMG_6894.jpg') }}" class="img-fluid" alt="Responsive image">
+		        <figcaption class="figure-caption text-center">
+		            Looking downstream at DSB beamline entering first cryomodule of the linac.
+		        </figcaption>
+		    </figure>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+		    <figure class="figure">
+		        <img src="{{ url_for('static', filename='img/IMG_6891.jpg') }}" class="img-fluid" alt="Responsive image">
+		        <figcaption class="figure-caption text-center">
+		            ISAC-II vault
+		        </figcaption>
+		    </figure>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+
+{% block footer -%}
+
+<script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script> 
+
+
+<script type="text/javascript">
+
+</script>
+
+{% endblock %}

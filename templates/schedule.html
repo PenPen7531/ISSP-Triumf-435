@@ -1,0 +1,30 @@
+{% extends "layout_header.html" %}
+
+{% block heading -%}
+{{ super() }}
+{%- endblock %}
+
+{% block content -%}
+
+<body>
+<div class="col-12">
+{{ schedContent | safe }}
+</div>
+</body>
+{% endblock %} 
+
+{% block footer %} 
+{{ super() }}
+
+<script src="{{ url_for('static', filename='js/plotly-latest.min.js') }}"></script>
+<script type=text/javascript>$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
+<script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/HLA.js') }}"></script> 
+
+<script>
+
+	// Javscript function calls etc. 
+	var message = testFunction();
+	console.log(message);
+	
+</script>
+{% endblock %}

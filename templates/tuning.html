@@ -1,0 +1,288 @@
+{% extends "layout_header.html" %}
+
+{% block heading -%}
+{{ super() }}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{%- endblock %}
+
+{% block content -%}
+
+
+<div class="container">
+	<br/>
+	<br/><br/>
+	<div class="accordion" id="accordionExample">
+		<div class="card">
+			<div class="card-header" id="headingOne">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+			      OLIS Source Setup
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+		      <div class="card-body">
+				<ul class="list-group">
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">1. Contact expert</a> 
+				  </li>
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">2. Documentation (link to snapshot)</a> 
+				  </li>
+				</ul>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingTwo">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			      OLIS -> ILT:FC49
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+		      <div class="card-body">
+				<ul class="list-group">
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">1. Measure OLIS Ouput (Quad scan)</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">2. Re-match @ IOS:RPM8</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">3. Orbit correction (Steering)</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">4. Fine tuning (Knobbing for transmission)</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">5. Documentation (link to snapshot)</a> 
+				  </li>
+				</ul>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingFour">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+			      ILT:FC49 -> MEBT:FC9 (RFQ, MEBT)
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+		      <div class="card-body">
+				<ul class="list-group">
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">1. Measure OLIS Ouput (Quad scan)</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">2. Re-match @ IOS:RPM8</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">3. Orbit correction (Steering)</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">4. Fine tuning (Knobbing for transmission)</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">5. Documentation (link to snapshot)</a> 
+				  </li>
+				</ul>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingThree">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+			      MEBT:FC9 -> HEBT:FC5 (drift DTL)
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+		      <div class="card-body">
+				<ul class="list-group">
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">1. Measure OLIS Ouput (Quad scan)</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">2. Re-match @ IOS:RPM8</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">3. Orbit correction (Steering)</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">4. Fine tuning (Knobbing for transmission)</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">5. Documentation (link to snapshot)</a> 
+				  </li>
+				</ul>
+		      </div>
+		    </div>
+		</div>
+
+
+		<div class="card">
+			<div class="card-header" id="headingHouse">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseHouse" aria-expanded="false" aria-controls="collapseHouse">
+			      DTL phasing
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseHouse" class="collapse" aria-labelledby="headingHouse" data-parent="#accordionExample">
+		      <div class="card-body">
+				<ul class="list-group">
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">1. Launch Phasing App</a> 
+				  </li>
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">2. Documentation (link to snapshot)</a> 
+				  </li>
+				</ul>
+		      </div>
+		    </div>
+		</div>
+
+
+		<div class="card">
+			<div class="card-header" id="headingSix">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+			      HEBT:FC5 -> SEBT:FC20 (drift SC linac)
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+		      <div class="card-body">
+
+				<ul class="list-group">
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">1. Measure OLIS Ouput (Quad scan)</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">2. Re-match @ IOS:RPM8</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">3. Orbit correction (Steering)</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">4. Fine tuning (Knobbing for transmission)</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">5. Documentation (link to snapshot)</a> 
+				  </li>
+				</ul>
+
+
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingSeven">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+			      SC linac phasing
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+		      <div class="card-body">
+				<ul class="list-group">
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">1. Launch Phasing App</a> 
+				  </li>
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">2. Documentation (link to snapshot)</a> 
+				  </li>
+				</ul>
+		      </div>
+		    </div>
+		</div>
+
+
+		<div class="card">
+			<div class="card-header" id="headingEight">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+			      SC Linac -> SEBT:FC2
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+		      <div class="card-body">
+				<ul class="list-group">
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">1. Measure SCL Ouput (Quad scan)</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">2. Re-match @ SEBT:RPM12</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">3. Orbit correction (Steering)</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">4. Fine tuning (Knobbing for transmission)</a> 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">5. Documentation (link to snapshot)</a> 
+				  </li>
+				</ul>
+		      </div>
+		    </div>
+		</div>
+
+
+
+	</div>
+</div>
+
+
+{% endblock %} 
+
+{% block footer %} 
+{{ super() }}
+
+<script type=text/javascript>$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
+<script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/HLA.js') }}"></script> 
+
+<script>
+
+	// Javscript function calls etc. 
+	var message = testFunction();
+	console.log(message);
+	
+</script>
+{% endblock %}
+
+
+

@@ -1,0 +1,27 @@
+{"headers":
+	[
+		{"info":"EBIS Vacuum Summary","text":"---"}
+	],
+
+ "tabledata":[
+	{"tag":"ebis",
+	"info":"EBIS",
+	"table":
+		[
+			{"pv":"EBIS:IGP1:RDVAC", "info":"Vacuum (EBIS:IGP1)"},
+			{"pv":"EBIS:IGP2:RDVAC", "info":"Vacuum (EBIS:IGP2)"},
+			{"pv":"EBIS:IGP3:RDVAC", "info":"Vacuum (EBIS:IGP3)"},
+			{"pv":"EBIS:CG3A:RDVAC", "info":"Vacuum (EBIS:CG3A)"},
+			{"pv":"EBIS:CG3B:RDVAC", "info":"Vacuum (EBIS:CG3B)"},
+			{"pv":"EBIS:CG1B:RDVAC", "info":"Vacuum (EBIS:CG1B)"},
+			{"pv":"EBIS:CG1C:RDVAC", "info":"Vacuum (EBIS:CG1C)"},
+			{"pv":"EBIS:CG1A:RDVAC", "info":"Vacuum (EBIS:CG1A)"},
+			{"pv":"EBIS:CG2A:RDVAC", "info":"Vacuum (EBIS:CG2A)"},
+			{"pv":"EBIS:DMM:IN1TEMP", "info":"Temp [K] (Stage 1)"},
+			{"pv":"EBIS:DMM:IN2TEMP", "info":"Temp [K] (Shield)"},
+			{"pv":"EBIS:DMM:IN3TEMP", "info":"Temp [K] (Stage 2)"},
+			{"pv":"EBIS:DMM:IN4TEMP", "info":"Temp [K] (Magnet)"},
+			{"pv":"EBIS:DMM:IN5TEMP", "info":"Temp [K] (Switch)"}
+		]
+	}]
+}

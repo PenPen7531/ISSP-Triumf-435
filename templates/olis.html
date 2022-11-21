@@ -1,0 +1,139 @@
+{% extends "layout_header.html" %}
+
+{% block heading -%}
+{{ super() }}
+{%- endblock %}
+
+{% block content -%}
+<br/>
+<div class="row">
+{% for item in tableHeaders %}
+<div class="col-2">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="text-center">{{ item["info"] }}</th>
+        {% if 'pv' in item.keys() %}
+        <th class="text-center text-info" id="{{ item['pv'] }}">---</th>
+        {% elif item["info"] == 'Schedule' %}
+        <th class="text-center text-info" id="schedule">---</th>
+        {% else %}
+        <th class="text-center">{{ item['text'] }}</th>
+        {% endif %}
+      </tr>
+    </thead>
+  </table>
+</div>
+{% endfor %}
+</div>
+<br/>
+
+<div class="row">
+{% for item in tableArray %}
+<div class="col-4">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="3" class="text-center">{{ item["info"] }}</th>
+      </tr>
+    </thead>
+    <tbody>
+    	{% for pvDict in item['table'] %}
+		<tr>
+      {% if 'pv' in pvDict.keys() %}
+			<td>{{pvDict['info']}}</td>
+			<td id="{{ pvDict['pv'] }}" class="text-info">---</td>
+			<td id="{{ pvDict['pv'] }}_unit">---</td>
+      {% else %}
+      <td colspan="3" class="text-center">{{pvDict['text']}}</td>
+      {% endif %}
+		</tr>
+		{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endfor %}
+</div>
+
+<div class="container">
+<div class="row" id="last_update"></div>
+<div class="row" id="status_div"></div>
+</div>
+
+{% endblock %} 
+
+{% block footer %} 
+{{ super() }}
+
+<script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/HLA.js') }}"></script> 
+
+<script>
+  console.log("HELLOOOO")
+	var pvs = {{ PVs | tojson | safe }};
+
+  function roundNumber(num) {
+    if(!("" + num).includes("e")) {
+      return Math.round(num * 1000) / 1000
+    } 
+    else {
+      return num.toPrecision(3);
+    }
+  }
+
+  function update_pvs(data) {
+    for (var i=0; i<pvs.length; i++) {
+      var pv = pvs[i];
+      var value = data['readPvDict'][pv];
+
+      var floated  = parseFloat(value);
+      if (! isNaN(floated)) {
+        value = roundNumber(floated,2)
+      }
+      if ('readUnitsDict' in data) {
+        var unit = data['readUnitsDict'][pv];
+        $(document.getElementById(pv+'_unit')).html(unit);
+      }
+      $(document.getElementById(pv)).html(value);
+    }
+
+    $('#last_update').html("Last updated: "+data['timestamp']);
+  }
+
+  function error_callback(error) {
+      $('#status_div').html(error);
+  }
+
+
+  function update_schedule() {
+    var myurl = $SCRIPT_ROOT +  "/get_schedule";
+    return $.ajax({
+          url: myurl,
+          type: "GET",
+          dataType: "json",
+          success: function(response) {
+            var current_shift = response['olis']['facility']
+            $('#schedule').html(current_shift);
+          },
+          error: function(xhr, status, error) {
+              console.log({
+                  message: "Error in js function update_schedule()"
+              });
+          },
+    });   
+  }
+
+  $(document).ready(function () {
+    setTimeout(function() {
+      var get_data = {'readPvList': pvs, 'readUnits': false};
+      jaya_get(get_data, update_pvs, error_callback);
+      update_schedule()
+    }, 1000);
+
+    window.setInterval(function() {
+      var get_data = {'readPvList': pvs, 'readUnits': true};
+      jaya_get(get_data, update_pvs, error_callback);
+    }, 5000);
+
+  })
+</script>
+{% endblock %}

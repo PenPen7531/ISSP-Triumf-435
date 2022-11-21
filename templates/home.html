@@ -1,0 +1,336 @@
+{% extends "layout_header.html" %}
+
+{% block heading -%}
+{{ super() }}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{%- endblock %}
+
+{% block content -%}
+
+
+<div class="container">
+	<br/>
+	<br/><br/>
+	<div class="accordion" id="accordionExample">
+		<div class="card">
+			<div class="card-header" id="headingOne">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+			      Who we are
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+		      <div class="card-body">
+		      	<div class="container">
+					<div class="row">
+						<h4 class="text-dark">
+							The TRIUMF High Level Applications (HLA) project consists of an evolving framework which aims to develop physics-based software for accelerator and beamline tuning and development. The HLA team consists of a handfull of TRIUMF staff: physicists, coordinators, operators and students, who collaboratively develop applications.
+						</h4>
+					</div>
+
+					<br/>
+					<div class="row">
+						<h4 class="text-dark">	
+							We have two main objectives:
+							<ul>
+  								<li>Develop & maintain the suite of tools that compose the HLA framework</li>
+  								<li>Develop & maintain a limited number of core tuning applications</li>
+							</ul>
+						</h4>
+					</div>	
+
+					<br/>
+					<div class="row">
+						<h4 class="text-dark">
+							HLA is not a service group: The HLA framework is available to those who are interested, so that they may develop their own software, following the expected best practices. The HLA team commits to providing newcomers the requisite training to understand and use the platform, in the form of both online training sessions and documentation.
+						</h4>
+					</div>
+				</div>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingTwo">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			      Contact us
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+		      <div class="card-body">
+				<ul class="list-group">
+				  <li class="list-group-item">
+				  	<i class="material-icons" style="font-size:12px">email</i> hla@triumfoffice365.onmicrosoft.com
+				  </li>
+
+				  <li class="list-group-item">
+				  	<i class='fas fa-edit' style='font-size:12px'></i>
+				  	E-faults can be submitted 
+				  	<a href="https://web.accel.triumf.ca/ncr/dbfault_newfault.pl" target="_blank">here</a> 
+				  	to group 'High Level Apps'
+				  </li>
+
+				  <li class="list-group-item">
+				  	<i class='fas fa-exclamation-circle' style='font-size:12px'></i>
+				  	Feature requests can be submitted for the appropriate project on 
+				  	<a href="https://gitlab.triumf.ca/groups/hla/-/issues" target="_blank">gitlab</a> 
+				  </li>
+
+
+				  <li class="list-group-item">
+				  	<i class='fas fa-user-circle' style='font-size:12px'></i>
+				  	Users with a TRIUMF e-mail can signup for a gitlab account  
+				  	<a href="https://gitlab.triumf.ca/users/sign_up" target="_blank">here</a>. 
+				  </li>
+
+
+				  <li class="list-group-item">
+				  	<i class='fas fa-user' style='font-size:12px'></i>
+				  	External users must 
+				  	<a href="mailto:hla@triumfoffice365.onmicrosoft.com" target="_blank">email</a>
+				  	to be added as a gitlab user.
+				  </li>
+				</ul>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingFour">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+			      Framework
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+		      <div class="card-body">
+
+
+				<div class="accordion" id="project_appAccordion">
+					{% for item in pageTextDict['core_projects'] %}
+					<div class="card">
+						<div class="card-header" id="{{ item['app'] }}">
+							<div class="row">
+								<div class="col-1">
+								  <h5 class="mb-0">
+								    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapse_{{ item['app'] }}" aria-expanded="false" aria-controls="collapse_{{ item['app'] }}">
+								      {{ item['app'].replace('-',' ') }}
+								    </button>
+								  </h5>
+								</div>
+								<div class="col align-self-center">
+								 {{ item['text'] }}
+								</div>
+							</div>
+						</div>
+
+					    <div id="collapse_{{ item['app'] }}" class="collapse" aria-labelledby="{{ item['app'] }}" data-parent="#project_appAccordion">
+					      <div class="card-body">
+						  	<a href="{{ item['gitlab'] }}">Source code</a>
+						    <br/><br/>
+						    Contact: {{ item['contact'] }}
+					      </div>
+					    </div>
+					</div>
+					{% endfor %}
+				</div>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingThree">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+			      Core apps
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+		      <div class="card-body">
+
+
+				<div class="accordion" id="core_appAccordion">
+					{% for item in pageTextDict['core_apps'] %}
+					<div class="card">
+						<div class="card-header" id="{{ item['app'] }}">
+							<div class="row">
+								<div class="col-2">
+								  <h5 class="mb-0">
+								    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapse_{{ item['app'] }}" aria-expanded="false" aria-controls="collapse_{{ item['app'] }}">
+								      {{ item['app'].replace('-',' ') }}
+								    </button>
+								  </h5>
+								</div>
+								<div class="col align-self-center">
+								 {{ item['text'] }}
+								</div>
+							</div>
+						</div>
+
+					    <div id="collapse_{{ item['app'] }}" class="collapse" aria-labelledby="{{ item['app'] }}" data-parent="#core_appAccordion">
+					      <div class="card-body">
+						  	<a href="{{ item['url'] }}" target="_blank">Launch app</a>
+						  	<br/><br/>
+						  	<a href="{{ item['gitlab'] }}" target="_blank">Source code</a>
+						  	<br/><br/>
+						  	<a href="{{ item['gitlab'] }}/-/wikis/Home" target="_blank">Wiki</a>
+						    <br/><br/>
+						    Contact: {{ item['contact'] }}
+					      </div>
+					    </div>
+					</div>
+					{% endfor %}
+				</div>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingSix">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+			      Other apps
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+		      <div class="card-body">
+
+		      	<h5>Facility-specific</h5>
+				<div class="accordion" id="facility_appAccordion">
+					{% for item in pageTextDict['facility_apps'] %}
+					<div class="card">
+						<div class="card-header" id="{{ item['app'] }}">
+						  <h5 class="mb-0">
+						    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapse_{{ item['app'] }}" aria-expanded="false" aria-controls="collapse_{{ item['app'] }}">
+						      {{ item['app'].replace('-',' ') }}
+						    </button>
+						  </h5>
+						</div>
+
+					    <div id="collapse_{{ item['app'] }}" class="collapse" aria-labelledby="{{ item['app'] }}" data-parent="#facility_appAccordion">
+					      <div class="card-body">
+					      	<a href="{{ item['url'] }}">{{ item['app'] }}</a>
+						  	<br/><br/>
+						  	<a href="{{ item['gitlab'] }}">Source code</a>
+						  	<br/><br/>
+						    {{ item['text'] }}
+						    <br/><br/>
+						    Contact: {{ item['contact'] }}
+					      </div>
+					    </div>
+					</div>
+					{% endfor %}
+				</div>
+
+				<br/><h5>In active development</h5> 
+				These apps are likely in some incomplete stage of development, but are still being worked on.
+				<br/><br/>
+				<div class="accordion" id="active_appAccordion">
+					{% for item in pageTextDict['active_other_apps'] %}
+					<div class="card">
+						<div class="card-header" id="{{ item['app'] }}">
+						  <h5 class="mb-0">
+						    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapse_{{ item['app'] }}" aria-expanded="false" aria-controls="collapse_{{ item['app'] }}">
+						      {{ item['app'].replace('-',' ') }}
+						    </button>
+						  </h5>
+						</div>
+
+					    <div id="collapse_{{ item['app'] }}" class="collapse" aria-labelledby="{{ item['app'] }}" data-parent="#active_appAccordion">
+					      <div class="card-body">
+					      	<a href="{{ item['url'] }}">{{ item['app'] }}</a>
+						  	<br/><br/>
+						  	<a href="{{ item['gitlab'] }}">Source code</a>
+						  	<br/><br/>
+						    {{ item['text'] }}
+						    <br/><br/>
+						    Contact: {{ item['contact'] }}
+					      </div>
+					    </div>
+					</div>
+					{% endfor %}
+				</div>
+
+				<br/><h5>Not in active development</h5> 
+				These apps are likely in some incomplete stage of development, and are not actively supported.
+				<br/><br/>
+				<div class="accordion" id="stale_appAccordion">
+					{% for item in pageTextDict['stale_other_apps'] %}
+					<div class="card">
+						<div class="card-header" id="{{ item['app'] }}">
+						  <h5 class="mb-0">
+						    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapse_{{ item['app'] }}" aria-expanded="false" aria-controls="collapse_{{ item['app'] }}">
+						      {{ item['app'].replace('-',' ') }}
+						    </button>
+						  </h5>
+						</div>
+
+					    <div id="collapse_{{ item['app'] }}" class="collapse" aria-labelledby="{{ item['app'] }}" data-parent="#stale_appAccordion">
+					      <div class="card-body">
+					      	<a href="{{ item['url'] }}">{{ item['app'] }}</a>
+						  	<br/><br/>
+						  	<a href="{{ item['gitlab'] }}">Source code</a>
+						  	<br/><br/>
+						    {{ item['text'] }}
+						    <br/><br/>
+						    Contact: {{ item['contact'] }}
+					      </div>
+					    </div>
+					</div>
+					{% endfor %}
+				</div>
+
+
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingSeven">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+			      Developers
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+		      <div class="card-body">
+				<h4 class="text-dark">
+					Interested/new developers should go <a href="{{ url_for('developers') }}">
+					    here </a> for more information.
+				</h4>
+		      </div>
+		    </div>
+		</div>
+
+	</div>
+</div>
+
+
+{% endblock %} 
+
+{% block footer %} 
+{{ super() }}
+
+<script type=text/javascript>$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
+<script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/HLA.js') }}"></script> 
+
+<script>
+
+	// Javscript function calls etc. 
+	var message = testFunction();
+	console.log(message);
+	
+</script>
+{% endblock %}
+
+
+

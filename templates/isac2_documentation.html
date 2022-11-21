@@ -1,0 +1,537 @@
+{% extends "layout_header.html" %}
+
+{% block heading -%}
+{{ super() }}
+<script type="text/javascript" src="{{ url_for('static', filename='js/plotly-latest.min.js') }}"></script>
+{%- endblock %}
+
+{% block content -%}
+
+<br/>
+
+
+
+<div class="container">
+	Please note that for beam physics notes and related design notes, the Beam Physics group maintains a fairly comprehensive index <a href="http://lin12.triumf.ca/text/design_notes/" target="_blank">here</a>. The documents listed here are only those with some fairly direct relavance to the ISAC-II linac facility.
+	<br/><br/>
+	<div class="accordion" id="accordionExample">
+		<div class="card">
+			<div class="card-header" id="headingOne">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+			      Design Notes
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+		      <div class="card-body">
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col">Date</th>
+				      <th scope="col">Title</th>
+				      <th scope="col">Author(s)</th>
+				      <th scope="col">Notes</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+<!-- 				    <tr>
+				      <td>2005-08-19</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-104905/TRI-DNA-05-01.pdf" target=”_blank”>Present status of the beam transport to the ISAC-II experimental area (TRI-DNA-05-01)</a></td>
+				      <td>G. Stinson</td>
+				      <td>83 pages</td>
+				    </tr>
+				    <tr>
+				      <td>2005-09-01</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-104908/TRI-DNA-05-03.pdf" target=”_blank”>Vacuum Delivery of singly-charged beams to the ISAC-II experimental area (TRI-DNA-05-03)</a></td>
+				      <td>G. Stinson</td>
+				      <td>42 pages</td>
+				    </tr> -->
+
+				    <tr>
+				      <td>1998-04</td>
+				      <td><a href="http://lin12.triumf.ca/text/design_notes/t1998_07/schlacter.pdf" target=”_blank”>Vacuum Requirements in ISAC for ISAC2 (TRI-DN-98-7)</a></td>
+				      <td>R. Baartman</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2001-?</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-95549/TRI-DN-01-12.pdf" target=”_blank”>A Proposal for OLIS Upgrade (TRI-DN-01-12)</a></td>
+				      <td>K. Jayamanna, D. Yuan, R. Baartman, R.E. Laxdal, M. McDonald, and M. Olivo</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2001-1</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-102758/TRI-DN-01-28.pdf" target=”_blank”>ISAC-II Optics Specifications (TRI-DN-01-28)</a></td>
+				      <td>R.E. Laxdal and M. Pasini</td>
+				      <td></td>
+				    </tr>
+
+				    <tr>
+				      <td>2002-06</td>
+				      <td><a href="http://lin12.triumf.ca/text/design_notes/t2002_15/" target=”_blank”>Solenoids for the ISAC2 SC linac (TRI-DN-02-15)</a></td>
+				      <td>L. Root, R. Baartman</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2003-12-07</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-42664/TRI-DN-03-19.pdf" target=”_blank”>A Design Layout for ISAC-II Post-SCLinac Baem line (HEBT-II) (TRI-DN-03-19)</a></td>
+				      <td>Z.H. Peng, R.E. Laxdal</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2006-11-29</td>
+				      <td><a href="http://lin12.triumf.ca/text/design_notes/t2005_30/note.pdf" target=”_blank”>Considerations for ISAC-II Beamlines (TRI-DN-05-30)</a></td>
+				      <td>R. Baartman</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2006-12-30</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-104904/TRI-DNA-06-01.pdf" target=”_blank”>Specification of quadrupoles for the SEBT, SEBT3, and SEBT3A/B beam lines of ISAC–II (TRI-DNA-06-1)</a></td>
+				      <td>G. Stinson</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2007-01</td>
+				      <td><a href="http://lin12.triumf.ca/text/design_notes/t2007_01/note.pdf" target=”_blank”>First Order Fringe Field Effects in
+TRIUMF Quadrupoles (TRI-DN-07-1)</a></td>
+				      <td>R. Baartman</td>
+				      <td>Updated 2009</td>
+				    </tr>
+				    <tr>
+				      <td>2007-02</td>
+				      <td><a href="http://lin12.triumf.ca/text/design_notes/t2007_04/" target=”_blank”>B-I Curve fits for TRIUMF Quads (TRI-DN-07-04)</a></td>
+				      <td>R. Baartman</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2007-02</td>
+				      <td><a href="http://lin12.triumf.ca/text/design_notes/t2007_05/note.pdf" target=”_blank”>Beamline to TIGRESS (TRI-DN-07-5)</a></td>
+				      <td>R. Baartman</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2014-01</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-97769/TRI-DN-13-18.pdf" target=”_blank”>ISAC-II Phasing High Level Application in MATLAB (TRI-DN-13-18)</a></td>
+				      <td>D. Lanaia, M. Marchetto</td>
+				      <td></td>
+				    </tr>
+				  </tbody>
+				</table>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingTwo">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			      Beam Physics Notes
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+		      <div class="card-body">
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				    <tr>
+				      <th scope="col">Date</th>
+				      <th scope="col">Title</th>
+				      <th scope="col">Author(s)</th>
+				      <th scope="col">Notes</th>
+				    </tr>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td>2005</td>
+				      <td><a href="http://lin12.triumf.ca/text/design_notes/b2005_03/note.pdf" target=”_blank”>ISAC-2 switchyard designs (TRI-BN-05-03)</a></td>
+				      <td>R. Baartman</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2015-03</td>
+				      <td><a href="http://lin12.triumf.ca/text/design_notes/b2015_03/note.pdf" target=”_blank”>Linac Envelope Optics (TRI-BN-15-03)</a></td>
+				      <td>R. Baartman</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2016-08-22</td>
+				      <td><a href="http://lin12.triumf.ca/text/design_notes/b2016_03/TRI-BN-16-03_EMMA_Optics.pdf" target=”_blank”>Optics to EMMA (TRI-BN-16-03)</a></td>
+				      <td>R. Baartman</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2016-08-22</td>
+				      <td><a href="http://lin12.triumf.ca/text/design_notes/b2016_06/TRI-BN-16-06_TRANSOPTR.pdf" target=”_blank”>TRANSOPTR: changes since 1984 (TRI-BN-16-06)</a></td>
+				      <td>R. Baartman</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2019-05-15</td>
+				      <td><a href="http://isacdev04.triumf.ca/share/optrISACII/optrISACII.pdf" target=”_blank”>TRANSOPTR Implementation of ISAC-II (TRI-BN-19-13)</a></td>
+				      <td>O. Shelbaya</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2019-12</td>
+				      <td><a href="http://lin12.triumf.ca/text/design_notes/b2019_22/note.pdf" target=”_blank”>ARIEL Quad Effective Lengths,
+Fringe Field Integrals (TRI-BN-19-22)</a></td>
+				      <td>R. Baartman</td>
+				      <td>Inlcudes ISAC</td>
+				    </tr>
+				    <tr>
+				      <td>2020-04-15</td>
+				      <td><a href="http://lin12.triumf.ca/text/design_notes/b2019_22/note.pdf" target=”_blank”>A Quick TRANSOPTR Primer (TRI-BN-20-06R)</a></td>
+				      <td>O. Shelbaya</td>
+				      <td></td>
+				    </tr>
+				  </tbody>
+				</table>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingThree">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+			      Commissioning Reports
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+		      <div class="card-body">
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col">Date</th>
+				      <th scope="col">Title</th>
+				      <th scope="col">Author(s)</th>
+				      <th scope="col">Notes</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td>2007-04</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-26399/ISAC%20II%20Medium%20Beta%20Section%20Commissioning%20Report-2.pdf" target=”_blank”>ISAC-II Medium Beta Section Commissioning Report</a></td>
+				      <td>M. Marchetto</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2010-09</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-28947/SCC%20commissioning%20report-1.pdf" target=”_blank”>SCC Commissioning Report</a></td>
+				      <td>M. Marchetto</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2010-12-13</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-32933/SEBT1%20Commissioning%20Report.pdf" target=”_blank”>SEBT1 Commissioning Report</a></td>
+				      <td>M. Marchetto</td>
+				      <td></td>
+				    </tr>
+<!-- 				    <tr>
+				      <td>2016-12-07</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-138129/SEBT3B%20Commissioning%20Plan_138129.pdf" target=”_blank”>SEBT3B Commissioning Plan</a></td>
+				      <td>M. Marchetto, T. Angus</td>
+				      <td></td>
+				    </tr> -->
+				    <tr>
+				      <td>2016-12-14</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-138598/SEBT3B%20Commissioning%20Record_138598.pdf" target=”_blank”>SEBT3B Commissioning Record</a></td>
+				      <td>M. Marchetto, T. Angus</td>
+				      <td></td>
+				    </tr>
+				  </tbody>
+				</table>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingFour">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+			      Other TRIUMF Documentation
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+		      <div class="card-body">
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col">Document #</th>
+				      <th scope="col">Title</th>
+				      <th scope="col">Author(s)</th>
+				      <th scope="col">Notes</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td>561</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-561/ISAC%20II%20SAR%20rev4%20July%2022%202013.pdf" target=”_blank”>ISAC-II Safety Report</a></td>
+				      <td>A. Trudel</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>6484</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-6484/TRI_SEBT2_PD_060505.pdf" target=”_blank”>Project Definition for the ISAC-II SEBT and SEBT2 Systems </a></td>
+				      <td>A. Hurst</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>8913</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-8913/ISAC-II_Update_v4.pdf" target=”_blank”>TRIUMF - ISAC-II Safety Report Supplementary Information</a></td>
+				      <td>A. Trudel</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>10304</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-10304/TRI_SEBT1_PD_90417.pdf" target=”_blank”>Project Definition for the ISAC-II SEBT1 Systems </a></td>
+				      <td>A. Hurst</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>18468</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-18468/TRI-DN-08-22.pdf" target=”_blank”>The MEBT chopper as ISAC-II intercepting current monitor</a></td>
+				      <td>M. Marchetto, W.R. Rawnsley</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>21010</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-21010/ISAC%20II%20Current%20Monitor%20Spec-release3new.pdf" target=”_blank”>ISAC Current Monitor System Specification Document</a></td>
+				      <td>M. Marchetto, R. Ruegg</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>22585</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-22585/ISAC%20II%20Current%20MonitorSystem%20Operations%20Manual.pdf" target=”_blank”>ISAC-II Current Monitor System Operations Manual</a></td>
+				      <td>M. Marchetto</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>22586</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-22586/ISAC%20II%20Current%20Monitor%20commissioning%20report.pdf" target=”_blank”>ISAC-II Current Monitor System Commissioning Report</a></td>
+				      <td>M. Marchetto</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>27099</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-27099/newvecc-1-2.pdf" target=”_blank”>Proposal to Modify ISACII Vault Exclusion Area Boundary</a></td>
+				      <td>A. Trudel</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>28921</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-28921/TRI_SEBT_Stripper_OM_100610.pdf" target=”_blank”>ISAC DSB / SEBT Stripper Operations Manual</a></td>
+				      <td>A. Hurst</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>93095</td>
+				      <td><a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-93095/VECC-ICM%20SAR%20Addendum%20Jul22%202013.pdf" target=”_blank”>ISAC II SAR Addendum for VECC-ICM Operation</a></td>
+				      <td>A. Trudel</td>
+				      <td></td>
+				    </tr>
+				  </tbody>
+				</table>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingFive">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+			      Conference Proceedings
+			    </button>
+			  </h5>
+			</div>
+
+		    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+		      <div class="card-body">
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col">Date</th>
+				      <th scope="col">Conference</th>
+				      <th scope="col">Title</th>
+				      <th scope="col">Author(s)</th>
+				      <th scope="col">Notes</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td>2002-06</td>
+				      <td>EPAC 2002</td>
+				      <td><a href="http://accelconf.web.cern.ch/e02/PAPERS/THPLE052.pdf" target=”_blank”>Beam Dynamics Studies on the ISAC-II Post-Accelerator at TRIUMF</a></td>
+				      <td>M. Pasini, R.E. Laxdal</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2004-03</td>
+				      <td>LINAC 2004</td>
+				      <td><a href="https://accelconf.web.cern.ch/l04/PAPERS/TU104.pdf" target=”_blank”>Development and Future Plans at ISAC/TRIUMF</a></td>
+				      <td>P.W. Schmor</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2004-03</td>
+				      <td>LINAC 2004</td>
+				      <td><a href="https://accelconf.web.cern.ch/l04/PAPERS/TUP77.pdf" target=”_blank”>Status of RF Control System for ISAC-II Superconducting Cavities</a></td>
+				      <td>K. Fong, M. Laverty, S. Fang</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2006</td>
+				      <td>LINAC 2006</td>
+				      <td><a href="https://accelconf.web.cern.ch/l06/PAPERS/TUP031.PDF" target=”_blank”>Beam Dynamics Studies on the ISAC-II Superconducting Linac</a></td>
+				      <td>M. Marchetto, A. Bylinskii, R.E. Laxdal</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2007-10</td>
+				      <td>Cyclotrons and their Applications 2007</td>
+				      <td><a href="https://accelconf.web.cern.ch/c07/PAPERS/449.PDF" target=”_blank”>New Technologies in the Design of RF Controls for Accelerators</a></td>
+				      <td>K. Fong</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2007-06</td>
+				      <td>PAC 2007</td>
+				      <td><a href="https://accelconf.web.cern.ch/p07/PAPERS/THXAB01.PDF" target=”_blank”>Commissioning and Early Experiments with ISAC-II</a></td>
+				      <td>R.E. Laxdal</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2007-06</td>
+				      <td>PAC 2007</td>
+				      <td><a href="https://accelconf.web.cern.ch/p07/PAPERS/TUPAN003.PDF" target=”_blank”>Beam Quality and Operational Experience with the Superconducting Linac at the ISAC-II RIB Facility</a></td>
+				      <td>M. Marchetto, R.E. Laxdal, V. Zvyagintsev</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2008-10</td>
+				      <td>LINAC 08</td>
+				      <td><a href="https://accelconf.web.cern.ch/linac08/papers/mop052.pdf" target=”_blank”>Re-Phasing of the ISAC Superconducting Linac with Computed Values</a></td>
+				      <td>M. Marchetto, R.E. Laxdal, Fang Yan</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2008-10</td>
+				      <td>LINAC 08</td>
+				      <td><a href="https://accelconf.web.cern.ch/LINAC08/papers/mo101.pdf" target=”_blank”>ISAC-II Operation and Future Plans</a></td>
+				      <td>M. Marchetto</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2008-10</td>
+				      <td>LINAC 08</td>
+				      <td><a href="https://accelconf.web.cern.ch/LINAC08/papers/mop018.pdf" target=”_blank”>ISAC-II Superconducting Linac Upgrade - Design and Status</a></td>
+				      <td>R.E. Laxdal, R.J. Dawson, M. Marchetto, A.K. Mitra, W.R. Rawnsley, T. Ries, I. Sekachev, V. Zvyagintsev</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2011-09</td>
+				      <td>IPAC 2011</td>
+				      <td><a href="https://accelconf.web.cern.ch/ipac2011/papers/tupc065.pdf" target=”_blank”>Upgrade of the ISAC Time-Of-Flight System</a></td>
+				      <td>V.A. Verzilov, J. Lassen, R.E. Laxdal, and M. Marchetto</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2015-09</td>
+				      <td>HIAT 2015</td>
+				      <td><a href="https://accelconf.web.cern.ch/HIAT2015/papers/wem2i01.pdf" target=”_blank”>The ISAC-II Linac Performance</a></td>
+				      <td>M. Marchetto, S. Kiy, R.E. Laxdal, Y. Ma, O. Shelbaya, Z. Yao, V. Zvyagintsev</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2018-05</td>
+				      <td>IPAC 2018</td>
+				      <td><a href="http://accelconf.web.cern.ch/ipac2018/papers/thpml081.pdf" target=”_blank”>Beam-based measurements of the ISAC-II Superconducting Heavy Ion Linac</a></td>
+				      <td>S. Kiy, R.E. Laxdal, M. Marchetto, S.D. Rädel, O. Shelbaya</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2019-05</td>
+				      <td>IPAC 2019</td>
+				      <td><a href="http://accelconf.web.cern.ch/ipac2019/papers/thprb012.pdf" target=”_blank”>Toward Autonomous Phasing of ISAC Heavy Ion Linacs</a></td>
+				      <td>O. Shelbaya, S. Kiy, O. Kester, R. Baartman</td>
+				      <td></td>
+				    </tr>
+				  </tbody>
+				</table>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingSix">
+			  <h5 class="mb-0">
+			    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+			      Presentations
+			    </button>
+			  </h5>
+			</div>
+
+		    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+		      <div class="card-body">
+				Many of the presentations are stored within the ISAC-II Linac & Beamlines facility collection on docushare <a href="https://documents.triumf.ca/docushare/dsweb/View/Collection-33974" target="_blank">here</a>.
+				<br/><br/>
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col">Date</th>
+				      <th scope="col">Venue</th>
+				      <th scope="col">Title</th>
+				      <th scope="col">Author(s)</th>
+				      <th scope="col">Notes</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td>2008-09-29</td>
+				      <td>LINAC 2008</td>
+				      <td><a href="https://accelconf.web.cern.ch/linac08/talks/mo101_talk.pdf" target=”_blank”>ISAC-II Operation and Future Plans</a></td>
+				      <td>M. Marchetto</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2019-02-05</td>
+				      <td>TESLA Technology Collaboration Meeting </td>
+				      <td><a href="http://accelconf.web.cern.ch/e02/PAPERS/THPLE052.pdf" target=”_blank”>Operating Experience of Cavity Performance in ISAC-II Linac</a></td>
+				      <td>Z. Yao</td>
+				      <td></td>
+				    </tr>
+				    <tr>
+				      <td>2020-08-20</td>
+				      <td>Science Week 2020</td>
+				      <td><a href="https://meetings.triumf.ca/event/116/contributions/371/attachments/313/354/Laxdal-ISAC_accelerator-science_week.pdf" target=”_blank”>Future post-accelerators at TRIUMF</a></td>
+				      <td>R.E. Laxdal</td>
+				      <td></td>
+				    </tr>
+				  </tbody>
+				</table>
+		      </div>
+		    </div>
+		</div>
+
+	</div>
+</div>
+
+
+{% endblock %}
+
+
+{% block footer -%}
+
+<script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script> 
+
+
+<script type="text/javascript">
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,412 @@
+{% extends "layout_header.html" %}
+
+{% block heading -%}
+{{ super() }}
+<script type="text/javascript" src="{{ url_for('static', filename='js/plotly-latest.min.js') }}"></script>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{%- endblock %}
+
+{% block content -%}
+
+<div class="container">
+	<br/>
+	<div class="row">
+		<h4>
+		Welcome to the ISAC-II Linac & Beamlines facility home page.
+		</h4>
+	</div>
+	<br/>
+	<div class="row">
+		This facility spans the beamlines and supporting systems from the first dipole (DSB:MB0) after the DTL into the 
+		ISAC-II experimental hall up to the defined borders upstream of the ISAC-II experimental stations.
+	</div>
+	<br/>
+	<div class="row">
+		At the top of the page you will find links to 
+		general information about the facility including <!--active faults, development, -->design notes, drawings, and relevant papers or conference proceedings. Or browse through a rough overview of the same information below.
+	</div>
+	<br/>
+	<div class="row">
+		Facilities are defined in&nbsp;<a href="https://documents.triumf.ca/docushare/dsweb/Get/Document-149646/TRIUMF%20Building%20and%20Facility%20Management%20-%20Roles%20and%20Responsibilities%20-%20Rel%202.pdf" target="_blank"> Document-149646</a>.
+	</div>
+</div>
+
+
+<div class="container">
+	<br/>
+	<div class="accordion" id="accordionExample">
+
+		<div class="card">
+			<div class="card-header" id="headingOne">
+			  <h5 class="mb-0">
+			    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+			      Introduction
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+		      <div class="card-body">
+		      	The ISAC-II linac is a superconducting heavy ion linac. It accepts beams from ISAC-I at 1.53 MeV/u (v/c = 0.057) with mass-to-charge ratios between 2 and 7. 
+		      	<br/><br/>
+		      	The linac is composed of forty superconducting bulk niobium quarter wave resonators distributed over eight cryomodules. Cavities are operated at 4.2 K, cooled with liquid Helium from two cryoplants (Phase I and II).
+		      	<br/><br/>
+		      	The linac accelerates stable or radioactive ion beams to as high as 16.5 MeV/u (v/c = 0.18) before delivery to various experimental stations for nuclear structure or nuclear astrophyics experiments.
+		      </div>
+		    </div>
+		</div>
+
+
+
+		<div class="card">
+			<div class="card-header" id="headingTwo">
+			  <h5 class="mb-0">
+			    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			      Facility Inputs - Systems, user requests, and upstream facilities.
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+		      <div class="card-body">
+
+				The ISAC-II linac & beamlines facility is immediately downstream of the <a href="https://documents.triumf.ca/docushare/dsweb/View/Collection-29053" target=”_blank”>ISAC-I linac facility</a> and is composed of many different systems. The way in which the linac is operated is guided by user requests for certain ion beam characteristics (energy, isotope, charge state).
+				<br/><br/>
+
+		      	<!-- <h5>Systems</h5> -->
+				<div class="accordion" id="inputsAccordion">
+					<div class="card">
+						<div class="card-header" id="systems">
+						  <h5 class="mb-0">
+						    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapse_systems" aria-expanded="false" aria-controls="collapse_systems">
+						      Systems
+						    </button>
+						  </h5>
+						</div>
+
+					    <div id="collapse_systems" class="collapse" aria-labelledby="systems" data-parent="#inputsAccordion">
+					      <div class="card-body">
+					      	The facility is composed of the following systems:
+					      	<br/><br/>
+					      	<div class="col-12">
+								<table class="table table-striped">
+								  <thead>
+								    <tr>
+								      <th scope="col">System</th>
+								      <th scope="col">Owner/Contact</th>
+								      <th scope="col">Description</th>
+								      <th scope="col"></th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <td>Vacuum</td>
+								      <td><a href="https://www.triumf.ca/profiles/3140" target=”_blank”>Dimo Yosifov</a></td>
+								      <td>Many turbo-molecular pumps provide a low vacuum environment within the beamlines, typically around 1e-7 torr. </td>
+								      <td></td>
+								    </tr>
+								    <tr>
+								      <td>Cryogenics</td>
+								      <td><a href="https://www.triumf.ca/profiles/4133" target=”_blank”>David Kishi</a></td>
+								      <td>The cryogenics system supporting the ISAC-II linac consists of two independent cryo-plants each with a compressor and coldbox. Typically the cooling of the linac is split, with Phase-I cooling the first half and phase-II cooling the second half, although each cryoplant is capable of supporting the static load of the whole linac on its own. </td>
+								      <td></td>
+								    </tr>
+								    <tr>
+								      <td>Superconducting RF</td>
+								      <td><a href="https://www.triumf.ca/profiles/5000" target=”_blank”>Zhongyuan Yao</a></td>
+								      <td>Fourty superconducting Niobium quarter wave resonators provide the acceleration to the beam. There are three unique cavity types designed for different beam velocity as the ions traverse the linac. The cavities are housed in 8 cryomodules, with 4 cavities per module for the first 5 modules, 6 per module in the sixth and seventh modules, and 8 cavities in the final cryomodule</td>
+								      <td></td>
+								    </tr>
+								    <tr>
+								      <td>Beamlines</td>
+								      <td><a href="https://www.triumf.ca/profiles/3740" target=”_blank”>Marco Marchetto</a></td>
+								      <td>The beamline optics contained in this facility contain approximately 50 magnetic quadrupoles, eight superconducting solenoids, 25 pairs of magnetic steerers, and 6 magnetic dipoles</td>
+								      <td></td>
+								    </tr>
+								    <tr>
+								      <td>Diagnostics</td>
+								      <td><a href="https://www.triumf.ca/profiles/3676" target=”_blank”>Victor Verzilov</a></td>
+								      <td>Diagnostic devices within the facility enable inensity and profile measurement both at high (>1e6 pps) and low (< 1e6) intensities. This includes Faraday cups (FC), rotating profile monitors (RPM), linear profile monitors (LPM), flight time monitors (FTM), scintillator detectors (SCD), and more.</td>
+								      <td></td>
+								    </tr>
+								  </tbody>
+								</table>
+							</div>
+					      </div>
+					    </div>
+					</div>
+
+					<div class="card">
+						<div class="card-header" id="upstream">
+						  <h5 class="mb-0">
+						    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapse_upstream" aria-expanded="false" aria-controls="collapse_upstream">
+						      Upstream Facilities
+						    </button>
+						  </h5>
+						</div>
+
+					    <div id="collapse_upstream" class="collapse" aria-labelledby="systems" data-parent="#inputsAccordion">
+					      <div class="card-body">
+							The ISAC-II is immediately downstream of the <a href="https://documents.triumf.ca/docushare/dsweb/View/Collection-29053" target=”_blank”>ISAC-I linac facility</a>, but is also downstream and interrelated with the <a href="https://documents.triumf.ca/docushare/dsweb/View/Collection-29053" target=”_blank”>ISAC-I low energy facility</a>. 
+							<br/><br/>
+							More information on the beam delivery capabilites of ISAC as a whole can be found at the <a href="https://delivery.wiki.triumf.ca/index.php/TRIUMF:_Guide_for_experimenters" target=”_blank”>Beam Delivery Wiki</a>
+					      </div>
+					    </div>
+					</div>
+
+					<div class="card">
+						<div class="card-header" id="userrequest">
+						  <h5 class="mb-0">
+						    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapse_userrequest" aria-expanded="false" aria-controls="collapse_userrequest">
+						      User Requests
+						    </button>
+						  </h5>
+						</div>
+
+					    <div id="collapse_userrequest" class="collapse" aria-labelledby="systems" data-parent="#inputsAccordion">
+					      <div class="card-body">
+					      	Experiments requesting beam in ISAC-II typically specify the following beam characteristics:
+					      	<br/><br/>
+					      	<div class="col-6 offset-3">
+								<table class="table table-striped">
+								  <thead>
+								    <tr>
+								      <th scope="col">User request</th>
+								      <th scope="col">Allowable range</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <td>Isotope/mass</td>
+								      <td>between 3 and 150+</td>
+								    </tr>
+								    <tr>
+								      <td>Charge state</td>
+								      <td>anything >= 1 </td>
+								    </tr>
+								    <tr>
+								      <td>A/Q</td>
+								      <td>between 2 and 7</td>
+								    </tr>
+								    <tr>
+								      <td>Energy per nucleon</td>
+								      <td>between 0.153 and 16.5 MeV/u</td>
+								    </tr>
+								    <tr>
+								      <td>Beam Purity</td>
+								      <td>up to 100%</td>
+								    </tr>
+								    <tr>
+								      <td>Size of final focus</td>
+								      <td>1-10 mm (2rms)</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</div>
+							These properties however are typically requested and identified considering the ISAC facility as a whole (including expected yields, charge breeding efficiency, etc.) More information on the beam delivery capabilites of ISAC as a whole can be found at the <a href="https://delivery.wiki.triumf.ca/index.php/TRIUMF:_Guide_for_experimenters" target=”_blank”>Beam Delivery Wiki</a>
+					      </div>
+					    </div>
+					</div>
+				</div>
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingFour">
+			  <h5 class="mb-0">
+			    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+			      Facility Outputs - Experimental stations served by this facility
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+		      <div class="card-body">
+		      	The output of the ISAC-II facility is the radioactive or stable ion beam delivered to one of four experimental locations in the ISAC-II experimental hall.
+		      	<br/><br/>
+				<ul class="list-group">
+				  <li class="list-group-item">
+				  	<a href="https://emma.triumf.ca" target="_blank">SEBT3B beamline: EMMA - Electromagnetic Mass Analyzer</a>
+				  	<br/>
+				  	<a href="https://fiveyearplan.triumf.ca/teams-tools/emma-electromagnetic-mass-analyzer/" target="_blank">TRIUMF Five-Year Plan 2020-2025 - EMMA</a>
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://www.physics.uoguelph.ca/tigress" target="_blank">SEBT3A beamline: TIGRESS - TRIUMF-ISAC Gamma Ray Suppressed Spectrometer</a> 
+				  	<br/>
+				  	<a href="https://fiveyearplan.triumf.ca/teams-tools/tigress-triumf-isac-gamma-ray-suppressed-spectrometer/" target="_blank">TRIUMF Five-Year Plan 2020-2025 - TIGRESS</a>
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://www.triumf.ca/iris" target="_blank">SEBT2 beamline: IRIS - ISAC Charged Particle Reaction Spectroscopy Station</a> 
+				  	<br/>
+				  	<a href="https://fiveyearplan.triumf.ca/teams-tools/iris-isac-charged-particle-reaction-spectroscopy-station/" target="_blank">TRIUMF Five-Year Plan 2020-2025 - IRIS</a>
+				  </li>
+
+				  <li class="list-group-item">
+				  	SEBT1 beamline: General purpose station</a> 
+				  </li>
+
+				</ul>
+
+		      </div>
+		    </div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" id="headingThree">
+			  <h5 class="mb-0">
+			    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+			      References - Design Drawings, Design Notes, Specifications
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+		      <div class="card-body">
+
+
+				<ul class="list-group">
+				  <li class="list-group-item">
+				  	<a href="{{ url_for('drawings') }}">Design Drawings.</a> Lists of relevant drawings to this facility
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="{{ url_for('references') }}">Documentation.</a>
+				  	This includes design notes, beam physics notes, commissioning reports, conference proceedings, etc.
+				  </li> 
+
+<!-- 				  <li class="list-group-item">
+				  	<a href="https://web.accel.triumf.ca/ncr/dbfault_newfault.pl" target="_blank">Facility Specifications</a> 
+				  </li> -->
+
+				</ul>
+
+		      </div>
+		    </div>
+		</div>
+
+<!-- 		<div class="card">
+			<div class="card-header" id="headingSix">
+			  <h5 class="mb-0">
+			    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+			      Index of design drawings
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+		      <div class="card-body">
+
+
+		      </div>
+		    </div>
+		</div> -->
+
+		<div class="card">
+			<div class="card-header" id="headingSeven">
+			  <h5 class="mb-0">
+			    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+			      Simulations
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+		      <div class="card-body">
+		      	The ISAC-II linac & beamlines were originally modelled primarily with the envelope code Trace 3-D and the particle tracking code LANA. The input files, some instructions, and historical information can be found on docushare <a href="https://documents.triumf.ca/docushare/dsweb/View/Collection-33975" target="_blank">here</a>, although please note that these simulations are not being actively used or maintained.
+		      	<br/><br/>
+		      	There is an ongoing effort to implement end-to-end simulations of all beamlines at TRIUMF in TRANSOPTR, a first order beam envelope code widely used at TRIUMF, in particular by the <a href="https://beamphys.triumf.ca/" target="_blank">Beam Physics Group.</a>
+		      	<br/><br/>
+		      	To that end, a number of beamline simulations are available online via the <a href="https://dev.envelope.triumf.ca/" target="_blank">envelope app</a>, which is running TRANSOPTR in the backend. Those that relate to this facility include:
+		      	<br/><br/>
+				<ul class="list-group">
+				  <li class="list-group-item">
+				  	<a href="https://dev.envelope.triumf.ca/isac/DSB-Beamline/" target="_blank">DSB Beamline</a>
+				  	<br/>
+				  	Also called the 'S-bend', this section of beamline transports beam from HEBT:DB5, just downstream of the ISAC-I DTL, to the injection of the ISAC-II Superconducting Linac at SCB1:LPM0. 
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://dev.envelope.triumf.ca/isac/ISAC2-Linac/" target="_blank">ISAC-II Linac</a>
+				  	<br/>
+				  	The ISAC-II superconducting linac consists of 40 Niobium quarter wave cavities and 8 superconducting solenoids which provide transverse focusing.
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://dev.envelope.triumf.ca/isac/sebt-rpm8-sebt-rpm20/" target="_blank">Linac to SEBT:DB20</a>
+				  	<br/>
+				  	This transport line from the linac exit to SEBT:DB20 consists of 12 quads and 3 flight time monitors which are used to measure the velocity of the beam.
+				  </li>
+
+				  <li class="list-group-item">
+				  	<a href="https://dev.envelope.triumf.ca/isac/EMMA-round-SF-bff-4cm/" target="_blank">SEBT to SEBT3B-EMMA</a>
+				  	<br/>
+				  	This transport line from SEBT:DB20 to the EMMA target location consists of 10 quads and 2 dipoles. 
+				  </li>
+
+				</ul>
+		      </div>
+		    </div>
+		</div>
+
+<!-- 		<div class="card">
+			<div class="card-header" id="headingEight">
+			  <h5 class="mb-0">
+			    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+			      What you will NOT find here
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+		      <div class="card-body">
+
+
+				Detailed information that is (or should be) maintained by the owners of the individual systems. Only the outputs of various systems relevant to the facility operation are mentioned here. 
+				<br/><br/>
+				An example of this is RF cavities - the outputs relevant to this facility are maximum cavity voltage, phase and voltage stability requirements, drift tube dimensions. How the system reaches those outputs (like the specs of the amplifiers for a given cavity) are not immediately relevant to this facility.
+
+
+		      </div>
+		    </div>
+		</div> -->
+
+		<div class="card">
+			<div class="card-header" id="headingNine">
+			  <h5 class="mb-0">
+			    <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+			      Contact
+			    </button>
+			  </h5>
+			</div>
+		    <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+		      <div class="card-body">
+		      	The facility co-ordinator for this facility is 
+		      	<a href="https://www.triumf.ca/profiles/4827" target="_blank">Spencer Kiy</a>. Alternates are Olivier Shelbaya and Tiffany Angus. General inquiries are best sent via e-mail.
+
+		      </div>
+		    </div>
+		</div>
+
+	</div>
+</div>
+<br/>
+<div class="container">
+    <figure class="figure">
+        <img src="{{ url_for('static', filename='img/isac2-beamline-overview.png') }}" class="img-fluid" alt="Responsive image">
+        <figcaption class="figure-caption text-center">
+            ISAC-II Linac & Beamlines overview
+        </figcaption>
+    </figure>
+</div>
+
+{% endblock %}
+
+
+{% block footer -%}
+
+<script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script> 
+
+
+<script type="text/javascript">
+
+</script>
+
+{% endblock %}

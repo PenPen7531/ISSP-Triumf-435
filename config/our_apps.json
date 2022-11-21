@@ -1,0 +1,133 @@
+{
+	"core_apps":
+		[
+			{"app":"envelope", 
+			 "url":"https://dev.envelope.triumf.ca/", 
+			 "contact":"Thomas Planche",
+			 "gitlab": "https://gitlab.triumf.ca/hla/envelope",
+			 "text": "Display and optimize beam envelopes using transoptr."
+			},
+			{"app":"tuneX", 
+			 "url":"https://beta.hla.triumf.ca/beam/tuneX", 
+			 "contact":"Spencer Kiy",
+			 "gitlab": "https://gitlab.triumf.ca/hla/beam/tuneX",
+			 "text": "Loading and scaling of optics settings to EPICS, as well as comparison between live setpoints and saved settings."
+			}
+		],
+	"core_projects":
+		[
+			{"app":"jaya", 
+			 "url":"https://beta.hla.triumf.ca/jaya", 
+			 "contact":"Spencer Kiy",
+			 "gitlab": "https://gitlab.triumf.ca/hla/jaya",
+			 "text": "Gateway for read/write-access to devices"
+			},
+			{"app":"acc", 
+			 "contact":"Olivier Shelbaya",
+			 "gitlab": "https://gitlab.triumf.ca/hla/acc",
+			 "text": "XML database describing TRIUMF beamlines"
+			},
+			{"app":"accpy", 
+			 "contact":"Spencer Kiy",
+			 "gitlab": "https://gitlab.triumf.ca/hla/acc-utilities/accpy",
+			 "text": "Python package for interacting with acc database."
+			},
+			{"app":"apex", 
+			 "contact":"Paul Jung",
+			 "gitlab": "https://gitlab.triumf.ca/hla/apex",
+			 "text": "Python package providing flask templates for web apps"
+			},
+			{"app":"xml2optr", 
+			 "contact":"Paul Jung",
+			 "gitlab": "https://gitlab.triumf.ca/hla/acc-utilities/xml2optr",
+			 "text": "Python package that converts xml files from acc database to transoptr files."
+			}
+		],
+	"facility_apps":
+		[
+			{"app":"Trim-Coil-Binder", 
+			 "url":"https://beta.hla.triumf.ca/trimcoilbinder", 
+			 "contact":"Kevin Lucow",
+			 "gitlab": "https://gitlab.triumf.ca/hla/cyclotron/trimcoilbinder",
+			 "text": "Visualize cyclotron trim coil settings"
+			},
+			{"app":"Driver-Displays", 
+			 "url":"https://driverdisplays.dev.kube.dmz.triumf.ca/", 
+			 "contact":"Kevin Lucow",
+			 "gitlab": "https://gitlab.triumf.ca/hla/driverdisplays",
+			 "text": "Misc. Displays for Driver Ops"
+			},
+			{"app":"Cyclotron-Probes", 
+			 "url":"http://hlaprod.triumf.ca/projects/CycProbes/CycProbes.html", 
+			 "contact":"Thomas Planche",
+			 "gitlab": "",
+			 "text": "Plot data from radial probes"
+			}
+		],
+	"active_other_apps":
+		[
+			{"app":"snapshot", 
+			 "url":"https://beta.hla.triumf.ca/snapshot", 
+			 "contact":"Spencer Kiy, Blair Stringer",
+			 "gitlab": "https://gitlab.triumf.ca/hla/snapshot",
+			 "text": "Automated tune documentation (profiles, FC readings)."
+			},
+			{"app":"degaussing", 
+			 "url":"https://beta.hla.triumf.ca/degaussing", 
+			 "contact":"Spencer Kiy",
+			 "gitlab": "https://gitlab.triumf.ca/hla/degaussing",
+			 "text": "For ramping and degaussing dipoles."
+			},
+			{"app":"magnetScan", 
+			 "url":"https://beta.hla.triumf.ca/magnetScan", 
+			 "contact":"Brad Schultz",
+			 "gitlab": "https://gitlab.triumf.ca/hla/magnetScan",
+			 "text": "Scanning of magnets for visualization and analysis of charge state spectra."
+			},
+			{"app":"canreb-control", 
+			 "url":"https://beta.hla.triumf.ca/canreb-control", 
+			 "contact":"Brad Schultz",
+			 "gitlab": "https://gitlab.triumf.ca/hla/canreb-control",
+			 "text": "Various tools for monitoring and controlling CANREB systems"
+			},
+			{"app":"steerer_scan", 
+			 "url":"https://beta.hla.triumf.ca/steerer_scan", 
+			 "contact":"Stephanie Radel",
+			 "gitlab": "https://gitlab.triumf.ca/hla/steerer_scan",
+			 "text": "Contains the steerer app and the e-linac calculator E-Linac Tools. The steerer app measures the influence of any steerer on the beam by measuring bpm positions."
+			}
+		],
+	"stale_other_apps":
+		[
+			{"app":"Strip", 
+			 "url":"https://beta.hla.triumf.ca/strip", 
+			 "contact":"Spencer Kiy",
+			 "gitlab": "https://gitlab.triumf.ca/hla/strip",
+			 "text": "Plotting of PVs in a browser window."
+			},
+			{"app":"RIB-Display", 
+			 "url":"https://devel.hla.triumf.ca/ribdisplay", 
+			 "contact":"Nina He",
+			 "gitlab": "https://gitlab.triumf.ca/hla/ribdisplay",
+			 "text": "Misc. Displays for RIB Ops"
+			},
+			{"app":"emittance", 
+			 "url":"", 
+			 "contact":"Brad Shultz",
+			 "gitlab": "https://gitlab.triumf.ca/hla/emittance",
+			 "text": "Display & analyse data from emittance measurements"
+			},
+			{"app":"layout", 
+			 "url":"https://devel.hla.triumf.ca/beam/layout/", 
+			 "contact":"Spencer Kiy",
+			 "gitlab": "https://gitlab.triumf.ca/hla/beam/layout",
+			 "text": "Graphic representation of beamlines/devices at TRIUMF"
+			},
+			{"app":"tomography",
+			 "url":"https://tomography.dev.kube.dmz.triumf.ca/",
+			 "contact":"Olivier Shelbaya",
+			 "gitlab": "https://gitlab.triumf.ca/hla/tomography",
+			 "text": "Quad scans and phase space reconstruction for beam emittance measurements."
+			}
+		]
+}

@@ -1,5 +1,53 @@
-venv
-__pycache__
-app/__pycache__
-dashboard_files/*
-!dashboard_files/.gitkeep
+# Virtual Environment #
+#######################
+venv*
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.pyc
+*.so
+__pycache__*
+
+# Config files #
+################
+*.ini
+*.cfg
+config_local.py
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+flask_session/
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.directory
+*~
+*.kate-swp
