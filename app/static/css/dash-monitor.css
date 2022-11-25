@@ -227,7 +227,14 @@ html {
     border-radius: 10px;
 }
 
+.top-header > * > * {
+    background-color: transparent;
+}
 
+.top-header{
+    display: flex;
+    background-color: var(--header-bc);
+}
 @media screen and (max-width: 1000px) {
     #input-btn{
         font-size: 22px;    
