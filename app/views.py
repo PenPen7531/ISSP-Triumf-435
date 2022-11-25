@@ -106,6 +106,9 @@ def rename_dash(dname):
                 os.rename(dash_file, new_name)
                 return redirect ('/dashboard')
 
+@app.route("/authors")
+def authors():
+    return render_template('/public/authors.html')
 
 @app.route("/dashboard", methods=["GET", "POST"])
 def home():

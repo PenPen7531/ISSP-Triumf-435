@@ -9,6 +9,8 @@ a{
     --second-row-cl: #444444
 }
 
+
+
 #logo{
     margin: 25px;
     background-color: var(--header-bc);
@@ -23,7 +25,10 @@ html {
     font-family: monospace;
   }
 
-  
+
+  *{
+    font-family: monospace;
+  }
 
   main {
     width: 100%;
@@ -109,7 +114,18 @@ html {
     width: 10vw;
 }
 
-#input-btn:hover{
+#top-link{
+    font-size: 1.5vw;
+    background-color: #287DCC;
+    border-radius: 10px;
+    color: white;
+    width: 10vw;
+    border: 2px black solid;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#input-btn:hover, #top-link:hover{
     
     background-color: grey;
 
@@ -131,7 +147,7 @@ html {
         width: 20vw;
     }
 
-    #input-btn{
+    #input-btn, #top-link{
         font-size: 24px;
         background-color: #287DCC;
         border-radius: 10px;
