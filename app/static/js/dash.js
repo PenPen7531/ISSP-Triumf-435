@@ -1,6 +1,6 @@
 let date_box=document.getElementById("update-time");
 let date=new Date();
-date_box.innerHTML("Date"+date);
+//date_box.innerHTML("Date"+date);
 let meta_head = document.getElementById('refresh-rate');
 console.log(meta_head)
 
