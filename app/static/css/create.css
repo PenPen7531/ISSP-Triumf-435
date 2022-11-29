@@ -13,6 +13,13 @@ h1{
     align-items: center;
 }
 
+.login-btns{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #create-dash{
     display: flex;
     flex-direction: column;
@@ -30,13 +37,29 @@ h1{
 
 
 
+#dash-input, #input-btn, #input-btn2{
+    font-size: 28px;
+    padding: 5px;
+}
+
+#input-btn, #input-btn2{
+    width: 30vw;
+    border: 2px solid black;
+
+}
+
+#input-btn:hover, #input-btn2:hover{
+    background-color: #696969;;
+}
+
+
 
 #input-btn{
     background-color: #287DCC;
     color: white;
 }
 input{
-    width: 60vw;
+    width: 40vw;
     text-align: center;
     font-size: 40px;
     border-radius: 10px;
@@ -53,6 +76,8 @@ button{
     background-color: #287DCC;
 }
 
+
+
 @media screen and (max-width: 500px) {
 
     .flex-mid{
@@ -63,10 +88,11 @@ button{
     }
     .login-btns{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         width: 100%;
     }
-    #input-btn{
+    #input-btn, #input-btn2{
         font-size: 22px;
         width: 75%;
     }

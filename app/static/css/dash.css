@@ -26,8 +26,8 @@
     background-color: white;
     width: 400px;
     height: 50px;
-    font-size: 1.5em;
-    border-radius: 20px;
+    font-size: 28px;
+    border-radius: 10px;
     padding: 5px;
     border: 1px solid black;
     color: black;
@@ -38,7 +38,7 @@
     border: none;
     background-color: #287DCC;
     justify-self: center;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 20px;
     border: 2px black solid;
     text-align: center;
@@ -67,7 +67,7 @@ a{
     flex-direction: column;
     border: solid 1px black;
     padding: 0px;
-    border-radius: 30px;
+    border-radius: 10px;
     background-color: white;
     font-size: 2vw;
     width: 50vw;
@@ -84,7 +84,7 @@ a{
 }
 
 #title{
-    font-size: 3vw;
+    font-size: 52px;
     margin-bottom: 50px;
 }
 
@@ -114,19 +114,28 @@ form{
     margin-top: 20px;
 }
 .button{
-    margin: 30px;
+    margin: 10px;
     background-color: #287DCC;
-    padding: 20px;
-    border-radius: 30px;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 10px;
     align-self: center;
     justify-self: center;
     width: 200px;
     border: 2px solid black;
 }
 
+.top{
+    margin-top: 20px;
+}
+
+.button:hover{
+    background-color: #696969;
+}
+
 @media screen and (max-width: 600px) {
     #title{
-        
+
         font-size: 35px;
         text-align: center;
     }

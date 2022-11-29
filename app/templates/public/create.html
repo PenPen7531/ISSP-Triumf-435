@@ -14,9 +14,11 @@
         <form method="POST" id="create-dash">
             <input type="text" name="dash-name" placeholder="Dashboard Name" id="dash-input">
             <div class="login-btns">
-                <input type = "submit" value = "Create Dashboard" id="input-btn"/>
+                <input type = "submit" value = "Create" id="input-btn"/>
+                
             </div>
         </form>
+        <a href="/dashboard"><button value = "Create Dashboard" id="input-btn2">Back</button></a>
         {% if error==True %}<h3>Error, No name inputted</h3>{% endif %}
         <!-- <button onclick="addPV()">Create Dashboard</button> -->
     </div>

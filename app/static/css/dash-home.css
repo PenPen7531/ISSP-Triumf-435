@@ -107,6 +107,10 @@ th, td{
     
 }
 
+
+#rmv-bt:hover{
+    color: #c21807;
+}
 .delete-btn > a {
     text-decoration: None;
     color: black;
@@ -149,7 +153,7 @@ html {
     padding: 10px;
     margin: 10px;
     border: 2px solid black;
-    border-radius: 30px;
+    border-radius: 10px;
     
    }
 

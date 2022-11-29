@@ -12,12 +12,13 @@
     <div class="flex-mid">
         <h1>Rename {{dname}}'s Dashboard</h1>
         <form method="POST" id="create-dash">
-            <input type="text" name="rename" placeholder="Dashboard Name" id="dash-input">
+            <input type="text" name="rename" placeholder="Dashboard Name" id="dash-input" required>
             <div class="login-btns">
                 <input type = "submit" value = "Rename Dashboard" id="input-btn"/>
             </div>
         </form>
-        {% if error==True %}<h3>Error: Cannot Rename Dashboard. No name inputted</h3>{% endif %}
+        <a href="/view/{{dname}}"><button id="input-btn2">Back</button></a>
+        
         <!-- <button onclick="addPV()">Create Dashboard</button> -->
     </div>
 </body>
