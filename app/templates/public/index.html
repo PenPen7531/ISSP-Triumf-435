@@ -20,9 +20,11 @@
         <br>
         <form id='post-form' method = "POST">
             <label for = "password"></label>
+            
             <input type="password" name = "password" id ="post-input" required placeholder="Password"/>
             <br>
-            <br>
+            {% if error==True %}<h3>Password Incorrect</h3>{% endif %}
+        
             <div class="login-btns">
                 <input type = "submit" value = "Login" id="input-btn"/>
                 <a id="top-link" href="/authors">Authors</a>

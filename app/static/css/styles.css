@@ -107,23 +107,25 @@ html {
 
 
 #input-btn{
-    font-size: 1.5vw;
+    font-size: 28px;
     background-color: #287DCC;
     border-radius: 10px;
     color: white;
     border: 3px black solid;
-    width: 10vw;
+    padding: 5px 0px;
+
 }
 
 #top-link{
-    font-size: 1.5vw;
+    font-size: 28px;
     background-color: #287DCC;
     border-radius: 10px;
     color: white;
-    width: 10vw;
+
     border: 3px black solid;
     text-align: center;
     margin-top: 10px;
+    padding: 5px 7.5px;
 }
 
 #input-btn:hover, #top-link:hover{
@@ -132,15 +134,19 @@ html {
 
 }
 
+h3{
+    color: red;
+}
 
 
 #post-input{
     padding: 5px;
     background-color: white;
     border: 1px solid black;
-    font-size: 1.75vw;
-    width: 30vw;
+    font-size: 32px;
+    width: 400px;
     border-radius: 10px;
+    text-align: center;
 }
 @media screen and (max-width: 600px) {
 
@@ -162,6 +168,7 @@ html {
         font-size: 24px;
         width: 75vw;
         border-radius: 20px;
+        text-align: center;
     }
 
     #logo{

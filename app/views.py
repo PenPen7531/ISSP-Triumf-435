@@ -61,14 +61,14 @@ def index():
     try:
         if request.method=="GET":
             session['user']=None
-            return render_template("public/index.html")
+            return render_template("public/index.html", error=False)
 
         if request.method=="POST":
             password=request.form.get("password")
             if str(hashlib.sha256(password.encode()).hexdigest()) == '532eaabd9574880dbf76b9b8cc00832c20a6ec113d682299550d7a6e0f345e25':
                 session['user']='yes'
                 return redirect("/dashboard")
-        return redirect('/error')
+        return render_template('/public/index.html', error=True)
     except:
         return redirect("/error")
 
