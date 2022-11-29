@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dash-monitor.css') }}">
+    <link rel="icon" type="image/x-icon" href="../../static/img/favicon.ico">
     <script src="../../static/js/dash.js"></script>
     <meta http-equiv="refresh" content="{{ rate }}" id="refresh-rate"/>
     <script>
@@ -28,7 +29,7 @@
 </head>
 <body>
     <div class="button">
-        <a href="https://www.triumf.ca/"><img src="../../static/img/triumf-trans-white.png" id="logo"/></a>
+        <a href="https://www.triumf.ca/" target="__blank"><img src="../../static/img/triumf-trans-white.png" id="logo"/></a>
         
         <div class="flex-right button" id="f-right"><a href="/dashboard" id="monitor">Change Dashboard</a></div>
         <div class="flex-right button" ><a href="/" id="logout">Logout</a></div>

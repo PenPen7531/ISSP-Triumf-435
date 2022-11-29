@@ -4,6 +4,7 @@ import datetime
 import requests
 import json
 import os
+import hashlib 
 
 app.secret_key="session_key666"
 
@@ -63,7 +64,8 @@ def index():
             return render_template("public/index.html")
 
         if request.method=="POST":
-            if request.form.get("password")=="Test":
+            password=request.form.get("password")
+            if str(hashlib.sha256(password.encode()).hexdigest()) == '532eaabd9574880dbf76b9b8cc00832c20a6ec113d682299550d7a6e0f345e25':
                 session['user']='yes'
                 return redirect("/dashboard")
         return redirect('/error')

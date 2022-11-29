@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dash-home.css') }}">
+    <link rel="icon" type="image/x-icon" href="../../static/img/favicon.ico">
     <script>
         window.onload = function() {
             document.getElementById('burger_div').addEventListener("click", openNav);
@@ -26,8 +27,8 @@
 </head>
 <body>
     <div class="button">
-        <a href="https://www.triumf.ca/"><img src="../../static/img/triumf-trans-white.png" id="logo"/></a>
-        <div class="flex-right"><a href="https://beta.hla.triumf.ca/jaya-isac/all" id="list-pv">Show All PVs</a></div>
+        <a href="https://www.triumf.ca/" target="__blank"><img src="../../static/img/triumf-trans-white.png" id="logo"/></a>
+        <div class="flex-right"><a target="__blank" href="https://beta.hla.triumf.ca/jaya-isac/all" id="list-pv">Show All PVs</a></div>
         <div class="flex-right"><a href="/dashboard" id="dash-change">Change Dash</a></div>
         <div class="flex-right"><a href="/dashboard/delete/{{dashboard_name}}" id="delete" onclick="return confirm('Are you sure you want to delete this dashboard?')">Delete Dash</a></div>
         <div class="flex-right"><a href="/dashboard/rename/{{dashboard_name}}" id="rename">Rename Dash</a></div>
@@ -36,7 +37,7 @@
         <div class="flex-right" id="burger_div"><img id="burger" src="../../static/img/burger-icon.png"/></div>
     </div>
     <div id="nav-mobile" style="display: none;">
-        <a href="https://beta.hla.triumf.ca/jaya-isac/all">Show All PVs</a>
+        <a href="https://beta.hla.triumf.ca/jaya-isac/all" target="__blank">Show All PVs</a>
         <a href="/dashboard">Change Dash</a>
         <a href="/dashboard/delete/{{dashboard_name}}"  onclick="return confirm('Are you sure you want to delete this dashboard?')">Delete Dash</a>
         <a href="/dashboard/rename/{{dashboard_name}}" >Rename Dash</a>
