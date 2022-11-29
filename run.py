@@ -2,33 +2,190 @@ from flask import Flask, render_template, request, jsonify, url_for, session, re
 import math, requests, os, sys, datetime
 
 import json
-#from apex import mod_apex
-#from lib import olisArray, olisPVs, olisHeaders, ebisArray, ebisPVs, \
-    #get_homepage_text, get_olis_html
+from apex import mod_apex
+from lib import olisArray, olisPVs, olisHeaders, ebisArray, ebisPVs, \
+    get_homepage_text, get_olis_html
 
-#from accpy import schedule
+from accpy import schedule
 
 ####### REGISTER APP ##########
 app = Flask(__name__)
 
 app.secret_key="session_key666"
-# app.register_blueprint(mod_apex)
-# settings = {
-#     'title': 'High Level Applications',
-#     'app_name': 'HLA',
-#     'gitlab_url':'https://gitlab.triumf.ca/hla/high-level-apps'
-# }
+app.register_blueprint(mod_apex)
+settings = {
+    'title': 'High Level Applications',
+    'app_name': 'HLA',
+    'gitlab_url':'https://gitlab.triumf.ca/hla/high-level-apps'
+}
 
 ####### ROUTING ##########
-# @app.route('/', methods = ['GET'])
-# def landing():
-#     settings['app_url'] = url_for('landing')
-#     navbar = make_navbar()
-#     pageText = get_homepage_text()
-#     return render_template('home.html', header_settings=settings, \
-#         navbar_left=navbar, pageTextDict=pageText)
+@app.route('/', methods = ['GET'])
+def landing():
+    settings['app_url'] = url_for('landing')
+    navbar = make_navbar()
+    pageText = get_homepage_text()
+    return render_template('home.html', header_settings=settings, \
+        navbar_left=navbar, pageTextDict=pageText)
 
-@app.route("/", methods=["GET", "POST"])
+
+@app.route('/tuning', methods = ['GET'])
+def tuning():
+    settings['app_url'] = url_for('landing')
+    navbar = make_navbar()
+    return render_template('tuning.html', header_settings=settings, \
+        navbar_left=navbar)
+
+
+@app.route('/developers', methods = ['GET'])
+def developers():
+    settings['app_url'] = url_for('landing')
+    navbar = make_navbar()
+
+    return render_template('developers.html', header_settings=settings, \
+        navbar_left=navbar)
+
+
+@app.route('/CSDs', methods = ['GET'])
+def CS_distros():
+    settings['app_url'] = url_for('landing')
+    navbar = make_navbar()
+
+    return render_template('CSDs.html', header_settings=settings, \
+        navbar_left=navbar)
+
+
+@app.route('/olis', methods = ['GET'])
+def olis():
+    settings['app_url'] = url_for('landing')
+    navbar = make_navbar()
+
+    return render_template('olis.html', header_settings=settings, \
+        navbar_left=navbar, tableArray=olisArray, PVs=olisPVs, \
+        tableHeaders=olisHeaders)
+
+
+@app.route('/olis-summary', methods = ['GET'])
+def olis_summary():
+    settings['app_url'] = url_for('landing')
+    navbar = make_navbar()
+
+    return render_template('olis-summary.html', header_settings=settings, \
+        navbar_left=navbar)
+
+
+@app.route('/olis-data', methods = ['GET'])
+def olis_data():
+    return get_olis_html() 
+
+
+@app.route('/ebis', methods = ['GET'])
+def ebis():
+    settings['app_url'] = url_for('landing')
+    navbar = make_navbar()
+
+    return render_template('ebis.html', header_settings=settings, \
+        navbar_left=navbar, tableArray=ebisArray, PVs=ebisPVs)
+
+
+@app.route('/get_schedule', methods = ['GET'])
+def get_schedule():
+    schedule_data = schedule.get_current_shift()
+    return jsonify(schedule_data)
+
+
+# ##############################################
+# ### ISAC-2 Linac routing
+# ##############################################
+
+@app.route('/isac2linac')
+def isac2_home():
+    settings['title'] = 'ISAC-II Linac & Beamlines'
+    settings['app_name'] = 'ISAC-II Linac & Beamlines'
+    settings['app_url'] = url_for('isac2_home')
+    navbar = make_isac_2_navbar()
+    return render_template('isac2_home.html', header_settings=settings,
+        navbar_left=navbar)
+
+
+@app.route('/isac2linac/documentation')
+def references():
+    settings['title'] = 'ISAC-II Linac & Beamlines'
+    settings['app_name'] = 'ISAC-II Linac & Beamlines'
+    settings['app_url'] = url_for('isac2_home')
+    navbar = make_isac_2_navbar()
+    return render_template('isac2_documentation.html', header_settings=settings, 
+        navbar_left=navbar)
+
+
+@app.route('/isac2linac/drawings')
+def drawings():
+    settings['title'] = 'ISAC-II Linac & Beamlines'
+    settings['app_name'] = 'ISAC-II Linac & Beamlines'
+    settings['app_url'] = url_for('isac2_home')
+    navbar = make_isac_2_navbar()
+    return render_template('isac2_design_drawings.html', header_settings=settings, 
+        navbar_left=navbar)
+
+
+@app.route('/isac2linac/gallery')
+def gallery():
+    settings['title'] = 'ISAC-II Linac & Beamlines'
+    settings['app_name'] = 'ISAC-II Linac & Beamlines'
+    settings['app_url'] = url_for('isac2_home')
+    navbar = make_isac_2_navbar()
+    return render_template('isac2_gallery.html', header_settings=settings, 
+        navbar_left=navbar)
+
+
+
+
+
+
+# ######################
+
+def make_navbar():
+    link1 = {'text':'Homepage', 'url': url_for('landing')}
+    link2 = {'text':'OLIS', 'url': url_for('olis')}
+    link3 = {'text':'EBIS', 'url': url_for('ebis')}
+    dropdown_links = [link1, link2, link3]
+    navbar = [{'type':'dropdown', 'text':'Other Pages','links':dropdown_links}]
+    return navbar
+
+
+def make_isac_2_navbar():
+    link11 = {'text':'Design Drawings', 'url': url_for('drawings')}
+    link12 = {'text':'Documentation', 'url': url_for('references')}
+    link13 = {'text':'Gallery', 'url': url_for('gallery')}
+
+    info_links = [link11, link12, link13]
+    navbar = [{'type':'dropdown','text':'Info','links':info_links}]
+    return navbar
+
+
+
+
+######################### BCIT FLASK APPLICATION ISSP
+
+
+
+
+def get_jaya(pv_list):
+    """
+    Use JAYA
+
+    Send PV list to JAYA.
+
+    Return JSON from JAYA with readings.
+    """
+    url_full = "https://beta.hla.triumf.ca/jaya/get"
+    data = {'readPvList': pv_list}
+    r = requests.post(url_full, json=data)
+    jsondata = r.json()
+    return jsondata
+
+
+@app.route("/issp", methods=["GET", "POST"])
 def index():
     """
     Landing page
@@ -55,7 +212,7 @@ def index():
         return redirect("/error")
 
 
-@app.route("/dashboard", methods=["GET", "POST"])
+@app.route("/issp/dashboard", methods=["GET", "POST"])
 def home():
     """
     Dashboard Selection Route
@@ -91,163 +248,7 @@ def home():
         return redirect('/error')
 
 
-# @app.route('/tuning', methods = ['GET'])
-# def tuning():
-#     settings['app_url'] = url_for('landing')
-#     navbar = make_navbar()
-#     return render_template('tuning.html', header_settings=settings, \
-#         navbar_left=navbar)
-
-
-# @app.route('/developers', methods = ['GET'])
-# def developers():
-#     settings['app_url'] = url_for('landing')
-#     navbar = make_navbar()
-
-#     return render_template('developers.html', header_settings=settings, \
-#         navbar_left=navbar)
-
-
-# @app.route('/CSDs', methods = ['GET'])
-# def CS_distros():
-#     settings['app_url'] = url_for('landing')
-#     navbar = make_navbar()
-
-#     return render_template('CSDs.html', header_settings=settings, \
-#         navbar_left=navbar)
-
-
-# @app.route('/olis', methods = ['GET'])
-# def olis():
-#     settings['app_url'] = url_for('landing')
-#     navbar = make_navbar()
-
-#     return render_template('olis.html', header_settings=settings, \
-#         navbar_left=navbar, tableArray=olisArray, PVs=olisPVs, \
-#         tableHeaders=olisHeaders)
-
-
-# @app.route('/olis-summary', methods = ['GET'])
-# def olis_summary():
-#     settings['app_url'] = url_for('landing')
-#     navbar = make_navbar()
-
-#     return render_template('olis-summary.html', header_settings=settings, \
-#         navbar_left=navbar)
-
-
-# @app.route('/olis-data', methods = ['GET'])
-# def olis_data():
-#     return get_olis_html() 
-
-
-# @app.route('/ebis', methods = ['GET'])
-# def ebis():
-#     settings['app_url'] = url_for('landing')
-#     navbar = make_navbar()
-
-#     return render_template('ebis.html', header_settings=settings, \
-#         navbar_left=navbar, tableArray=ebisArray, PVs=ebisPVs)
-
-
-# @app.route('/get_schedule', methods = ['GET'])
-# def get_schedule():
-#     schedule_data = schedule.get_current_shift()
-#     return jsonify(schedule_data)
-
-
-# ##############################################
-# ### ISAC-2 Linac routing
-# ##############################################
-
-# @app.route('/isac2linac')
-# def isac2_home():
-#     settings['title'] = 'ISAC-II Linac & Beamlines'
-#     settings['app_name'] = 'ISAC-II Linac & Beamlines'
-#     settings['app_url'] = url_for('isac2_home')
-#     navbar = make_isac_2_navbar()
-#     return render_template('isac2_home.html', header_settings=settings,
-#         navbar_left=navbar)
-
-
-# @app.route('/isac2linac/documentation')
-# def references():
-#     settings['title'] = 'ISAC-II Linac & Beamlines'
-#     settings['app_name'] = 'ISAC-II Linac & Beamlines'
-#     settings['app_url'] = url_for('isac2_home')
-#     navbar = make_isac_2_navbar()
-#     return render_template('isac2_documentation.html', header_settings=settings, 
-#         navbar_left=navbar)
-
-
-# @app.route('/isac2linac/drawings')
-# def drawings():
-#     settings['title'] = 'ISAC-II Linac & Beamlines'
-#     settings['app_name'] = 'ISAC-II Linac & Beamlines'
-#     settings['app_url'] = url_for('isac2_home')
-#     navbar = make_isac_2_navbar()
-#     return render_template('isac2_design_drawings.html', header_settings=settings, 
-#         navbar_left=navbar)
-
-
-# @app.route('/isac2linac/gallery')
-# def gallery():
-#     settings['title'] = 'ISAC-II Linac & Beamlines'
-#     settings['app_name'] = 'ISAC-II Linac & Beamlines'
-#     settings['app_url'] = url_for('isac2_home')
-#     navbar = make_isac_2_navbar()
-#     return render_template('isac2_gallery.html', header_settings=settings, 
-#         navbar_left=navbar)
-
-
-
-
-
-
-# ######################
-
-# def make_navbar():
-#     link1 = {'text':'Homepage', 'url': url_for('landing')}
-#     link2 = {'text':'OLIS', 'url': url_for('olis')}
-#     link3 = {'text':'EBIS', 'url': url_for('ebis')}
-#     dropdown_links = [link1, link2, link3]
-#     navbar = [{'type':'dropdown', 'text':'Other Pages','links':dropdown_links}]
-#     return navbar
-
-
-# def make_isac_2_navbar():
-#     link11 = {'text':'Design Drawings', 'url': url_for('drawings')}
-#     link12 = {'text':'Documentation', 'url': url_for('references')}
-#     link13 = {'text':'Gallery', 'url': url_for('gallery')}
-
-#     info_links = [link11, link12, link13]
-#     navbar = [{'type':'dropdown','text':'Info','links':info_links}]
-#     return navbar
-
-
-
-
-######################### BCIT FLASK APPLICATION ISSP
-
-
-
-
-def get_jaya(pv_list):
-    """
-    Use JAYA
-
-    Send PV list to JAYA.
-
-    Return JSON from JAYA with readings.
-    """
-    url_full = "https://beta.hla.triumf.ca/jaya/get"
-    data = {'readPvList': pv_list}
-    r = requests.post(url_full, json=data)
-    jsondata = r.json()
-    return jsondata
-
-
-@app.route("/delete/<dashboard_name>/<pv>")
+@app.route("/issp/delete/<dashboard_name>/<pv>")
 def delete( dashboard_name,pv):
     """
     Dashboard PV deletion
@@ -270,7 +271,7 @@ def delete( dashboard_name,pv):
 
 
 
-@app.route("/dashboard/delete/<dash_name>")
+@app.route("/issp/dashboard/delete/<dash_name>")
 def delete_dash(dash_name):
     """
     Dashboard deletion
@@ -284,7 +285,7 @@ def delete_dash(dash_name):
             return redirect ("/dashboard")
 
 
-@app.route("/dashboard/rename/<dname>", methods=['GET', 'POST'])
+@app.route("/issp/dashboard/rename/<dname>", methods=['GET', 'POST'])
 def rename_dash(dname):
     """
     Rename Dashboard
@@ -306,8 +307,8 @@ def rename_dash(dname):
 
 
 
-@app.route("/monitor/<dashboard>/<refresh>")
-@app.route("/monitor/<dashboard>", defaults={'refresh': 5}, methods=["GET", "POST"])
+@app.route("/issp/monitor/<dashboard>/<refresh>")
+@app.route("/issp/monitor/<dashboard>", defaults={'refresh': 5}, methods=["GET", "POST"])
 def monitor(dashboard, refresh):
     """
     Monitor PVs on dashboard - Refresh every 5 seconds
@@ -339,7 +340,7 @@ def monitor(dashboard, refresh):
         #return redirect('/error')
         return "Fail try"
 
-@app.route("/view/<dashboard>", methods=["GET", "POST"])
+@app.route("/issp/view/<dashboard>", methods=["GET", "POST"])
 def dashboard(dashboard):
     """
     Dashboard view route
@@ -389,7 +390,7 @@ def dashboard(dashboard):
         return redirect('/error')
 
 
-@app.route('/create', methods=["GET", "POST"])
+@app.route('/issp/create', methods=["GET", "POST"])
 def create():
     """
     Dashboard creation route
@@ -426,7 +427,7 @@ def create():
         return redirect('/error')
 
 
-@app.route('/error')
+@app.route('/issp/error')
 def error():
     """
     Error page route
