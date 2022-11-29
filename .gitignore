@@ -12,6 +12,7 @@ venv*
 *.pyc
 *.so
 __pycache__*
+app/__pycache__*
 
 # Config files #
 ################
@@ -51,3 +52,8 @@ Thumbs.db
 .directory
 *~
 *.kate-swp
+
+# JSON dashboard files #
+########################
+dashboard_files/*
+!dashboard_files/.gitkeep
