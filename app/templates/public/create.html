@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/create.css') }}">
+    <link rel="icon" type="image/x-icon" href="../../static/img/favicon.ico">
     <script src="../../static/js/create.js"></script>
 </head>
 <body>
@@ -21,9 +22,11 @@
         <form method="POST" id="create-dash">
             <input type="text" name="dash-name" placeholder="Dashboard Name" id="dash-input">
             <div class="login-btns">
-                <input type = "submit" value = "Create Dashboard" id="input-btn"/>
+                <input type = "submit" value = "Create" id="input-btn"/>
+                
             </div>
         </form>
+        <a href="/dashboard"><button value = "Create Dashboard" id="input-btn2">Back</button></a>
     </div>
 </body>
 </html>

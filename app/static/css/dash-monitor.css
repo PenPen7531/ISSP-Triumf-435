@@ -151,7 +151,7 @@ html {
     padding: 10px;
     margin: 10px;
     border: 2px solid black;
-    border-radius: 30px;
+    border-radius: 10px;
     
    }
 
@@ -187,11 +187,11 @@ html {
 
 #edit-ref {
     color: white;
-    font-size: 2.0vw;
+    font-size: 28px;
     text-decoration: none;
     background-color: #287DCC;
-    padding: 20px;
-    border-radius: 30px;
+    padding: 10px;
+    border-radius: 10px;
     margin: 20px;
     border: black 3px solid;
 }
@@ -232,6 +232,7 @@ html {
 }
 
 .top-header{
+
     display: flex;
     background-color: var(--header-bc);
 }
