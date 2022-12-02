@@ -3,4 +3,4 @@ NGINX is a open source software that serves webpages to clients. This means that
 
 ## Why use NGINX
 NGINX allows us to act as a reverse proxy to serve our webpage. NGINX is placed in front of our application to serve the webpage. 
-<img src="../user-guide-images/nginx.jpg"/>
+<img src="user-guide-images\nignx.jpg"/>
