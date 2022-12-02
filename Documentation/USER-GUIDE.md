@@ -6,7 +6,7 @@
 This document is designed to help you understand and use the webpage created by TRIUMF-435 2022. This webpage was created to help users read and monitor process data from EPICS devices. 
 
 ## Login 
-The login page gives a password protected webpage. Only allowing users who know the password to access the data behind it. The password is <b>Test</b>
+The login page gives a password protected webpage. Only allowing users who know the password to access the data behind it. <b>Please contact Dr.Charles or TRIUMF staff members for the password</b>
 <br>
 <br>
 <img src="/user-guide-images/home-page.jpg"/>
