@@ -19,8 +19,7 @@ The dashboard selection page allows the user to select which dashboard they want
 
 ## Dashboard Creation
 If the user want to create a new dashboard, they will be redirected to the dashboard creation page. This page will allow the user to choose a name they want for their dashboard, if the name is taken, then they will not be able to create the dashboard. All dashboard names must be unique for storing purposes. Once created, they will be redirected to their new blank dashboard.
-<br>
-<br>
+<br><br>
 <img src="/user-guide-images/dash-create.jpg"/>
 
 ## Editing Dashboard
