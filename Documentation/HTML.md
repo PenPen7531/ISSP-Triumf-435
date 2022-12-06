@@ -77,6 +77,7 @@ Tables are a very important when looking at data on the TRIUMF webpage. Tables a
     <li>td - Specifies each box or data in each table row</li>
 </ul>
 A example of our code is:
+
 ```HTML
 <table id="table-data" class="table table-striped styled-table" border=1 frame=void rules=rows>
             <thead class="thead-dark">
