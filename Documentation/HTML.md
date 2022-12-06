@@ -17,4 +17,4 @@ To link an external CSS page, we use the link tag. The link tag will allow us to
 ```
 <link rel="stylesheet" href="{{ url_for('static', filename='css/create.css') }}">
 ```
-<b>This format is used when working with Flask, the href argument will look different when serving a static webpage without Flask </b>
+<span style="color:red;"><b>This format is used when working with Flask, the href argument will look different when serving a static webpage without Flask </b></span>
