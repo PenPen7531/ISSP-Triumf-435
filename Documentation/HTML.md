@@ -43,3 +43,10 @@ You can also use the script tag to make inline JavaScript code. Like this:
 
 ### Body
 The body contains all the elements that will be displayed on the webpage. The headers (h1-h7), paragraphs (p), tables (table, thead, tbody, tr, td), images (img), links (a), and dividers (div). Depending on what you want to do, you will need to specify the element you will use. Not only do elements have different functions, but elements also help screen readers or visually impaired users have an easier time navigating the page. <b>So make sure you use the correct elements!</b>
+
+#### Title or Header Tags
+h tags are very important in specifying headers, or titles of parts of the webpage. We can use numbers to specify the importance of the header. From 1 being the largest or most important title, til about 7, which specifies the least important header on the webpage. In addition, make sure to close the header tag with a /. This signifies that the tag is closed. Many HTML elements will be closed the same way, in exception to elements such as `<img>`. An example of a header is:
+```
+<h1>This is a very imporant title</h1>
+<h3>This is a lesser important titel</h3>
+```
