@@ -40,3 +40,6 @@ You can also use the script tag to make inline JavaScript code. Like this:
     //Some JavaScript Code
 </script>
 ```
+
+### Body
+The body contains all the elements that will be displayed on the webpage. The headers (h1-h7), paragraphs (p), tables (table, thead, tbody, tr, td), images (img), links (a), and dividers (div). Depending on what you want to do, you will need to specify the element you will use. Not only do elements have different functions, but elements also help screen readers or visually impaired users have an easier time navigating the page. <b>So make sure you use the correct elements!</b>
