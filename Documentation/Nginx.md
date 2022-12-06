@@ -22,3 +22,25 @@ To stop the service and to disable the automatic start we can use the commands
 sudo systemctl stop nginx
 sudo systemctl disable nginx
 ```
+<br>
+
+## NGINX Configration
+To use NGINX, we must modify the configuration file in the path `/etc/nginx/sites-enabled/`
+To get here, we can use the command cd:
+```
+cd /etc/nginx/sites-enabled/
+```
+We will then use vim to access the file named `default`
+```
+sudo vim default
+```
+We will not be able to see the configuration file.
+<br>
+We only use NGINX as a reverse proxy to display and return our webpage back to the client. We do this by using a proxy pass to the correct IP and Port to where the webpage is being hosted. 
+Our configuration file should look something like this:
+```
+location /{
+    proxy_pass IP_Address:Port_Number;
+}
+```
+This simple configuration will tell NGINX where to find the webpage, which port to access the service from, and the location or route the user will access from NGINX.
