@@ -46,7 +46,7 @@ The body contains all the elements that will be displayed on the webpage. The he
 
 #### Title or Header Tags
 h tags are very important in specifying headers, or titles of parts of the webpage. We can use numbers to specify the importance of the header. From 1 being the largest or most important title, til about 7, which specifies the least important header on the webpage. In addition, make sure to close the header tag with a /. This signifies that the tag is closed. Many HTML elements will be closed the same way, in exception to elements such as `<img>`. An example of a header is:
-```
+```HTML
 <h1>This is a very imporant title</h1>
 <h3>This is a lesser important titel</h3>
 ```
@@ -66,5 +66,17 @@ Links allow clickable buttons to link to different resources and different locat
     <a href="/view/{{dname}}"><button id="input-btn2">Back</button></a>
 ```
 
+#### Tables
+Tables are a very important when looking at data on the TRIUMF webpage. Tables allow us to display data in a sorted fashion. We use multiple tags to create a table.
+<ul>
+    <li>table - Specifies the general table</li>
+    <li>thead - Specifies the table head, which will include the table header</li>
+    <li>th - Specifies the table header, the names of each column</li>
+    <li>tbody - Specifies the table body, will display the table data</li>
+    <li>tr - Specifies each row of the table</li>
+    <li>td - Specifies each box or data in each table row</li>
+</ul>
+<br>
+For more information on tables <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics">Visit Mozilla</a>
     
 
