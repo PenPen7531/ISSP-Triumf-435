@@ -17,4 +17,26 @@ To link an external CSS page, we use the link tag. The link tag will allow us to
 ```
 <link rel="stylesheet" href="{{ url_for('static', filename='css/create.css') }}">
 ```
-<b><span style="color:red;">This format is used when working with Flask, the href argument will look different when serving a static webpage without Flask</span> </b>
+<b><span>This format is used when working with Flask, the href argument will look different when serving a static webpage without Flask</span> </b>
+
+#### Linking CSS within an HTML Page
+To quickly add CSS within a HTML page, we can use the styles tag. This will allow CSS to be added within the HTML page. An example would be:
+```
+<styles>
+    background-color: red;
+</styles>
+```
+
+#### Linking an External JavaScript Page
+To link an external JavaScript page, we use the script tag. This will allow us to connect external JavaScript code with our HTML page. We will use the src argument to point to the JavaScript file. An example of this would be:
+```
+<script src="../../static/js/create.js"></script>
+```
+<br>
+
+You can also use the script tag to make inline JavaScript code. Like this:
+```
+<script>
+    //Some JavaScript Code
+</script>
+```
