@@ -45,4 +45,4 @@ location /{
 ```
 This simple configuration will tell NGINX where to find the webpage, which port to access the service from, and the location or route the user will access from NGINX.
 
-For more information on NGINX, you can visit the <a href="https://www.nginx.com/">NGINX Documentation</a>
+For more information on NGINX, you can visit the <a href="https://www.nginx.com/" target="__blank">NGINX Documentation</a>
