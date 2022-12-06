@@ -76,7 +76,59 @@ Tables are a very important when looking at data on the TRIUMF webpage. Tables a
     <li>tr - Specifies each row of the table</li>
     <li>td - Specifies each box or data in each table row</li>
 </ul>
+A example of our code is:
+```HTML
+<table id="table-data" class="table table-striped styled-table" border=1 frame=void rules=rows>
+            <thead class="thead-dark">
+                <th>Process Variable</th>
+                <th>Reading</th>
+            </thead>
+            <tbody>
+            {% if data %}
+            {% for pv in data["readPvDict"] %}
+            <tr class="data-row">
+                <td class="elem">{{ pv }}</td>
+                <td class="elem" id="reading">{{ data["readPvDict"][pv] }}</td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+```
 <br>
 For more information on tables <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics">Visit Mozilla</a>
-    
 
+## Using Flask with HTML
+With Flask, we are able to send data to display on the HTML page. To allow this data to be displayed or used in the html page, we use {{}}.
+<br>
+Let's create a simple example! Our Flask Python route will look like this:
+
+```Python
+@app.route("/")
+def homepage():
+    "This is the route for the homepage"
+    return render_template("home.html", somedata=data), 200
+```
+
+Seen above, we can see that we are not only rendering the HTML page home.html, but we are sending or giving it data called somedata from the data variable in python.
+<br>
+Now lets see our simple HTML page. We must use {{}} to display the data. Our HTML page will look like this:
+
+```HTML
+<h1>{{ somedata }} </h1>
+```
+<br>
+Seen above, we specify that we want to use the Flask data with {{}} and we specify which data we want to use by inputting the variable name of somedata. With flask we can give or send multiple variables of data to the frontend. Like this:
+
+``` Python
+return render_template("home.html", somedata=data, moredata=data2, somemoredata=data3), 200
+```
+<br>
+Depending on the type of data we went with Flask, we may need to use a loop to loop over dictionary items or lists. To do this, we use {{}} and specify the loop within this. An example of this is like this:
+
+```HTML
+{% for pv in data["readPvDict"] %}
+    <td class="elem">{{ pv }}</td>
+{% endfor %}
+```
+We also use % to specify loops or conditional in the HTML page. The loop above is a simple loop that loops through the variable data and will name each element in the loop pv. It will then display the current pv in the loop. It will continue to add each pv into the table data. The endfor will then end the loop. 
