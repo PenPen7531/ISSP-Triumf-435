@@ -1,5 +1,5 @@
 # JSON
-JSON or JavaScript Object Notation, is a lightweight way to send and transfer data over the web. It is formatted in a way where each chunk of data is stored and retrieved in a key and value pair. The key acts like a title or name of the object, and the value will be the actual data of the object. This document will contain a breif introduction into JSON, how we use JSON in our project, and how to modify and save JSON data with Python.
+JSON or JavaScript Object Notation, is a lightweight way to send and transfer data over the web. It is formatted in a way where each chunk of data is stored and retrieved in a key and value pair. The key acts like a title or name of the object, and the value will be the actual data of the object. JSON and dictionaries don't only store strings, but they can also store integers, booleans, lists, and even more dictioaries within! This document will contain a breif introduction into JSON, how we use JSON in our project, and how to modify and save JSON data with Python.
 
 <br>
 
@@ -50,3 +50,17 @@ with open(dash_file, "r") as file_read:
     json_for_dash = json.load(file_read)
 return render_template("public/edit_dash.html", data=json_for_dash, dashboard_name=dashboard)
 ```       
+
+# Modifying Python Dictionary Data
+Now that we know how to access and convert JSON to something we can modify with Python. As we said before, dictionaries and JSON use a key value pair to store all their data, this means that when trying to access a value, we must call it by it's key. In Python, we specify the key using []. We push the key as a string into these brackets, which will then return the vaue we want. 
+<br>
+Let's give a small demonstration. Let's say our dictionary looks like this
+
+```Python
+python_dict = {
+    value1: 'Hello World',
+    value2: 'My Second Value',
+    value3: 3,
+    value4: False
+}
+```
