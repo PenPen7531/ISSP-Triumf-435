@@ -12,3 +12,8 @@ password="thepasswordyouwant"
 print(str(hashlib.sha256(password.encode()).hexdigest()))
 ```
 The script above will encrypt the password and print the result. Once you are finished encrypting the password. You can copy and paste the output into views.py on line 68.
+
+```Python
+# Change this line
+if str(hashlib.sha256(password.encode()).hexdigest()) == '91aca2fdcc84a7c4171d103b5ff80b82bc1f4098a091b13d6398b224308a25fd':
+```
