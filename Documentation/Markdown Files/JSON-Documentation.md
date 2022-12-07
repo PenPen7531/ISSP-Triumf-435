@@ -64,3 +64,9 @@ python_dict = {
     value4: False
 }
 ```
+
+Now lets access value1. To do this, we must know the key to the value of 'Hello World'. The key for this is 'value1'. This means that we use "['value1']" to get the value. Lets try down below:
+
+```Python
+let first_value = python_dict['Hello World']
+```
