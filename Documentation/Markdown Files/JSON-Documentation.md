@@ -77,3 +77,17 @@ To modify a value in a dictionary, we must use the key to change the value. Now 
 python_dict['value2'] = 'A new string'
 # value2 is now a new string
 ```
+
+# Converting a Python Dictionary into a JSON file
+To save our changes, we must now convert the modified Python dictionary back into a JSON file and save it! We do this with another json function called dump. Dump will dump all the contents of our Python dictionary into a JSON file. 
+<br>
+First, we will need to open the file like before, but we must ensure that we allow read.
+
+```Python
+with open('myjson.json', 'w') as myJSON:
+    json.dump(json_data, myJSON)
+```
+The code below shows us opening the json file to write into. Then we call the json module with the function dump. Within the function, we specify 2 arguments, the content to write, and then the file to put it in. 
+<br>
+
+If you want more information of JSON and Python <a href="https://docs.python.org/3/library/json.html">Click Here</a>
