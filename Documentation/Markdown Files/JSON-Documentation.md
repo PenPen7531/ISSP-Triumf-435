@@ -68,5 +68,12 @@ python_dict = {
 Now lets access value1. To do this, we must know the key to the value of 'Hello World'. The key for this is 'value1'. This means that we use "['value1']" to get the value. Lets try down below:
 
 ```Python
-let first_value = python_dict['Hello World']
+first_value = python_dict['value1']
+```
+
+To modify a value in a dictionary, we must use the key to change the value. Now let's try to change value2 to a different string. We can do this with the same syntax but we can change the value inside. See below:
+
+```Python
+python_dict['value2'] = 'A new string'
+# value2 is now a new string
 ```
