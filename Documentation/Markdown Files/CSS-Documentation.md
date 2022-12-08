@@ -86,3 +86,25 @@ p{
 }
 ```
 
+## CSS Pseudo-Classes
+Pseudo Classes allow specific actions, such as hovering over the element, to perform a CSS change. This allows the background colour of an element to change when a mouse is over it. :hover is what we primarily used as Pseudo code, which helped us enhance the user experience, as it allows the user to know which button their mouse is on. This documentation won't go into too much detail, but if you want to learn more <a href='https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes'>Click Here</a>
+<br>
+Let's see how hover works. Pseudo code will take priority only when the specific action is in place, meaning that the CSS hover will have priority of no pseudo code, but will still priotiy based on IDs and Classes. When creating a hover CSS block, we need to specify which element will use this effect. We need to specify the ID, Class, or Element. Let's see an example below:
+
+```HTML
+<!--Basic HTML Element-->
+<button id="blueButton">Im blue when you don't hover over me</button>
+```
+
+```CSS
+#blueButton{
+    background-color: blue;
+}
+
+/* Will only take in affect when hovering over the element and will take priority over the block above */
+#blueButton:hover{
+    baclground-color: darkblue;
+}
+```
+
+We can see in the code above, if the user or client hovers over the button, the background colour will change from blue to darkblue.
