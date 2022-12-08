@@ -51,7 +51,7 @@ Elements can also be grouped based on the type of the element. So all H1s can be
 Let's say you want to change 1 paragraph tag to have the background colour of red. But you want to have the rest of the paragraphs tags to have a background colour of blue. If you were to use just the element to specify the CSS, then all p tags will then be the colour red or blue. This is why classes and IDs are very important and CSS will select the highest priority specified above. 
 
 ```HTML
-// Elements without any class or ID
+<!-- Elements without any class or ID -->
 <p>I want this blue</p>
 <p>I also want this blue
 <p>I want this red</p>
@@ -67,7 +67,7 @@ p{
 Now let's take a look at how it should be done. If you want all elements of the same type to have the same background colour then fine. Selecting just based on the element is fine. But I would recommend using an ID for the one P tag that wants a background colour of red, and then either use a class for the other p tags or just select all the p tags. See the example below:
 
 ```HTML
-//The red element has an ID
+<!-- The red element has an ID -->
 <p>I want this blue</p>
 <p>I also want this blue</p>
 <p id="redBackground">I want this red</p>
