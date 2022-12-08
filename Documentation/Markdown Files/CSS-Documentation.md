@@ -58,7 +58,7 @@ Let's say you want to change 1 paragraph tag to have the background colour of re
 ```
 
 ```CSS
-// Both Tags will now be red
+/* Both Tags will now be red */
 p{
     background-colour: red;
 }
@@ -76,7 +76,7 @@ Now let's take a look at how it should be done. If you want all elements of the 
 Now that we have the ID tag in the paragraph element that we want red, we can specify it in our CSS file. And then since CSS uses the most specific, we can then use the p element to make every other paragraph blue
 
 ```CSS
-// The ID. It is also more specific so it will take priority over the p tag.
+/* The ID. It is also more specific so it will take priority over the p tag. */
 #redBackground{
     background-color:red;
 }
