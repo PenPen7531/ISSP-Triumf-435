@@ -108,3 +108,18 @@ Let's see how hover works. Pseudo code will take priority only when the specific
 ```
 
 We can see in the code above, if the user or client hovers over the button, the background colour will change from blue to darkblue.
+
+## Selecting Multiple Elements
+With CSS, there are a few cool tricks to select multiple elements, IDs, or Classes to use the same CSS block. This allows us to reduce the amount of repeated code in our CSS files. 
+
+### Selecting multiple objects
+If you want to have multiple IDs or classes or a mixture of anything to have the CSS styling, you can select all of them in the CSS block. See the example down below:
+
+```CSS
+/* Selects multiple IDs Classes and Elements in the same CSS */
+#redButton, #redParagraph, .redHeaders, .redDivs, h7{
+    background-color:red;
+}
+```
+
+The code above shows us selecting multiple IDs, Classes, and a h7 element to all use the same CSS, which will give all these objects a background color of red.
