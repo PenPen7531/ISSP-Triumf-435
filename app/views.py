@@ -65,7 +65,7 @@ def index():
 
         if request.method=="POST":
             password=request.form.get("password")
-            if str(hashlib.sha256(password.encode()).hexdigest()) == '91aca2fdcc84a7c4171d103b5ff80b82bc1f4098a091b13d6398b224308a25fd':
+            if password.lower() == 'issp':
                 session['user']='yes'
                 return redirect("/dashboard")
         return render_template('/public/index.html', error=True)
